@@ -1,54 +1,51 @@
 import "server-only";
-import Database from "better-sqlite3";
+import { createClient, type Client, type InArgs, type InStatement } from "@libsql/client";
 import fs from "node:fs";
 import path from "node:path";
 import { SEED_GAMES } from "./seed";
 
-const DATA_DIR = process.env.DATA_DIR ?? path.join(process.cwd(), "data");
-const DB_FILE = path.join(DATA_DIR, "colecao.db");
+// Em produção (Vercel) usa o Turso: TURSO_DATABASE_URL=libsql://... e TURSO_AUTH_TOKEN.
+// Localmente, sem essas variáveis, usa um arquivo SQLite em ./data/colecao.db.
 
 const SCHEMA = `
 CREATE TABLE IF NOT EXISTS games (
   id              INTEGER PRIMARY KEY AUTOINCREMENT,
   title           TEXT NOT NULL,
   platform        TEXT NOT NULL,
-  format          TEXT NOT NULL DEFAULT 'fisico',   -- fisico | digital
+  format          TEXT NOT NULL DEFAULT 'fisico',
   edition         TEXT,
-  status          TEXT NOT NULL DEFAULT 'backlog',  -- backlog | jogando | zerado | platinado | abandonado | desejado
-  owned           INTEGER NOT NULL DEFAULT 1,       -- 0 = apenas jogado (ex.: PS Plus/Game Pass) ou lista de desejos
+  status          TEXT NOT NULL DEFAULT 'backlog',
+  owned           INTEGER NOT NULL DEFAULT 1,
   user_rating     INTEGER,
   notes           TEXT,
   price_paid      REAL,
   purchase_date   TEXT,
   market_value    REAL,
   target_price    REAL,
-
   igdb_id         INTEGER,
   igdb_slug       TEXT,
   cover_url       TEXT,
   summary         TEXT,
-  genres          TEXT,   -- JSON array
+  genres          TEXT,
   developer       TEXT,
   publisher       TEXT,
   release_date    TEXT,
   igdb_rating     REAL,
   critic_rating   REAL,
-  screenshots     TEXT,   -- JSON array de URLs
-  ttb_main        INTEGER, -- segundos (IGDB time to beat)
+  screenshots     TEXT,
+  ttb_main        INTEGER,
   ttb_extra       INTEGER,
   ttb_complete    INTEGER,
   metadata_at     TEXT,
-
   psn_np_id       TEXT,
   psn_service     TEXT,
-  psn_title_ids   TEXT,   -- JSON array (CUSA/PPSA)
+  psn_title_ids   TEXT,
   psn_icon        TEXT,
   psn_progress    INTEGER,
-  psn_earned      TEXT,   -- JSON {bronze,silver,gold,platinum}
+  psn_earned      TEXT,
   psn_defined     TEXT,
   psn_updated_at  TEXT,
   psn_details_at  TEXT,
-
   xbox_title_id   TEXT,
   xbox_icon       TEXT,
   xbox_progress   INTEGER,
@@ -58,11 +55,9 @@ CREATE TABLE IF NOT EXISTS games (
   xbox_gs_total   INTEGER,
   xbox_details_at TEXT,
   xbox_details_count INTEGER,
-
   playtime_minutes INTEGER,
   first_played    TEXT,
   last_played     TEXT,
-
   created_at      TEXT NOT NULL DEFAULT (datetime('now')),
   updated_at      TEXT NOT NULL DEFAULT (datetime('now'))
 );
@@ -72,14 +67,14 @@ CREATE UNIQUE INDEX IF NOT EXISTS games_xbox ON games(xbox_title_id) WHERE xbox_
 CREATE TABLE IF NOT EXISTS achievements (
   id          INTEGER PRIMARY KEY AUTOINCREMENT,
   game_id     INTEGER NOT NULL REFERENCES games(id) ON DELETE CASCADE,
-  source      TEXT NOT NULL,          -- psn | xbox
+  source      TEXT NOT NULL,
   ext_id      TEXT NOT NULL,
   name        TEXT,
   description TEXT,
   icon_url    TEXT,
-  type        TEXT,                   -- bronze | silver | gold | platinum | gamerscore
+  type        TEXT,
   points      INTEGER,
-  rarity      REAL,                   -- % de jogadores que obtiveram
+  rarity      REAL,
   hidden      INTEGER NOT NULL DEFAULT 0,
   earned      INTEGER NOT NULL DEFAULT 0,
   earned_at   TEXT,
@@ -87,38 +82,92 @@ CREATE TABLE IF NOT EXISTS achievements (
 );
 CREATE INDEX IF NOT EXISTS ach_earned ON achievements(earned, earned_at);
 
+-- Somente dados NÃO sensíveis (nome do perfil, avatar, data da última sincronização).
+-- Nenhum token/senha/chave é gravado aqui.
 CREATE TABLE IF NOT EXISTS settings (
   key   TEXT PRIMARY KEY,
   value TEXT
 );
+
+CREATE TABLE IF NOT EXISTS login_attempts (
+  ip         TEXT PRIMARY KEY,
+  failures   INTEGER NOT NULL,
+  first_at   INTEGER NOT NULL
+);
 `;
 
 declare global {
-  var __colecaoDb: Database.Database | undefined;
+  var __colecaoDb: { client: Client; ready: Promise<void> } | undefined;
 }
 
-function open(): Database.Database {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-  const db = new Database(DB_FILE);
-  db.pragma("journal_mode = WAL");
-  db.pragma("foreign_keys = ON");
-  db.exec(SCHEMA);
-
-  const { n } = db.prepare("SELECT COUNT(*) AS n FROM games").get() as { n: number };
-  const seeded = db.prepare("SELECT value FROM settings WHERE key = 'seeded'").get();
-  if (n === 0 && !seeded) {
-    const insert = db.prepare(
-      "INSERT INTO games (title, platform, format, edition, status, owned) VALUES (?, ?, 'fisico', ?, 'backlog', 1)",
-    );
-    db.transaction(() => {
-      for (const g of SEED_GAMES) insert.run(g.title, g.platform, g.edition ?? null);
-      db.prepare("INSERT OR REPLACE INTO settings (key, value) VALUES ('seeded', '1')").run();
-    })();
+function connect() {
+  let url = process.env.TURSO_DATABASE_URL;
+  if (!url) {
+    const dir = process.env.DATA_DIR ?? path.join(process.cwd(), "data");
+    fs.mkdirSync(dir, { recursive: true });
+    url = `file:${path.join(dir, "colecao.db")}`;
   }
-  return db;
+  const client = createClient({ url, authToken: process.env.TURSO_AUTH_TOKEN });
+  const ready = (async () => {
+    await client.executeMultiple(SCHEMA);
+    // Remove credenciais que versões antigas do site guardavam no banco.
+    await client.execute(
+      "DELETE FROM settings WHERE key IN ('psn_refresh_token','psn_refresh_expires','psn_access_token','psn_access_expires','xbox_api_key','igdb_client_id','igdb_client_secret','igdb_token','igdb_token_expires')",
+    );
+    const seeded = await client.execute("SELECT 1 FROM settings WHERE key = 'seeded'");
+    const count = await client.execute("SELECT COUNT(*) AS n FROM games");
+    if (seeded.rows.length === 0 && Number(count.rows[0].n) === 0) {
+      await client.batch(
+        [
+          ...SEED_GAMES.map((g) => ({
+            sql: "INSERT INTO games (title, platform, format, edition, status, owned) VALUES (?, ?, 'fisico', ?, 'backlog', 1)",
+            args: [g.title, g.platform, g.edition ?? null],
+          })),
+          "INSERT OR REPLACE INTO settings (key, value) VALUES ('seeded', '1')",
+        ],
+        "write",
+      );
+    }
+  })();
+  ready.catch(() => {
+    globalThis.__colecaoDb = undefined; // tenta de novo na próxima requisição
+  });
+  return { client, ready };
 }
 
-export function db(): Database.Database {
-  if (!globalThis.__colecaoDb) globalThis.__colecaoDb = open();
-  return globalThis.__colecaoDb;
+async function client(): Promise<Client> {
+  globalThis.__colecaoDb ??= connect();
+  await globalThis.__colecaoDb.ready;
+  return globalThis.__colecaoDb.client;
+}
+
+type Args = InArgs | undefined;
+
+function toObject<T>(columns: string[], row: ArrayLike<unknown>): T {
+  const o: Record<string, unknown> = {};
+  columns.forEach((c, i) => {
+    const v = row[i];
+    o[c] = typeof v === "bigint" ? Number(v) : v;
+  });
+  return o as T;
+}
+
+export async function all<T>(sql: string, args?: Args): Promise<T[]> {
+  const rs = await (await client()).execute({ sql, args: args ?? [] });
+  return rs.rows.map((r) => toObject<T>(rs.columns, r));
+}
+
+export async function get<T>(sql: string, args?: Args): Promise<T | undefined> {
+  return (await all<T>(sql, args))[0];
+}
+
+export async function run(sql: string, args?: Args): Promise<{ id: number; changes: number }> {
+  const rs = await (await client()).execute({ sql, args: args ?? [] });
+  return { id: Number(rs.lastInsertRowid ?? 0), changes: rs.rowsAffected };
+}
+
+/** Executa vários comandos numa única transação. */
+export async function batch(statements: InStatement[]): Promise<void> {
+  if (statements.length === 0) return;
+  await (await client()).batch(statements, "write");
 }

@@ -1,5 +1,5 @@
 import "server-only";
-import { db } from "./db";
+import { all, get } from "./db";
 import { emptyTrophies, parseJson } from "./format";
 import type { AchievementRow, GameRow, TrophyCounts } from "./types";
 
@@ -23,7 +23,7 @@ const SORTS: Record<string, string> = {
   adicionados: "created_at DESC, id DESC",
 };
 
-export function listGames(f: GameFilters): GameRow[] {
+export async function listGames(f: GameFilters): Promise<GameRow[]> {
   const where: string[] = [];
   const params: Record<string, string> = {};
   if (f.q) {
@@ -51,67 +51,61 @@ export function listGames(f: GameFilters): GameRow[] {
   const sql = `SELECT * FROM games ${where.length ? "WHERE " + where.join(" AND ") : ""} ORDER BY ${
     SORTS[f.sort ?? ""] ?? SORTS.titulo
   }`;
-  return db().prepare(sql).all(params) as GameRow[];
+  return all<GameRow>(sql, params);
 }
 
-export function allGenres(): string[] {
-  const rows = db().prepare("SELECT genres FROM games WHERE genres IS NOT NULL").all() as { genres: string }[];
+export async function allGenres(): Promise<string[]> {
+  const rows = await all<{ genres: string }>("SELECT genres FROM games WHERE genres IS NOT NULL");
   const set = new Set<string>();
   for (const r of rows) for (const g of parseJson<string[]>(r.genres, [])) set.add(g);
   return [...set].sort((a, b) => a.localeCompare(b, "pt-BR"));
 }
 
-export function usedPlatforms(): string[] {
-  return (db().prepare("SELECT DISTINCT platform FROM games ORDER BY platform").all() as { platform: string }[]).map(
-    (r) => r.platform,
-  );
+export async function usedPlatforms(): Promise<string[]> {
+  return (await all<{ platform: string }>("SELECT DISTINCT platform FROM games ORDER BY platform")).map((r) => r.platform);
 }
 
-export const getGame = (id: number) => db().prepare("SELECT * FROM games WHERE id = ?").get(id) as GameRow | undefined;
+export const getGame = (id: number) => get<GameRow>("SELECT * FROM games WHERE id = ?", [id]);
 
 export const getAchievements = (gameId: number) =>
-  db()
-    .prepare(
+  all<AchievementRow>(
       `SELECT * FROM achievements WHERE game_id = ?
        ORDER BY earned DESC, CASE type WHEN 'platinum' THEN 0 WHEN 'gold' THEN 1 WHEN 'silver' THEN 2 ELSE 3 END,
                 COALESCE(earned_at, '') DESC, CAST(ext_id AS INTEGER)`,
-    )
-    .all(gameId) as AchievementRow[];
+    [gameId],
+  );
 
 export type RecentAchievement = AchievementRow & { game_title: string; game_platform: string };
 
-export function recentAchievements(limit = 20): RecentAchievement[] {
-  return db()
-    .prepare(
+export function recentAchievements(limit = 20): Promise<RecentAchievement[]> {
+  return all<RecentAchievement>(
       `SELECT a.*, g.title AS game_title, g.platform AS game_platform FROM achievements a
        JOIN games g ON g.id = a.game_id WHERE a.earned = 1 AND a.earned_at IS NOT NULL
        ORDER BY a.earned_at DESC LIMIT ?`,
-    )
-    .all(limit) as RecentAchievement[];
+    [limit],
+  );
 }
 
-export function rarestAchievements(limit = 10): RecentAchievement[] {
-  return db()
-    .prepare(
+export function rarestAchievements(limit = 10): Promise<RecentAchievement[]> {
+  return all<RecentAchievement>(
       `SELECT a.*, g.title AS game_title, g.platform AS game_platform FROM achievements a
        JOIN games g ON g.id = a.game_id WHERE a.earned = 1 AND a.rarity IS NOT NULL
        ORDER BY a.rarity ASC LIMIT ?`,
-    )
-    .all(limit) as RecentAchievement[];
+    [limit],
+  );
 }
 
 /** Jogos que estão perto dos 100% (bons candidatos para platinar). */
-export function nearCompletion(limit = 8): GameRow[] {
-  return db()
-    .prepare(
+export function nearCompletion(limit = 8): Promise<GameRow[]> {
+  return all<GameRow>(
       `SELECT * FROM games WHERE COALESCE(psn_progress, xbox_progress) BETWEEN 50 AND 99
        ORDER BY COALESCE(psn_progress, xbox_progress) DESC LIMIT ?`,
-    )
-    .all(limit) as GameRow[];
+    [limit],
+  );
 }
 
-export function getStats() {
-  const games = db().prepare("SELECT * FROM games").all() as GameRow[];
+export async function getStats() {
+  const games = await all<GameRow>("SELECT * FROM games");
   const owned = games.filter((g) => g.status !== "desejado");
   const trophies: TrophyCounts = emptyTrophies();
   let gamerscore = 0;
@@ -177,8 +171,22 @@ export function getStats() {
   };
 }
 
-export function gamesForMerge(game: GameRow): GameRow[] {
-  return db()
-    .prepare("SELECT * FROM games WHERE id <> ? ORDER BY title COLLATE NOCASE")
-    .all(game.id) as GameRow[];
+export function gamesForMerge(game: GameRow): Promise<GameRow[]> {
+  return all<GameRow>("SELECT * FROM games WHERE id <> ? ORDER BY title COLLATE NOCASE", [game.id]);
+}
+
+export function platinumGames(): Promise<(GameRow & { plat_at: string | null })[]> {
+  return all(
+    `SELECT g.*, (SELECT earned_at FROM achievements a WHERE a.game_id = g.id AND a.type = 'platinum' AND a.earned = 1) AS plat_at
+     FROM games g WHERE json_extract(g.psn_earned, '$.platinum') = 1
+        OR (g.xbox_ach_total > 0 AND g.xbox_ach_earned = g.xbox_ach_total)
+     ORDER BY plat_at DESC`,
+  );
+}
+
+export function inProgressGames(): Promise<GameRow[]> {
+  return all<GameRow>(
+    `SELECT * FROM games WHERE COALESCE(psn_progress, xbox_progress) BETWEEN 1 AND 99
+     ORDER BY COALESCE(psn_progress, xbox_progress) DESC`,
+  );
 }

@@ -1,10 +1,15 @@
-import { db } from "@/lib/db";
+import { cookies } from "next/headers";
+import { SESSION_COOKIE, passwordRequired, verifySession } from "@/lib/auth";
+import { all } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
-export function GET() {
-  const games = db().prepare("SELECT * FROM games ORDER BY title").all();
-  const achievements = db().prepare("SELECT * FROM achievements").all();
+export async function GET() {
+  if (passwordRequired() && !(await verifySession((await cookies()).get(SESSION_COOKIE)?.value))) {
+    return new Response("Não autorizado", { status: 401 });
+  }
+  const games = await all("SELECT * FROM games ORDER BY title");
+  const achievements = await all("SELECT * FROM achievements");
   const body = JSON.stringify({ exportedAt: new Date().toISOString(), games, achievements }, null, 2);
   return new Response(body, {
     headers: {

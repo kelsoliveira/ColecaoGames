@@ -7,13 +7,16 @@ import { STATUS_LABEL, type Status } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
-export default function Dashboard() {
-  const s = getStats();
-  const recent = recentAchievements(8);
-  const near = nearCompletion(6);
-  const psn = parseJson<{ trophyLevel?: string; tier?: number } | null>(getSetting("psn_profile"), null);
-  const psnId = getSetting("psn_online_id");
-  const gamertag = getSetting("xbox_gamertag");
+export default async function Dashboard() {
+  const [s, recent, near, profile, psnId, gamertag] = await Promise.all([
+    getStats(),
+    recentAchievements(8),
+    nearCompletion(6),
+    getSetting("psn_profile"),
+    getSetting("psn_online_id"),
+    getSetting("xbox_gamertag"),
+  ]);
+  const psn = parseJson<{ trophyLevel?: string; tier?: number } | null>(profile, null);
   const totalTrophies = s.trophies.bronze + s.trophies.silver + s.trophies.gold + s.trophies.platinum;
 
   return (
@@ -22,12 +25,12 @@ export default function Dashboard() {
         <div>
           <h1 className="text-2xl font-bold">Painel</h1>
           <p className="text-sm text-ink-2">
-            {psnId ? `PSN: ${psnId}` : "PSN não conectada"} · {gamertag ? `Xbox: ${gamertag}` : "Xbox não conectado"}
+            {psnId ? `PSN: ${psnId}` : "PSN ainda não sincronizada"} · {gamertag ? `Xbox: ${gamertag}` : "Xbox ainda não sincronizado"}
           </p>
         </div>
         {!psnId || !gamertag ? (
           <Link href="/contas" className="btn-primary">
-            Conectar contas
+            Sincronizar contas
           </Link>
         ) : null}
       </header>

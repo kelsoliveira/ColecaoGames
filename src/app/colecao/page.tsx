@@ -27,9 +27,7 @@ export default async function ColecaoPage({ searchParams }: PageProps<"/colecao"
     genre: one("genre"),
     sort: one("sort"),
   };
-  const games = listGames(filters);
-  const platforms = usedPlatforms();
-  const genres = allGenres();
+  const [games, platforms, genres] = await Promise.all([listGames(filters), usedPlatforms(), allGenres()]);
 
   return (
     <div>

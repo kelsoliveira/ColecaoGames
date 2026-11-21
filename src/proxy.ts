@@ -1,14 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { authToken } from "@/lib/auth";
+import { SESSION_COOKIE, passwordRequired, verifySession } from "@/lib/auth";
 
 export async function proxy(request: NextRequest) {
-  const password = process.env.APP_PASSWORD;
-  if (!password) return NextResponse.next();
-  const cookie = request.cookies.get("cg_auth")?.value;
-  if (cookie && cookie === (await authToken(password))) return NextResponse.next();
+  if (!passwordRequired()) return NextResponse.next(); // uso local sem senha
+  if (await verifySession(request.cookies.get(SESSION_COOKIE)?.value)) return NextResponse.next();
   return NextResponse.redirect(new URL("/login", request.url));
 }
 
 export const config = {
-  matcher: ["/((?!login|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!login|_next/static|_next/image|favicon.ico|icon|apple-icon|manifest.webmanifest).*)"],
 };

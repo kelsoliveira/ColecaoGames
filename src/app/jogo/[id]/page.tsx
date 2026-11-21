@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import {
   deleteGame,
   mergeGames,
-  refreshAchievements,
   refreshMetadata,
   setStatus,
   updateGame,
@@ -54,17 +53,16 @@ export default async function GamePage({ params, searchParams }: PageProps<"/jog
   const { id: idParam } = await params;
   const sp = await searchParams;
   const id = Number(idParam);
-  const game = getGame(id);
+  const game = await getGame(id);
   if (!game) notFound();
 
-  const achievements = getAchievements(id);
+  const [achievements, mergeCandidates] = await Promise.all([getAchievements(id), gamesForMerge(game)]);
   const earnedCount = achievements.filter((a) => a.earned).length;
   const genres = parseJson<string[]>(game.genres, []);
   const shots = parseJson<string[]>(game.screenshots, []);
   const psnEarned = parseJson<TrophyCounts>(game.psn_earned, emptyTrophies());
   const psnDefined = parseJson<TrophyCounts | null>(game.psn_defined, null);
   const progress = game.psn_progress ?? game.xbox_progress;
-  const mergeCandidates = gamesForMerge(game);
   const filter = typeof sp.f === "string" ? sp.f : "todos";
   const shown = achievements.filter((a) => (filter === "obtidos" ? a.earned : filter === "faltando" ? !a.earned : true));
 
@@ -152,9 +150,6 @@ export default async function GamePage({ params, searchParams }: PageProps<"/jog
                   {f === "todos" ? `Todos (${achievements.length})` : f === "obtidos" ? `Obtidos (${earnedCount})` : `Faltando (${achievements.length - earnedCount})`}
                 </Link>
               ))}
-              <form action={refreshAchievements.bind(null, id)}>
-                <button className="btn-ghost" type="submit">Atualizar</button>
-              </form>
             </div>
           </div>
           {shown.length ? (
@@ -184,7 +179,7 @@ export default async function GamePage({ params, searchParams }: PageProps<"/jog
               ))}
             </ul>
           ) : (
-            <p className="text-sm text-ink-2">Lista ainda não carregada. Clique em “Atualizar”.</p>
+            <p className="text-sm text-ink-2">Lista ainda não carregada. Sincronize de novo em Contas para buscar os detalhes.</p>
           )}
         </section>
       ) : null}

@@ -1,15 +1,15 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { db } from "@/lib/db";
+import { SESSION_COOKIE, SESSION_DAYS, checkPassword, createSession, passwordRequired, verifySession } from "@/lib/auth";
+import { batch, get, run } from "@/lib/db";
 import { applyIgdb, bestIgdbMatch, enrichAll } from "@/lib/igdb";
-import { authToken } from "@/lib/auth";
-import { connectPsn, disconnectPsn, syncPsn, syncPsnTrophies } from "@/lib/psn";
-import { setSetting, clearSettings, igdbCredentials } from "@/lib/settings";
+import { syncPsn } from "@/lib/psn";
+import { igdbCredentials } from "@/lib/settings";
 import { STATUSES, type GameRow } from "@/lib/types";
-import { connectXbox, disconnectXbox, syncXbox, syncXboxAchievements } from "@/lib/xbox";
+import { syncXbox } from "@/lib/xbox";
 
 const str = (f: FormData, k: string) => {
   const v = f.get(k);
@@ -26,17 +26,35 @@ const num = (f: FormData, k: string) => {
 const msg = (path: string, kind: "ok" | "erro", text: string) =>
   `${path}${path.includes("?") ? "&" : "?"}${kind}=${encodeURIComponent(text)}`;
 
+/**
+ * Server Actions podem ser chamadas a partir de qualquer rota (inclusive /login, que o proxy libera),
+ * então cada ação confere a sessão por conta própria.
+ */
+async function requireAuth() {
+  if (!passwordRequired()) return;
+  const ok = await verifySession((await cookies()).get(SESSION_COOKIE)?.value);
+  if (!ok) redirect("/login");
+}
+
 // ---------- Jogos ----------
 
 export async function createGame(form: FormData) {
+  await requireAuth();
   const title = str(form, "title");
   const platform = str(form, "platform") ?? "PS5";
   if (!title) redirect(msg("/adicionar", "erro", "Informe o título."));
   const status = str(form, "status") ?? "backlog";
-  const id = db()
-    .prepare("INSERT INTO games (title, platform, format, edition, status, price_paid) VALUES (?, ?, ?, ?, ?, ?)")
-    .run(title, platform, str(form, "format") ?? "fisico", str(form, "edition"), status, num(form, "price_paid"))
-    .lastInsertRowid as number;
+  const { id } = await run(
+    "INSERT INTO games (title, platform, format, edition, status, price_paid) VALUES (?, ?, ?, ?, ?, ?)",
+    [
+      title,
+      platform,
+      str(form, "format") ?? "fisico",
+      str(form, "edition"),
+      (STATUSES as readonly string[]).includes(status) ? status : "backlog",
+      num(form, "price_paid"),
+    ],
+  );
 
   const igdbId = num(form, "igdb_id");
   try {
@@ -53,14 +71,14 @@ export async function createGame(form: FormData) {
 }
 
 export async function updateGame(id: number, form: FormData) {
+  await requireAuth();
   const status = str(form, "status");
-  db()
-    .prepare(
-      `UPDATE games SET title=?, platform=?, format=?, edition=?, status=?, user_rating=?, notes=?, price_paid=?,
-         purchase_date=?, market_value=?, target_price=?, playtime_minutes=COALESCE(?, playtime_minutes),
-         updated_at=datetime('now') WHERE id=?`,
-    )
-    .run(
+  const hours = num(form, "playtime_hours");
+  await run(
+    `UPDATE games SET title=?, platform=?, format=?, edition=?, status=?, user_rating=?, notes=?, price_paid=?,
+       purchase_date=?, market_value=?, target_price=?, playtime_minutes=COALESCE(?, playtime_minutes),
+       updated_at=datetime('now') WHERE id=?`,
+    [
       str(form, "title"),
       str(form, "platform"),
       str(form, "format") ?? "fisico",
@@ -72,63 +90,71 @@ export async function updateGame(id: number, form: FormData) {
       str(form, "purchase_date"),
       num(form, "market_value"),
       num(form, "target_price"),
-      num(form, "playtime_hours") != null ? Math.round(num(form, "playtime_hours")! * 60) : null,
+      hours != null ? Math.round(hours * 60) : null,
       id,
-    );
+    ],
+  );
   revalidatePath("/", "layout");
   redirect(msg(`/jogo/${id}`, "ok", "Alterações salvas."));
 }
 
 export async function setStatus(id: number, status: string) {
+  await requireAuth();
   if (!(STATUSES as readonly string[]).includes(status)) return;
-  db().prepare("UPDATE games SET status=?, updated_at=datetime('now') WHERE id=?").run(status, id);
+  await run("UPDATE games SET status=?, updated_at=datetime('now') WHERE id=?", [status, id]);
   revalidatePath("/", "layout");
 }
 
 export async function deleteGame(id: number) {
-  db().prepare("DELETE FROM games WHERE id=?").run(id);
+  await requireAuth();
+  await batch([
+    { sql: "DELETE FROM achievements WHERE game_id=?", args: [id] },
+    { sql: "DELETE FROM games WHERE id=?", args: [id] },
+  ]);
   revalidatePath("/", "layout");
   redirect(msg("/colecao", "ok", "Jogo removido."));
 }
 
+const MERGE_COLS = [
+  "psn_np_id", "psn_service", "psn_title_ids", "psn_icon", "psn_progress", "psn_earned", "psn_defined",
+  "psn_updated_at", "psn_details_at", "xbox_title_id", "xbox_icon", "xbox_progress", "xbox_ach_earned",
+  "xbox_ach_total", "xbox_gs_earned", "xbox_gs_total", "xbox_details_at", "xbox_details_count",
+  "first_played", "last_played", "cover_url", "igdb_id", "igdb_slug", "summary", "genres", "developer", "publisher",
+  "release_date", "igdb_rating", "critic_rating", "screenshots", "ttb_main", "ttb_extra", "ttb_complete",
+  "metadata_at", "price_paid", "notes",
+] as const;
+
 /** Une dois registros (ex.: o jogo físico da estante + o título que veio da PSN/Xbox). */
 export async function mergeGames(keepId: number, form: FormData) {
+  await requireAuth();
   const otherId = num(form, "other_id");
   if (!otherId || otherId === keepId) redirect(msg(`/jogo/${keepId}`, "erro", "Escolha outro jogo."));
-  const database = db();
-  const other = database.prepare("SELECT * FROM games WHERE id=?").get(otherId) as GameRow | undefined;
+  const other = await get<GameRow>("SELECT * FROM games WHERE id=?", [otherId]);
   if (!other) redirect(msg(`/jogo/${keepId}`, "erro", "Jogo não encontrado."));
-  database.transaction(() => {
-    database.prepare("UPDATE OR IGNORE achievements SET game_id=? WHERE game_id=?").run(keepId, otherId);
-    database.prepare("DELETE FROM games WHERE id=?").run(otherId);
-    const cols = [
-      "psn_np_id", "psn_service", "psn_title_ids", "psn_icon", "psn_progress", "psn_earned", "psn_defined",
-      "psn_updated_at", "psn_details_at", "xbox_title_id", "xbox_icon", "xbox_progress", "xbox_ach_earned",
-      "xbox_ach_total", "xbox_gs_earned", "xbox_gs_total", "xbox_details_at", "xbox_details_count",
-      "first_played", "last_played", "cover_url", "igdb_id", "summary", "genres", "developer", "publisher",
-      "release_date", "igdb_rating", "critic_rating", "screenshots", "ttb_main", "ttb_extra", "ttb_complete",
-      "metadata_at", "price_paid", "notes",
-    ] as const;
-    const sets = cols.map((c) => `${c} = COALESCE(${c}, @${c})`).join(", ");
-    const params: Record<string, unknown> = { id: keepId };
-    for (const c of cols) params[c] = other![c];
-    params.pt = other!.playtime_minutes ?? 0;
-    params.other_status = other!.status;
-    database
-      .prepare(
-        `UPDATE games SET ${sets}, playtime_minutes = COALESCE(playtime_minutes, 0) + @pt,
-           status = CASE WHEN status = 'backlog' THEN @other_status ELSE status END,
-           updated_at = datetime('now') WHERE id = @id`,
-      )
-      .run(params);
-  })();
+
+  const args: Record<string, string | number | null> = { id: keepId, pt: other.playtime_minutes ?? 0, other_status: other.status };
+  for (const c of MERGE_COLS) args[c] = other[c] as string | number | null;
+  const sets = MERGE_COLS.map((c) => `${c} = COALESCE(${c}, :${c})`).join(", ");
+  await batch([
+    { sql: "UPDATE OR IGNORE achievements SET game_id=? WHERE game_id=?", args: [keepId, otherId] },
+    { sql: "DELETE FROM achievements WHERE game_id=?", args: [otherId] },
+    { sql: "DELETE FROM games WHERE id=?", args: [otherId] },
+    {
+      sql: `UPDATE games SET ${sets}, playtime_minutes = COALESCE(playtime_minutes, 0) + :pt,
+              status = CASE WHEN status = 'backlog' THEN :other_status ELSE status END,
+              updated_at = datetime('now') WHERE id = :id`,
+      args,
+    },
+  ]);
   revalidatePath("/", "layout");
-  redirect(msg(`/jogo/${keepId}`, "ok", `“${other!.title}” foi unido a este jogo.`));
+  redirect(msg(`/jogo/${keepId}`, "ok", `“${other.title}” foi unido a este jogo.`));
 }
 
 export async function refreshMetadata(id: number, form: FormData) {
+  await requireAuth();
   const igdbId = num(form, "igdb_id");
-  const game = db().prepare("SELECT * FROM games WHERE id=?").get(id) as GameRow;
+  const game = await get<GameRow>("SELECT * FROM games WHERE id=?", [id]);
+  if (!game) redirect("/colecao");
   try {
     if (igdbId) await applyIgdb(id, igdbId);
     else {
@@ -143,36 +169,17 @@ export async function refreshMetadata(id: number, form: FormData) {
   redirect(msg(`/jogo/${id}`, "ok", "Metadados atualizados."));
 }
 
-export async function refreshAchievements(id: number) {
-  const game = db().prepare("SELECT * FROM games WHERE id=?").get(id) as GameRow;
-  try {
-    if (game.psn_np_id) await syncPsnTrophies(game);
-    if (game.xbox_title_id) await syncXboxAchievements(game);
-  } catch (e) {
-    redirect(msg(`/jogo/${id}`, "erro", (e as Error).message));
-  }
-  revalidatePath("/", "layout");
-  redirect(msg(`/jogo/${id}`, "ok", "Troféus/conquistas atualizados."));
-}
-
-// ---------- Contas e sincronização ----------
-
-export async function saveIgdb(form: FormData) {
-  const id = str(form, "client_id");
-  const secret = str(form, "client_secret");
-  if (!id || !secret) redirect(msg("/contas", "erro", "Informe Client ID e Client Secret."));
-  clearSettings("igdb_");
-  setSetting("igdb_client_id", id);
-  setSetting("igdb_client_secret", secret);
-  redirect(msg("/contas", "ok", "Credenciais do IGDB salvas."));
-}
+// ---------- Sincronização (credenciais usadas só durante a requisição; nada é gravado) ----------
 
 export async function enrichAction(form: FormData) {
+  await requireAuth();
   const force = form.get("force") === "1";
   let text: string;
   try {
     const r = await enrichAll(force);
-    text = `Metadados atualizados para ${r.ok} jogo(s).` + (r.failed.length ? ` Sem correspondência: ${r.failed.slice(0, 10).join("; ")}` : "");
+    text = `Metadados atualizados para ${r.ok} jogo(s).`;
+    if (r.remaining) text += ` Faltam ${r.remaining}: clique de novo para continuar.`;
+    if (r.failed.length) text += ` Sem correspondência: ${r.failed.slice(0, 8).join("; ")}`;
   } catch (e) {
     redirect(msg("/contas", "erro", (e as Error).message));
   }
@@ -180,38 +187,29 @@ export async function enrichAction(form: FormData) {
   redirect(msg("/contas", "ok", text));
 }
 
-/** Depois de sincronizar, busca capa/gêneros/tempos dos jogos novos (se o IGDB estiver configurado). */
-async function enrichNew() {
-  if (!igdbCredentials()) return;
+/** Depois de sincronizar, busca capa/gêneros/tempos dos jogos novos com o tempo que sobrar. */
+async function enrichNew(budgetMs: number) {
+  if (!igdbCredentials() || budgetMs < 5_000) return;
   try {
-    await enrichAll(false);
+    await enrichAll(false, budgetMs);
   } catch {
     /* não impede a sincronização */
   }
 }
 
-export async function connectPsnAction(form: FormData) {
+const TOTAL_BUDGET = 270_000; // a página Contas define maxDuration = 300 s
+
+export async function syncPsnAction(form: FormData) {
+  await requireAuth();
   const npsso = str(form, "npsso");
   if (!npsso) redirect(msg("/contas", "erro", "Cole o código NPSSO."));
-  try {
-    await connectPsn(npsso!);
-  } catch (e) {
-    redirect(msg("/contas", "erro", `Não foi possível conectar à PSN: ${(e as Error).message}`));
-  }
-  redirect(msg("/contas", "ok", "PSN conectada! Agora clique em Sincronizar."));
-}
-
-export async function disconnectPsnAction() {
-  disconnectPsn();
-  redirect(msg("/contas", "ok", "PSN desconectada."));
-}
-
-export async function syncPsnAction() {
+  const started = Date.now();
   let text: string;
   try {
-    const r = await syncPsn();
-    await enrichNew();
-    text = `PSN: ${r.titles} listas de troféus, ${r.matched} vinculadas à coleção, ${r.created} novos jogos digitais, ${r.details} atualizadas.`;
+    const r = await syncPsn(npsso!, 220_000);
+    await enrichNew(TOTAL_BUDGET - (Date.now() - started));
+    text = `PSN: ${r.titles} listas de troféus, ${r.matched} vinculadas à coleção, ${r.created} jogos digitais novos, ${r.details} atualizadas.`;
+    if (r.remaining > 0) text += ` Ainda faltam ${r.remaining} listas: sincronize de novo para continuar.`;
     if (r.errors.length) text += ` Avisos: ${r.errors.slice(0, 3).join(" | ")}`;
   } catch (e) {
     redirect(msg("/contas", "erro", `Falha na sincronização da PSN: ${(e as Error).message}`));
@@ -220,28 +218,17 @@ export async function syncPsnAction() {
   redirect(msg("/contas", "ok", text));
 }
 
-export async function connectXboxAction(form: FormData) {
+export async function syncXboxAction(form: FormData) {
+  await requireAuth();
   const key = str(form, "api_key");
   if (!key) redirect(msg("/contas", "erro", "Cole a chave de API da OpenXBL."));
-  try {
-    await connectXbox(key!);
-  } catch (e) {
-    redirect(msg("/contas", "erro", `Não foi possível conectar ao Xbox: ${(e as Error).message}`));
-  }
-  redirect(msg("/contas", "ok", "Xbox conectado! Agora clique em Sincronizar."));
-}
-
-export async function disconnectXboxAction() {
-  disconnectXbox();
-  redirect(msg("/contas", "ok", "Xbox desconectado."));
-}
-
-export async function syncXboxAction() {
+  const started = Date.now();
   let text: string;
   try {
-    const r = await syncXbox();
-    await enrichNew();
-    text = `Xbox: ${r.titles} jogos, ${r.matched} vinculados à coleção, ${r.created} novos jogos digitais, ${r.details} com conquistas detalhadas.`;
+    const r = await syncXbox(key!, 60, 220_000);
+    await enrichNew(TOTAL_BUDGET - (Date.now() - started));
+    text = `Xbox: ${r.titles} jogos, ${r.matched} vinculados à coleção, ${r.created} jogos digitais novos, ${r.details} com conquistas detalhadas.`;
+    if (r.remaining > 0) text += ` Ainda faltam ${r.remaining} jogos com conquistas: sincronize de novo mais tarde (limite da OpenXBL).`;
     if (r.errors.length) text += ` Avisos: ${r.errors.slice(0, 3).join(" | ")}`;
   } catch (e) {
     redirect(msg("/contas", "erro", `Falha na sincronização do Xbox: ${(e as Error).message}`));
@@ -250,23 +237,49 @@ export async function syncXboxAction() {
   redirect(msg("/contas", "ok", text));
 }
 
-// ---------- Senha de acesso (opcional, via APP_PASSWORD) ----------
+// ---------- Login ----------
+
+const MAX_FAILURES = 5;
+const WINDOW_MS = 15 * 60_000;
+
+async function clientIp() {
+  const h = await headers();
+  return h.get("x-forwarded-for")?.split(",")[0]?.trim() || h.get("x-real-ip") || "local";
+}
 
 export async function login(form: FormData) {
-  const password = str(form, "password") ?? "";
-  const expected = process.env.APP_PASSWORD;
-  if (!expected || password !== expected) redirect("/login?erro=1");
-  (await cookies()).set("cg_auth", await authToken(expected), {
+  if (!process.env.APP_PASSWORD) redirect("/login?erro=config");
+  const ip = await clientIp();
+  const now = Date.now();
+  const attempt = await get<{ failures: number; first_at: number }>(
+    "SELECT failures, first_at FROM login_attempts WHERE ip = ?",
+    [ip],
+  );
+  const recent = attempt && now - attempt.first_at < WINDOW_MS;
+  if (recent && attempt.failures >= MAX_FAILURES) redirect("/login?erro=bloqueado");
+
+  if (!(await checkPassword(str(form, "password") ?? ""))) {
+    await run(
+      `INSERT INTO login_attempts (ip, failures, first_at) VALUES (?, 1, ?)
+       ON CONFLICT (ip) DO UPDATE SET failures = CASE WHEN ? - first_at < ? THEN failures + 1 ELSE 1 END,
+         first_at = CASE WHEN ? - first_at < ? THEN first_at ELSE excluded.first_at END`,
+      [ip, now, now, WINDOW_MS, now, WINDOW_MS],
+    );
+    redirect("/login?erro=senha");
+  }
+
+  await run("DELETE FROM login_attempts WHERE ip = ?", [ip]);
+  (await cookies()).set(SESSION_COOKIE, await createSession(), {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
-    maxAge: 60 * 60 * 24 * 30,
+    maxAge: SESSION_DAYS * 86_400,
     path: "/",
   });
   redirect("/");
 }
 
 export async function logout() {
-  (await cookies()).delete("cg_auth");
+  (await cookies()).delete(SESSION_COOKIE);
   redirect("/login");
 }

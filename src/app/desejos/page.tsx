@@ -5,8 +5,8 @@ import { listGames } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
 
-export default function DesejosPage() {
-  const games = listGames({ status: "desejado", sort: "lancamento" });
+export default async function DesejosPage() {
+  const games = await listGames({ status: "desejado", sort: "lancamento" });
   return (
     <div>
       <header className="mb-6 flex flex-wrap items-end justify-between gap-3">

@@ -1,7 +1,7 @@
 import "server-only";
-import { db } from "./db";
+import { all, run } from "./db";
 import { titleSimilarity } from "./format";
-import { getSetting, igdbCredentials, setSetting } from "./settings";
+import { igdbCredentials } from "./settings";
 import type { GameRow } from "./types";
 
 // IDs de plataforma no IGDB
@@ -37,12 +37,13 @@ export type IgdbGame = {
 export const igdbImage = (imageId: string, size = "t_cover_big_2x") =>
   `https://images.igdb.com/igdb/image/upload/${size}/${imageId}.jpg`;
 
+// O token de acesso da Twitch é temporário e fica apenas na memória do servidor.
+let cachedToken: { token: string; expires: number } | null = null;
+
 async function token(): Promise<{ clientId: string; token: string }> {
   const creds = igdbCredentials();
-  if (!creds) throw new Error("Configure o Client ID e o Client Secret do IGDB (Twitch) na página Contas.");
-  const cached = getSetting("igdb_token");
-  const exp = Number(getSetting("igdb_token_expires") ?? 0);
-  if (cached && exp > Date.now() + 60_000) return { clientId: creds.clientId, token: cached };
+  if (!creds) throw new Error("Configure IGDB_CLIENT_ID e IGDB_CLIENT_SECRET nas variáveis de ambiente.");
+  if (cachedToken && cachedToken.expires > Date.now() + 60_000) return { clientId: creds.clientId, token: cachedToken.token };
 
   const url = new URL("https://id.twitch.tv/oauth2/token");
   url.searchParams.set("client_id", creds.clientId);
@@ -51,8 +52,7 @@ async function token(): Promise<{ clientId: string; token: string }> {
   const res = await fetch(url, { method: "POST" });
   if (!res.ok) throw new Error(`Falha ao autenticar no IGDB/Twitch (${res.status}). Verifique as credenciais.`);
   const json = (await res.json()) as { access_token: string; expires_in: number };
-  setSetting("igdb_token", json.access_token);
-  setSetting("igdb_token_expires", String(Date.now() + json.expires_in * 1000));
+  cachedToken = { token: json.access_token, expires: Date.now() + json.expires_in * 1000 };
   return { clientId: creds.clientId, token: json.access_token };
 }
 
@@ -120,14 +120,12 @@ export async function applyIgdb(gameId: number, igdbId: number) {
   const dev = g.involved_companies?.filter((c) => c.developer).map((c) => c.company.name) ?? [];
   const pub = g.involved_companies?.filter((c) => c.publisher).map((c) => c.company.name) ?? [];
 
-  db()
-    .prepare(
+  await run(
       `UPDATE games SET igdb_id=?, igdb_slug=?, cover_url=?, summary=?, genres=?, developer=?, publisher=?,
          release_date=?, igdb_rating=?, critic_rating=?, screenshots=?, ttb_main=?, ttb_extra=?, ttb_complete=?,
          metadata_at=datetime('now'), updated_at=datetime('now')
        WHERE id=?`,
-    )
-    .run(
+    [
       g.id,
       g.slug ?? null,
       g.cover ? igdbImage(g.cover.image_id) : null,
@@ -143,21 +141,34 @@ export async function applyIgdb(gameId: number, igdbId: number) {
       ttb?.normally ?? null,
       ttb?.completely ?? null,
       gameId,
-    );
+    ],
+  );
 }
 
-/** Busca metadados para todos os jogos que ainda não têm (ou para todos, se force=true). */
-export async function enrichAll(force = false): Promise<{ ok: number; failed: string[] }> {
-  const rows = db()
-    .prepare(`SELECT id, title, platform FROM games ${force ? "" : "WHERE metadata_at IS NULL"}`)
-    .all() as Pick<GameRow, "id" | "title" | "platform">[];
+/**
+ * Busca metadados para os jogos que ainda não têm (ou para todos, se force=true).
+ * Para depois de `budgetMs` para caber no tempo máximo de uma função na Vercel; basta rodar de novo para continuar.
+ */
+export async function enrichAll(
+  force = false,
+  budgetMs = 240_000,
+): Promise<{ ok: number; failed: string[]; remaining: number }> {
+  const started = Date.now();
+  const rows = await all<Pick<GameRow, "id" | "title" | "platform">>(
+    `SELECT id, title, platform FROM games ${force ? "" : "WHERE metadata_at IS NULL"} ORDER BY id`,
+  );
   let ok = 0;
+  let done = 0;
   const failed: string[] = [];
   for (const r of rows) {
+    if (Date.now() - started > budgetMs) break;
+    done++;
     try {
       const m = await bestIgdbMatch(r.title, r.platform);
       if (!m) {
         failed.push(r.title);
+        // marca como verificado para não tentar de novo a cada sincronização
+        await run("UPDATE games SET metadata_at = datetime('now') WHERE id = ?", [r.id]);
         continue;
       }
       await applyIgdb(r.id, m.id);
@@ -168,5 +179,5 @@ export async function enrichAll(force = false): Promise<{ ok: number; failed: st
       if (/credenciais|Configure/.test((e as Error).message)) break;
     }
   }
-  return { ok, failed };
+  return { ok, failed, remaining: rows.length - done };
 }

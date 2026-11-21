@@ -1,10 +1,19 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Coleção Games",
   description: "Catálogo da coleção, troféus, conquistas, tempo de jogo e preços — PSN e Xbox em um só lugar.",
+  appleWebApp: { capable: true, title: "Coleção", statusBarStyle: "black-translucent" },
+  robots: { index: false, follow: false },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0b0d12",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 const NAV = [

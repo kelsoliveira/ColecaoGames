@@ -1,10 +1,15 @@
 import Link from "next/link";
 import { PlatformBadge, ProgressBar, SectionTitle, StatTile, TrophyCountsView, TrophyIcon } from "@/components/ui";
-import { db } from "@/lib/db";
 import { date, parseJson } from "@/lib/format";
-import { getStats, rarestAchievements, recentAchievements, type RecentAchievement } from "@/lib/queries";
+import {
+  getStats,
+  inProgressGames,
+  platinumGames,
+  rarestAchievements,
+  recentAchievements,
+  type RecentAchievement,
+} from "@/lib/queries";
 import { getSetting } from "@/lib/settings";
-import type { GameRow } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
@@ -31,32 +36,26 @@ function AchList({ items }: { items: RecentAchievement[] }) {
   );
 }
 
-export default function ConquistasPage() {
-  const s = getStats();
-  const psn = parseJson<{ trophyLevel?: string; progress?: number; tier?: number } | null>(getSetting("psn_profile"), null);
-  const platinums = db()
-    .prepare(
-      `SELECT g.*, (SELECT earned_at FROM achievements a WHERE a.game_id = g.id AND a.type = 'platinum' AND a.earned = 1) AS plat_at
-       FROM games g WHERE json_extract(g.psn_earned, '$.platinum') = 1
-          OR (g.xbox_ach_total > 0 AND g.xbox_ach_earned = g.xbox_ach_total)
-       ORDER BY plat_at DESC`,
-    )
-    .all() as (GameRow & { plat_at: string | null })[];
-  const inProgress = db()
-    .prepare(
-      `SELECT * FROM games WHERE COALESCE(psn_progress, xbox_progress) BETWEEN 1 AND 99
-       ORDER BY COALESCE(psn_progress, xbox_progress) DESC`,
-    )
-    .all() as GameRow[];
+export default async function ConquistasPage() {
+  const [s, profile, gamerscore, platinums, inProgress, recent, rarest] = await Promise.all([
+    getStats(),
+    getSetting("psn_profile"),
+    getSetting("xbox_gamerscore"),
+    platinumGames(),
+    inProgressGames(),
+    recentAchievements(25),
+    rarestAchievements(15),
+  ]);
+  const psn = parseJson<{ trophyLevel?: string; progress?: number; tier?: number } | null>(profile, null);
 
   return (
     <div className="space-y-8">
       <h1 className="text-2xl font-bold">Troféus e conquistas</h1>
 
       <section className="grid grid-cols-2 gap-3 md:grid-cols-4">
-        <StatTile label="Nível PSN" value={psn?.trophyLevel ?? "—"} hint={psn?.progress != null ? <ProgressBar value={psn.progress} className="mt-1" /> : "conecte a PSN"} />
+        <StatTile label="Nível PSN" value={psn?.trophyLevel ?? "—"} hint={psn?.progress != null ? <ProgressBar value={psn.progress} className="mt-1" /> : "sincronize a PSN"} />
         <StatTile label="Platinas" value={s.trophies.platinum} />
-        <StatTile label="Gamerscore" value={(Number(getSetting("xbox_gamerscore")) || s.gamerscore).toLocaleString("pt-BR")} />
+        <StatTile label="Gamerscore" value={(Number(gamerscore) || s.gamerscore).toLocaleString("pt-BR")} />
         <StatTile label="Jogos 100%" value={platinums.length} />
       </section>
 
@@ -67,11 +66,11 @@ export default function ConquistasPage() {
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="card p-5">
           <SectionTitle>Recentes</SectionTitle>
-          <AchList items={recentAchievements(25)} />
+          <AchList items={recent} />
         </section>
         <section className="card p-5">
           <SectionTitle>Mais raros obtidos</SectionTitle>
-          <AchList items={rarestAchievements(15)} />
+          <AchList items={rarest} />
         </section>
       </div>
 

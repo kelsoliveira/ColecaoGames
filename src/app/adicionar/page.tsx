@@ -51,7 +51,7 @@ export default async function AdicionarPage({ searchParams }: PageProps<"/adicio
         </div>
         {!hasIgdb ? (
           <p className="text-sm text-ink-2 md:col-span-4">
-            Configure o IGDB em <a href="/contas" className="text-accent">Contas</a> para buscar com capa e informações. Você ainda pode
+            Configure o IGDB (veja em <a href="/contas" className="text-accent">Contas</a>) para buscar com capa e informações. Você ainda pode
             cadastrar manualmente abaixo.
           </p>
         ) : null}
