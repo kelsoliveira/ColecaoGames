@@ -6,7 +6,7 @@ import { Cover, Flash, PlatformBadge, ProgressBar, StatTile, TrophyIcon } from "
 import { all, get } from "@/lib/db";
 import { date, hours, parseJson } from "@/lib/format";
 import { guideAutomationAvailable, guideKind, guideRequestStatus, loadGuide } from "@/lib/guide";
-import type { Guide } from "@/lib/guide-schema";
+import { matchGuideTrophies, type Guide } from "@/lib/guide-schema";
 import type { AchievementRow, GameRow } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -127,8 +127,7 @@ export default async function GuidePage({ params, searchParams }: PageProps<"/gu
   const shots = parseJson<string[]>(game.screenshots, []);
 
   // Junta a lista oficial (nomes PT/EN, obtido/faltando, raridade) com as informações do guia (perdível, dica).
-  const byExt = new Map<string, number>();
-  guide?.trophies.forEach((tr, i) => tr.ext_id && byExt.set(tr.ext_id, i));
+  const byExt = guide ? matchGuideTrophies(guide.trophies, official) : new Map<string, number>();
   const rows: Row[] = official.length
     ? official.map((a) => {
         const gi = byExt.get(a.ext_id) ?? null;

@@ -3,6 +3,7 @@ import { Cover, PlatformBadge, ProgressBar, TrophyIcon } from "@/components/ui";
 import { all } from "@/lib/db";
 import { emptyTrophies, hours, parseJson } from "@/lib/format";
 import { guideAutomationAvailable, guideKind, guidesForGames } from "@/lib/guide";
+import { matchGuideTrophies } from "@/lib/guide-schema";
 import type { GameRow, TrophyCounts } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -15,24 +16,28 @@ export default async function GuiasPage({ searchParams }: PageProps<"/guias">) {
 
   const [games, earnedRows] = await Promise.all([
     all<GameRow>("SELECT * FROM games WHERE status <> 'desejado' ORDER BY title COLLATE NOCASE"),
-    all<{ game_id: number; ext_id: string; earned: number }>("SELECT game_id, ext_id, earned FROM achievements"),
+    all<{ game_id: number; ext_id: string; name: string | null; name_en: string | null; earned: number }>(
+      "SELECT game_id, ext_id, name, name_en, earned FROM achievements",
+    ),
   ]);
   const guides = await guidesForGames(games);
-  const earnedByGame = new Map<number, Set<string>>();
+  const officialByGame = new Map<number, typeof earnedRows>();
   for (const r of earnedRows) {
-    if (!r.earned) continue;
-    if (!earnedByGame.has(r.game_id)) earnedByGame.set(r.game_id, new Set());
-    earnedByGame.get(r.game_id)!.add(r.ext_id);
+    if (!officialByGame.has(r.game_id)) officialByGame.set(r.game_id, []);
+    officialByGame.get(r.game_id)!.push(r);
   }
 
   const items = games
     .filter((g) => guideKind(g.platform))
     .map((g) => {
       const guide = guides.get(g.id) ?? null;
-      const earned = earnedByGame.get(g.id) ?? new Set<string>();
-      const missablesLeft = guide
-        ? guide.trophies.filter((t) => t.missable && !(t.ext_id && earned.has(t.ext_id))).length
-        : 0;
+      let missablesLeft = 0;
+      if (guide) {
+        const official = officialByGame.get(g.id) ?? [];
+        const match = matchGuideTrophies(guide.trophies, official);
+        const earnedIdx = new Set(official.filter((a) => a.earned && match.has(a.ext_id)).map((a) => match.get(a.ext_id)!));
+        missablesLeft = guide.trophies.filter((t, i) => t.missable && !earnedIdx.has(i)).length;
+      }
       const progress = guideKind(g.platform) === "platina" ? g.psn_progress : g.xbox_progress;
       const done =
         parseJson<TrophyCounts>(g.psn_earned, emptyTrophies()).platinum > 0 ||

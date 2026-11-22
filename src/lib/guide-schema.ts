@@ -79,3 +79,48 @@ export function parseGuide(row: GuideRow | undefined): Guide | null {
     return null;
   }
 }
+
+const norm = (s: string | null | undefined) =>
+  (s ?? "")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+type OfficialLike = { ext_id: string; name: string | null; name_en: string | null };
+
+/**
+ * Liga cada troféu oficial ao item correspondente do guia: primeiro pelo ID oficial (ext_id) e,
+ * para guias escritos antes da sincronização, pelo nome em inglês ou em português.
+ * Devolve um mapa ext_id oficial -> índice em guide.trophies.
+ */
+export function matchGuideTrophies(trophies: Guide["trophies"], official: OfficialLike[]): Map<string, number> {
+  const out = new Map<string, number>();
+  const used = new Set<number>();
+  const byId = new Map<string, number>();
+  const byName = new Map<string, number>();
+  trophies.forEach((t, i) => {
+    if (t.ext_id) byId.set(t.ext_id, i);
+    for (const n of [norm(t.name_en), norm(t.name_pt)]) if (n && !byName.has(n)) byName.set(n, i);
+  });
+  for (const a of official) {
+    const i = byId.get(a.ext_id);
+    if (i != null && !used.has(i)) {
+      out.set(a.ext_id, i);
+      used.add(i);
+    }
+  }
+  for (const a of official) {
+    if (out.has(a.ext_id)) continue;
+    for (const n of [norm(a.name_en), norm(a.name)]) {
+      const i = n ? byName.get(n) : undefined;
+      if (i != null && !used.has(i)) {
+        out.set(a.ext_id, i);
+        used.add(i);
+        break;
+      }
+    }
+  }
+  return out;
+}
