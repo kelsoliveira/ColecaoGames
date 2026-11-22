@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "slug": "ps5--black-myth-wukong",
+  "title": "Black Myth: Wukong",
+  "platform": "PS5",
+  "kind": "platina",
+  "generated_at": "2026-11-22T12:31:27Z",
+  "generator": "claude-code-session",
+  "sources": [
+    { "title": "PowerPyx - Black Myth: Wukong Trophy Guide & Roadmap", "url": "https://www.powerpyx.com/black-myth-wukong-trophy-guide-roadmap/" },
+    { "title": "PSNProfiles - Black Myth: Wukong Trophies", "url": "https://psnprofiles.com/trophies/28916-black-myth-wukong" },
+    { "title": "PSNProfiles - Black Myth: Wukong Trophy Guide", "url": "https://psnprofiles.com/guide/20430-black-myth-wukong-trophy-guide" },
+    { "title": "PlayStationTrophies - Black Myth: Wukong Trophy Guide & Road Map", "url": "https://www.playstationtrophies.org/game/black-myth-wu-kong/guide/" },
+    { "title": "TrueTrophies - Black Myth: Wukong Trophies", "url": "https://www.truetrophies.com/game/Black-Myth-Wukong/trophies" },
+    { "title": "Fextralife Wiki - Trophy and Achievement Guide", "url": "https://blackmythwukong.wiki.fextralife.com/Trophy_and_Achievement_Guide" },
+    { "title": "DamnModz - Black Myth: Wukong Trophy Guide & Platinum Roadmap", "url": "https://damnmodz.com/wiki/playstation-trophies/black-myth-wukong/" },
+    { "title": "FuzionByte - Black Myth Wukong trophy guide", "url": "https://www.fuzionbyte.com/black-myth-wukong-trophy-guide/" },
+    { "title": "Game Rant - Trophy & Achievement Guide For Black Myth: Wukong", "url": "https://gamerant.com/black-myth-wukong-trophy-achievement-guide/" },
+    { "title": "The Escapist - All Secret Trophies & Achievements in Black Myth: Wukong", "url": "https://www.escapistmagazine.com/all-secret-trophies-achievements-in-black-myth-wukong-how-to-get-them/" }
+  ],
+  "guide": {
+    "summary_pt": "A lista do PS5 tem 36 troféus (1 platina, 4 ouro, 9 prata, 22 bronze), todos offline. O caminho é zerar a campanha com a verdadeira conclusão (áreas secretas dos Capítulos 1, 2, 4 e 5 e a missão do caçador de tesouros no Capítulo 3), cuidando das missões de NPC que somem ao fim de cada capítulo, e depois entrar no NG+ para fechar fórmulas, equipamentos e itens que só aparecem no novo ciclo. A dificuldade vem mais dos chefes opcionais e das coleções com sorte (sementes e curiosidades) do que de exigências técnicas.",
+    "summary_en": "The PS5 list has 36 trophies (1 platinum, 4 gold, 9 silver, 22 bronze), all offline. The path is to beat the campaign with the true ending (secret areas of Chapters 1, 2, 4 and 5 plus the treasure hunter quest in Chapter 3), handling NPC questlines that vanish at the end of each chapter, then enter NG+ to finish formulas, gear and items that only appear in the new cycle. The challenge comes more from optional bosses and luck-based collections (seeds and curios) than from technical demands.",
+    "difficulty": 6,
+    "estimated_hours": 60,
+    "min_playthroughs": 2,
+    "online_required": false,
+    "missable_warning_pt": "Há de 7 a 8 troféus perdíveis (as fontes divergem) na primeira jogada: as missões do Velho (Always Accompanied) e do cavalo Ma Tianba (Urge Unfulfilled), que exigem falar com eles em todos os capítulos, e as coleções Portraits Perfected, A Curious Collection, Mantled with Might, Fickle Forms, Brewer's Bounty e Master of Magic. Nenhum fica perdido para sempre: tudo pode ser recuperado no NG+.",
+    "missable_warning_en": "There are 7 to 8 missable trophies (sources differ) in the first run: the Old Man (Always Accompanied) and Ma Tianba the horse (Urge Unfulfilled) questlines, which require talking to them in every chapter, plus the collections Portraits Perfected, A Curious Collection, Mantled with Might, Fickle Forms, Brewer's Bounty and Master of Magic. None is lost for good: everything can be recovered in NG+.",
+    "roadmap": [
+      {
+        "title_pt": "Etapa 1: campanha com atenção aos perdíveis",
+        "title_en": "Step 1: Campaign while protecting missables",
+        "steps_pt": [
+          "Em cada capítulo, procure o Velho (Yuan Shoucheng) e o cavalo preso na carroça e esgote o diálogo antes de derrotar o chefe final.",
+          "No Capítulo 5, puxe a corda/língua da carroça do cavalo antes do chefe final; depois volte para liberar o feitiço Dark Thunder.",
+          "Faça as áreas secretas dos Capítulos 1, 2, 4 e 5 e a missão do caçador de tesouros no Capítulo 3 para liberar o final secreto.",
+          "Derrote todos os inimigos e chefes que encontrar e fale com os NPCs para ir preenchendo o Diário (Portraits Perfected).",
+          "Mate o chefe da área secreta do Capítulo 4 só depois de concluir a missão da transformação Violet Hail.",
+          "Recolha sementes, curiosidades, fórmulas e pontos de meditação ao longo do caminho."
+        ],
+        "steps_en": [
+          "In every chapter, find the Old Man (Yuan Shoucheng) and the horse stuck in the cart and exhaust their dialogue before beating the final boss.",
+          "In Chapter 5, pull the cord/tongue on the horse cart before the final boss, then return to unlock the Dark Thunder spell.",
+          "Clear the secret areas of Chapters 1, 2, 4 and 5 and the treasure hunter quest in Chapter 3 to unlock the secret ending.",
+          "Defeat every enemy and boss you meet and talk to NPCs to fill the Journal (Portraits Perfected).",
+          "Only kill the Chapter 4 secret area boss after finishing the Violet Hail transformation questline.",
+          "Grab seeds, curios, formulas and meditation spots along the way."
+        ]
+      },
+      {
+        "title_pt": "Etapa 2: final secreto e limpeza pós-jogo",
+        "title_en": "Step 2: Secret ending and post-game cleanup",
+        "steps_pt": [
+          "No Capítulo 6, reúna as quatro peças de armadura do Grande Sábio para receber o Jingubang e enfrente Erlang para o final verdadeiro.",
+          "Derrote o chefe final da história para A Duel of Destiny.",
+          "Antes de iniciar o NG+, use o pós-jogo para voltar aos capítulos e completar sapos, Loongs, meditações, vasos e o que faltar no Diário."
+        ],
+        "steps_en": [
+          "In Chapter 6, gather the Great Sage's four armor pieces to receive the Jingubang and face Erlang for the true ending.",
+          "Defeat the final story boss for A Duel of Destiny.",
+          "Before starting NG+, use the post-game to revisit chapters and finish frogs, Loongs, meditation spots, vessels and missing Journal entries."
+        ]
+      },
+      {
+        "title_pt": "Etapa 3: NG+ e itens finais",
+        "title_en": "Step 3: NG+ and final items",
+        "steps_pt": [
+          "Escolha Enter a New Cycle; Six Senses Secured destrava logo na primeira luta.",
+          "Compre a fórmula exclusiva do NG+ (Soul Remigration Pill) com Xu Dog para Page Preserver.",
+          "Crie as armaduras e armas que só aparecem no NG+ e recupere qualquer perdível que tenha ficado para trás; em geral não é preciso ir além do Capítulo 5."
+        ],
+        "steps_en": [
+          "Choose Enter a New Cycle; Six Senses Secured unlocks during the first fight.",
+          "Buy the NG+-only formula (Soul Remigration Pill) from Xu Dog for Page Preserver.",
+          "Craft the armor and weapons that only appear in NG+ and recover any missable you skipped; usually you do not need to go past Chapter 5."
+        ]
+      }
+    ],
+    "trophies": [
+      { "ext_id": null, "name_pt": "Realização Final", "name_en": "Final Fulfillment", "type": "platinum", "missable": false, "tip_pt": "Obtenha todos os outros troféus.", "tip_en": "Earn every other trophy." },
+      { "ext_id": null, "name_pt": "O Lar Ficou para Trás", "name_en": "Home is Behind", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Uma Centelha de Pensamento", "name_en": "A Spark of Thought", "type": "bronze", "missable": false, "tip_pt": "Gaste sua primeira Centelha em qualquer habilidade da árvore.", "tip_en": "Spend your first Spark on any skill in the tree." },
+      { "ext_id": null, "name_pt": "Bebida da Bravura", "name_en": "Brew of Bravery", "type": "bronze", "missable": false, "tip_pt": "Após salvar o macaco Shen no Capítulo 1, use o menu de bebidas no santuário.", "tip_en": "After saving the Shen Monkey in Chapter 1, use the Brew menu at a shrine." },
+      { "ext_id": null, "name_pt": "Mistura Criativa", "name_en": "Creative Concoction", "type": "bronze", "missable": false, "tip_pt": "Libere a alquimia no início (após o sapo Lang-Li-Guhh-Baw) e prepare qualquer remédio.", "tip_en": "Unlock alchemy early (after the Lang-Li-Guhh-Baw frog) and craft any medicine." },
+      { "ext_id": null, "name_pt": "Colheita Feliz", "name_en": "Happy Harvest", "type": "bronze", "missable": false, "tip_pt": "Plante uma semente no Zodiac Village e volte mais tarde para colher.", "tip_en": "Plant a seed in Zodiac Village and come back later to harvest it." },
+      { "ext_id": null, "name_pt": "Martelar e Aperfeiçoar", "name_en": "Pound and Perfect", "type": "bronze", "missable": false, "tip_pt": "Aprimore uma peça de armadura com o Yin Tiger depois de liberá-lo no Capítulo 2.", "tip_en": "Upgrade one armor piece through Yin Tiger after unlocking him in Chapter 2." },
+      { "ext_id": null, "name_pt": "Vento Negro Ardente", "name_en": "Blazing Black Wind", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Templo da Mácula", "name_en": "Temple of Taint", "type": "bronze", "missable": false, "tip_pt": "No Capítulo 1, toque os três sinos e derrote o chefe secreto Elder Jinchi.", "tip_en": "In Chapter 1, ring the three bells and defeat the secret boss Elder Jinchi." },
+      { "ext_id": null, "name_pt": "Uma Grande Rajada", "name_en": "A Great Gust", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Areias Movediças", "name_en": "Shifting Sands", "type": "bronze", "missable": false, "tip_pt": "Faça a missão do Javali Bêbado no Capítulo 2 e derrote Fuban na área secreta.", "tip_en": "Do the Drunken Boar quest in Chapter 2 and defeat Fuban in the secret area." },
+      { "ext_id": null, "name_pt": "Disparate Engenhoso", "name_en": "Nifty Nonsense", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Contemple a Traição", "name_en": "Behold the Betrayal", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "O Galo Cantou", "name_en": "The Cockerel Crowed", "type": "bronze", "missable": false, "tip_pt": "Complete a área secreta Purple Cloud Mountain no Capítulo 4 e derrote Duskveil.", "tip_en": "Clear the Purple Cloud Mountain secret area in Chapter 4 and defeat Duskveil." },
+      { "ext_id": null, "name_pt": "Fúria Flamejante", "name_en": "Flaming Fury", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Gelo e Chama", "name_en": "Frost and Flame", "type": "bronze", "missable": false, "tip_pt": "Siga a missão do Pale-Axe Stalwart no Capítulo 5 e derrote a Bishui Golden-Eyed Beast.", "tip_en": "Follow the Pale-Axe Stalwart quest in Chapter 5 and defeat the Bishui Golden-Eyed Beast." },
+      { "ext_id": null, "name_pt": "À Altura do Desafio", "name_en": "Meet the Match", "type": "gold", "missable": false, "tip_pt": "Conclua as áreas secretas dos Capítulos 1, 2, 4, 5 e a missão do caçador de tesouros; vença Erlang no Capítulo 6.", "tip_en": "Clear the Chapter 1, 2, 4, 5 secret areas and the treasure hunter quest; beat Erlang in Chapter 6." },
+      { "ext_id": null, "name_pt": "Um Duelo do Destino", "name_en": "A Duel of Destiny", "type": "gold", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "O Clamor dos Sapos", "name_en": "The Clamor of Frogs", "type": "bronze", "missable": false, "tip_pt": "Derrote os seis chefes-sapo, um por capítulo; nenhum é perdível.", "tip_en": "Defeat the six frog bosses, one per chapter; none is missable." },
+      { "ext_id": null, "name_pt": "O Pai e os Filhos", "name_en": "The Sire and Sons", "type": "bronze", "missable": false, "tip_pt": "Pegue as Escamas de Loong na arena do First Prince of the Flowing Sands e derrote os quatro Loongs.", "tip_en": "Get the Loong Scales in the First Prince of the Flowing Sands arena and defeat all four Loongs." },
+      { "ext_id": null, "name_pt": "Sempre Acompanhado", "name_en": "Always Accompanied", "type": "bronze", "missable": true, "tip_pt": "Esgote o diálogo do Velho em todos os capítulos; ele some quando cada capítulo termina.", "tip_en": "Exhaust the Old Man's dialogue in every chapter; he vanishes when each chapter ends." },
+      { "ext_id": null, "name_pt": "Anseio Não Realizado", "name_en": "Urge Unfulfilled", "type": "bronze", "missable": true, "tip_pt": "Interaja com o cavalo da carroça em todos os capítulos; no 5, puxe a língua antes do chefe final.", "tip_en": "Interact with the cart horse in every chapter; in Chapter 5, pull the tongue before the final boss." },
+      { "ext_id": null, "name_pt": "Seis Sentidos Garantidos", "name_en": "Six Senses Secured", "type": "gold", "missable": false, "tip_pt": "Obtenha as seis relíquias e escolha Enter a New Cycle; destrava na primeira luta do NG+.", "tip_en": "Obtain all six relics and choose Enter a New Cycle; it unlocks in the first NG+ fight." },
+      { "ext_id": null, "name_pt": "Retratos Aperfeiçoados", "name_en": "Portraits Perfected", "type": "gold", "missable": true, "tip_pt": "Complete o Diário: todos os yaoguai comuns, chefes, reis e personagens. Use um checklist por capítulo.", "tip_en": "Complete the Journal: every lesser yaoguai, chief, king and character. Use a per-chapter checklist." },
+      { "ext_id": null, "name_pt": "Guardião das Páginas", "name_en": "Page Preserver", "type": "bronze", "missable": false, "tip_pt": "Junte as 14 fórmulas de remédio; a Soul Remigration Pill é vendida por Xu Dog só no NG+.", "tip_en": "Collect all 14 medicine formulas; the Soul Remigration Pill is sold by Xu Dog only in NG+." },
+      { "ext_id": null, "name_pt": "Mestre da Magia", "name_en": "Master of Magic", "type": "silver", "missable": true, "tip_pt": "Obtenha todos os feitiços; alguns vêm de missões laterais perdíveis, como o Dark Thunder do cavalo.", "tip_en": "Obtain every spell; some come from missable side quests, like the horse's Dark Thunder." },
+      { "ext_id": null, "name_pt": "Guardião do Equipamento", "name_en": "Guardian of Gear", "type": "silver", "missable": false, "tip_pt": "No Capítulo 6, vista as quatro peças da armadura do Grande Sábio para receber o Jingubang.", "tip_en": "In Chapter 6, equip the Great Sage's four armor pieces to receive the Jingubang." },
+      { "ext_id": null, "name_pt": "Uma Coleção Curiosa", "name_en": "A Curious Collection", "type": "silver", "missable": true, "tip_pt": "Junte as curiosidades exigidas; várias dependem de drops aleatórios, então colete enquanto explora.", "tip_en": "Gather the required curios; several are random drops, so collect while exploring." },
+      { "ext_id": null, "name_pt": "Refeição Medicinal", "name_en": "Medicine Meal", "type": "silver", "missable": false, "tip_pt": "Encontre cinco de cada pílula celestial (vida, mana e vigor); as criadas não contam.", "tip_en": "Find five of each Celestial Pill (health, mana, stamina); crafted ones do not count." },
+      { "ext_id": null, "name_pt": "Bastões e Lanças", "name_en": "Staffs and Spears", "type": "silver", "missable": false, "tip_pt": "Obtenha ou crie 20 das 21 armas; algumas receitas só ficam disponíveis no NG+.", "tip_en": "Obtain or craft 20 of the 21 weapons; some recipes only become available in NG+." },
+      { "ext_id": null, "name_pt": "Revestido de Poder", "name_en": "Mantled with Might", "type": "silver", "missable": true, "tip_pt": "Junte 74 das 78 peças de armadura, a maioria criada nos santuários; algumas só no NG+.", "tip_en": "Collect 74 of the 78 armor pieces, mostly crafted at shrines; some only in NG+." },
+      { "ext_id": null, "name_pt": "Formas Inconstantes", "name_en": "Fickle Forms", "type": "silver", "missable": true, "tip_pt": "Obtenha todas as transformações e espíritos; Violet Hail se perde se matar antes o chefe secreto do Capítulo 4.", "tip_en": "Get every transformation and spirit; Violet Hail is lost if you kill the Chapter 4 secret boss first." },
+      { "ext_id": null, "name_pt": "Fartura do Mestre-Cervejeiro", "name_en": "Brewer's Bounty", "type": "silver", "missable": true, "tip_pt": "Junte as 9 bebidas, 11 cabaças e 27 infusões; procure em baús, chefes e mercadores.", "tip_en": "Collect the 9 drinks, 11 gourds and 27 soaks; check chests, bosses and merchants." },
+      { "ext_id": null, "name_pt": "Tesouro Escondido", "name_en": "Treasure Trove", "type": "silver", "missable": false, "tip_pt": "Obtenha os quatro Vasos, recompensas de chefes ao longo da história; o último vem no Capítulo 5.", "tip_en": "Obtain the four Vessels, rewarded by bosses through the story; the last comes in Chapter 5." },
+      { "ext_id": null, "name_pt": "Sementes para Semear", "name_en": "Seeds to Sow", "type": "bronze", "missable": false, "tip_pt": "Junte as 15 sementes; a maioria cai aleatoriamente ao colher a planta correspondente.", "tip_en": "Collect all 15 seeds; most drop randomly when harvesting the matching plant." },
+      { "ext_id": null, "name_pt": "Buscador de Paisagens", "name_en": "Scenic Seeker", "type": "bronze", "missable": false, "tip_pt": "Medite nos 24 pontos de meditação (R2); o Capítulo 6 não tem nenhum.", "tip_en": "Meditate at all 24 meditation spots (R2); Chapter 6 has none." }
+    ],
+    "platinum_tip_pt": "Antes de iniciar o NG+, use o pós-jogo para fechar sapos, Loongs, meditações e o Diário. No NG+, foque no que é exclusivo do novo ciclo (fórmula de Xu Dog, armas e armaduras) e no que ficou para trás; a platina costuma sair antes do fim do Capítulo 5.",
+    "platinum_tip_en": "Before starting NG+, use the post-game to finish frogs, Loongs, meditation spots and the Journal. In NG+, focus on cycle-exclusive content (Xu Dog's formula, weapons and armor) and anything you missed; the platinum usually pops before the end of Chapter 5.",
+    "confidence_note_pt": "As páginas dos guias não puderam ser abertas diretamente (só resultados de busca), então os detalhes foram cruzados entre trechos de várias fontes. A ordem da lista foi reconstruída pelos IDs do PSNProfiles e do TrueTrophies; as posições de Urge Unfulfilled, Page Preserver, Fickle Forms e Treasure Trove não foram confirmadas. Os nomes em português são traduções próprias (não foi encontrada lista oficial em PT-BR). Há divergência nas fontes sobre Always Accompanied (algumas exigem também a cabaça no máximo), sobre Master of Magic estar entre os perdíveis (outras citam Always Accompanied no lugar) e sobre o nome exato do chefe de Flaming Fury (Red Boy/Yaksha King, fim do Capítulo 5). Há relatos, principalmente no PC, de troféus de coleção que não destravam no último item.",
+    "confidence_note_en": "The guide pages could not be opened directly (only search results), so details were cross-checked across snippets from several sources. The list order was rebuilt from PSNProfiles and TrueTrophies IDs; the positions of Urge Unfulfilled, Page Preserver, Fickle Forms and Treasure Trove were not confirmed. Portuguese names are our own translations (no official PT-BR list was found). Sources disagree on Always Accompanied (some also require a fully upgraded gourd), on whether Master of Magic counts among the missables (others list Always Accompanied instead) and on the exact boss name for Flaming Fury (Red Boy/Yaksha King, end of Chapter 5). There are reports, mostly on PC, of collection trophies failing to unlock on the final item."
+  }
+}
