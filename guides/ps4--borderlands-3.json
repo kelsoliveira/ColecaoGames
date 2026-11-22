@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "slug": "ps4--borderlands-3",
+  "title": "Borderlands 3",
+  "platform": "PS4",
+  "kind": "platina",
+  "generated_at": "2026-11-22T12:32:27Z",
+  "generator": "claude-code-session",
+  "sources": [
+    { "title": "PowerPyx - Borderlands 3 Trophy Guide & Roadmap", "url": "https://www.powerpyx.com/borderlands-3-trophy-guide-roadmap/" },
+    { "title": "PlayStationTrophies.org - Borderlands 3 Trophy Guide & Road Map", "url": "https://www.playstationtrophies.org/game/borderlands-3/guide/" },
+    { "title": "PlayStationTrophies.org - Borderlands 3 Trophies (lista)", "url": "https://www.playstationtrophies.org/game/borderlands-3/trophies/" },
+    { "title": "PlatGet - Borderlands 3 Trophy Guide & Road Map (PS4/PS5)", "url": "https://platget.com/guides/borderlands-3-trophy-guide/" },
+    { "title": "GamerGuides - Borderlands 3 PlayStation Trophies Overview", "url": "https://www.gamerguides.com/borderlands-3/psn-trophies/overview" },
+    { "title": "KeenGamer - Borderlands 3 Full Trophy List", "url": "https://www.keengamer.com/articles/guides/borderlands-3-trophy-list-ps4/" },
+    { "title": "GameWith - Borderlands 3 Trophy List", "url": "https://gamewith.net/borderlands-3/article/show/11104" },
+    { "title": "TrueTrophies - Borderlands 3 (PS4) Trophies", "url": "https://www.truetrophies.com/game/Borderlands-3-PS4/trophies" },
+    { "title": "PSNProfiles - Borderlands 3 Trophies", "url": "https://psnprofiles.com/trophies/9641-borderlands-3" },
+    { "title": "Borderlands Wiki (Fandom) - Achievement (Borderlands 3)", "url": "https://borderlands.fandom.com/wiki/Achievement_(Borderlands_3)" },
+    { "title": "DamnModz - Borderlands 3 Trophy Guide", "url": "https://damnmodz.com/wiki/playstation-trophies/borderlands-3/" }
+  ],
+  "guide": {
+    "summary_pt": "Platina tranquila e longa: a lista do jogo base tem 45 troféus (1 platina, 3 ouro, 6 prata e 35 bronze) e tudo cabe numa única jogada, já que missões secundárias e colecionáveis continuam disponíveis depois da história. O grosso do trabalho é a limpeza pós-campanha: todas as secundárias, todos os locais nomeados, Campos de Provação, Círculos do Massacre, caçadas e alvos. As seis DLCs (Moxxi's Heist, Guns Love and Tentacles, Bounty of Blood, Psycho Krieg, Designer's Cut e Director's Cut) têm troféus próprios que não contam para a platina.",
+    "summary_en": "A relaxed but long platinum: the base list has 45 trophies (1 platinum, 3 gold, 6 silver, 35 bronze) and everything fits in a single playthrough, since side missions and collectibles stay available after the story. Most of the work is post-campaign cleanup: every side mission, every named location, Proving Grounds, Circles of Slaughter, hunts and targets. The six DLCs (Moxxi's Heist, Guns Love and Tentacles, Bounty of Blood, Psycho Krieg, Designer's Cut and Director's Cut) have their own trophies that do not count toward the platinum.",
+    "difficulty": 4,
+    "estimated_hours": 60,
+    "min_playthroughs": 1,
+    "online_required": true,
+    "missable_warning_pt": "Não há troféus perdíveis na lista base. Só faça tudo com o mesmo personagem e na mesma jogada (progresso de missões e colecionáveis não passa para o Modo Caçador da Arca Verdadeiro) e evite usar personagem com nível pré-elevado, que pula os troféus iniciais.",
+    "missable_warning_en": "There are no missable trophies in the base list. Just do everything on the same character and playthrough (mission and collectible progress does not carry into True Vault Hunter Mode) and avoid pre-leveled characters, which skip the early trophies.",
+    "roadmap": [
+      {
+        "title_pt": "Etapa 1: campanha com secundárias pelo caminho",
+        "title_en": "Step 1: Campaign with side missions along the way",
+        "steps_pt": [
+          "Jogue a história no Modo Normal, de preferência solo ou como anfitrião (como convidado em co-op alguns troféus podem não destravar).",
+          "Faça as missões secundárias conforme aparecem: você sobe de nível mais rápido e já encaminha À La Carte e Getting A Little On The Side.",
+          "Pegue os troféus rápidos de Sanctuary III: gorjeta para Moxxi, granada na máquina caça-níquel, compras no Crazy Earl e pontuação perfeita no estande de tiro.",
+          "Aproveite para matar com barril explosivo, com faca de arma (gun blade), com granada adesiva e para se derrubar com a própria explosão.",
+          "Antes da Vault of the Serpent, salve na nuvem/pendrive: Bye, Felicia! e Damn, Gina são conhecidos por falhar."
+        ],
+        "steps_en": [
+          "Play the story on Normal Mode, ideally solo or as host (as a co-op guest some trophies may not unlock).",
+          "Do side missions as they appear: you level faster and progress À La Carte and Getting A Little On The Side.",
+          "Grab the quick Sanctuary III trophies: tip Moxxi, get a grenade from a slot machine, buy from Crazy Earl and score perfectly at the firing range.",
+          "Along the way, kill with an exploding barrel, a gun blade knife, a sticky grenade, and down yourself with your own explosion.",
+          "Back up your save before the Vault of the Serpent: Bye, Felicia! and Damn, Gina are known to glitch."
+        ]
+      },
+      {
+        "title_pt": "Etapa 2: troféus sociais e online",
+        "title_en": "Step 2: Social and online trophies",
+        "steps_pt": [
+          "Com um segundo controle e uma conta alternativa em tela dividida, vença um duelo e reanime o outro jogador em 'Lute pela Vida'.",
+          "Conectado à PSN, envie qualquer item pelo correio do jogo a um amigo (Gun Pals!).",
+          "Resgate um código SHiFT de Chave Dourada (exige conexão) e use-a no baú dourado de Sanctuary III."
+        ],
+        "steps_en": [
+          "With a second controller and an alt account in split-screen, win a duel and revive the other player from Fight For Your Life.",
+          "While connected to PSN, mail any item to a friend (Gun Pals!).",
+          "Redeem a SHiFT Golden Key code (needs connection) and use it on the golden chest in Sanctuary III."
+        ]
+      },
+      {
+        "title_pt": "Etapa 3: limpeza pós-história",
+        "title_en": "Step 3: Post-story cleanup",
+        "steps_pt": [
+          "Conclua todas as missões secundárias e descubra todos os locais nomeados dos quatro planetas.",
+          "Leia as 30 lajes Eridianas, encontre os 10 Alvos de Oportunidade do Zer0 e as 10 Caçadas Lendárias do Hammerlock.",
+          "Libere e vença os 6 Campos de Provação Eridianos e os 3 Círculos do Massacre sem sair do mapa.",
+          "Complete os desafios de fabricante (100 abates com armas de cada uma das 9 marcas) e equipe itens roxos ou melhores em todos os espaços.",
+          "Chegue ao nível 50; o Modo Caos acelera a experiência se faltar pouco."
+        ],
+        "steps_en": [
+          "Finish every side mission and discover every named location on all four planets.",
+          "Read all 30 Eridian slabs, find Zer0's 10 Targets of Opportunity and Hammerlock's 10 Legendary Hunts.",
+          "Unlock and beat all 6 Eridian Proving Grounds and the 3 Circles of Slaughter without leaving the map.",
+          "Complete the manufacturer challenges (100 kills with each of the 9 brands) and equip purple or better gear in every slot.",
+          "Reach level 50; Mayhem Mode speeds up XP if you are close."
+        ]
+      }
+    ],
+    "trophies": [
+      { "ext_id": null, "name_pt": "Caçador da Arca Supremo", "name_en": "Ultimate Vault Hunter", "type": "platinum", "missable": false, "tip_pt": "Destrave todos os troféus do jogo base; nenhum troféu de DLC é exigido.", "tip_en": "Unlock every base game trophy; no DLC trophies are required." },
+      { "ext_id": null, "name_pt": "Você Tem Habilidades", "name_en": "You Got Skills", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Rumo às Estrelas", "name_en": "Star Bound", "type": "bronze", "missable": false, "tip_pt": "Alcance o nível 10; vem naturalmente na campanha.", "tip_en": "Reach level 10; comes naturally during the campaign." },
+      { "ext_id": null, "name_pt": "Saltando Rumo ao Topo", "name_en": "Vaulting Your Way To The Top", "type": "silver", "missable": false, "tip_pt": "Alcance o nível 25 fazendo as secundárias junto com a história.", "tip_en": "Reach level 25 by doing side missions alongside the story." },
+      { "ext_id": null, "name_pt": "O Mais Fodão das Borderlands", "name_en": "Biggest Badass In The Borderlands", "type": "gold", "missable": false, "tip_pt": "Alcance o nível 50. Com todas as secundárias e locais feitos você chega perto; Modo Caos acelera o restante.", "tip_en": "Reach level 50. Doing all side missions and locations gets you close; Mayhem Mode speeds up the rest." },
+      { "ext_id": null, "name_pt": "Acessórios", "name_en": "Bolt-Ons", "type": "bronze", "missable": false, "tip_pt": "Desbloqueie 10 cabeças ou visuais de personagem; vêm de baús, chefes, Crazy Earl e recompensas de missão.", "tip_en": "Unlock 10 character heads or skins; they come from chests, bosses, Crazy Earl and mission rewards." },
+      { "ext_id": null, "name_pt": "Mecâni-Legal", "name_en": "Mechani-Cool", "type": "bronze", "missable": false, "tip_pt": "Sequestre veículos inimigos diferentes para liberar 10 peças de veículo no Catch-A-Ride.", "tip_en": "Hijack different enemy vehicles to unlock 10 vehicle parts at Catch-A-Ride." },
+      { "ext_id": null, "name_pt": "Gorjetas São Bem-Vindas", "name_en": "Tips Appreciated", "type": "bronze", "missable": false, "tip_pt": "Deixe uma gorjeta no pote do bar da Moxxi em Sanctuary III.", "tip_en": "Leave a tip in the jar at Moxxi's bar on Sanctuary III." },
+      { "ext_id": null, "name_pt": "Espero Que Você Não Tenha Dado Tea-bag", "name_en": "I Hope You Didn't Tea-bag", "type": "bronze", "missable": false, "tip_pt": "Vença um duelo: em tela dividida, dê um golpe corpo a corpo no segundo jogador e aceite o desafio.", "tip_en": "Win a duel: in split-screen, melee the second player and accept the challenge." },
+      { "ext_id": null, "name_pt": "Fique Longe da Luz", "name_en": "Stay Away From The Light", "type": "bronze", "missable": false, "tip_pt": "Reanime outro jogador em 'Lute pela Vida'; aliados controlados pela IA não contam. Use tela dividida.", "tip_en": "Revive another player in Fight For Your Life; AI allies do not count. Use split-screen." },
+      { "ext_id": null, "name_pt": "Parceiros de Arma!", "name_en": "Gun Pals!", "type": "bronze", "missable": false, "tip_pt": "Conectado à PSN, abra Social > Correio e envie qualquer item para alguém da lista de amigos.", "tip_en": "While connected to PSN, open Social > Mail and send any item to someone on your friends list." },
+      { "ext_id": null, "name_pt": "Soltando a Carga", "name_en": "Dropping Loads", "type": "bronze", "missable": false, "tip_pt": "Jogue nas máquinas caça-níquel a dinheiro do bar da Moxxi até sair uma granada viva; salve antes para recuperar o dinheiro.", "tip_en": "Play the cash slot machines at Moxxi's until a live grenade drops; save first to get your money back." },
+      { "ext_id": null, "name_pt": "Mirar em Drones É Uma Coisa", "name_en": "Good Against Remotes Is One Thing", "type": "bronze", "missable": false, "tip_pt": "Faça pontuação perfeita no estande de tiro de Sanctuary III; arma precisa e de pente grande ajuda muito.", "tip_en": "Get a perfect score at the Sanctuary III firing range; an accurate, large-magazine gun helps a lot." },
+      { "ext_id": null, "name_pt": "Meu Nome é Earl", "name_en": "My Name Is Earl", "type": "bronze", "missable": false, "tip_pt": "Compre itens cosméticos do Crazy Earl com Erídio no mesmo personagem; a loja abre após a missão 'Sanctuary'.", "tip_en": "Buy cosmetic items from Crazy Earl with Eridium on one character; his shop opens after the 'Sanctuary' mission." },
+      { "ext_id": null, "name_pt": "Contos da Laje Eridiana", "name_en": "Tales From The Eridian Slab", "type": "silver", "missable": false, "tip_pt": "Decifre as 30 lajes Eridianas com o Analisador Eridiano. Se não destravar, escaneie de novo a laje da enfermaria da Tannis.", "tip_en": "Decipher all 30 Eridian slabs with the Eridian Analyzer. If it fails, rescan the slab in Tannis's infirmary." },
+      { "ext_id": null, "name_pt": "Matadouro 3", "name_en": "Slaughterhouse 3", "type": "bronze", "missable": false, "tip_pt": "Vença os três Círculos do Massacre. Sair do mapa reinicia tudo; faça solo e cedo, pois escalam com seu nível.", "tip_en": "Beat all three Circles of Slaughter. Leaving resets progress; do them solo and early, as they scale to your level." },
+      { "ext_id": null, "name_pt": "Cem Nomes para Areia", "name_en": "A Hundred Names For Sand", "type": "bronze", "missable": false, "tip_pt": "Descubra todos os locais nomeados de Pandora; confira o progresso do planeta no mapa.", "tip_en": "Discover every named location on Pandora; check the planet progress on the map." },
+      { "ext_id": null, "name_pt": "Atolado", "name_en": "Swamped", "type": "bronze", "missable": false, "tip_pt": "Descubra todos os locais nomeados de Eden-6.", "tip_en": "Discover every named location on Eden-6." },
+      { "ext_id": null, "name_pt": "Cara da Cidade", "name_en": "City Slicker", "type": "bronze", "missable": false, "tip_pt": "Descubra todos os locais nomeados de Promethea.", "tip_en": "Discover every named location on Promethea." },
+      { "ext_id": null, "name_pt": "Exoarqueolo... Deu pra Entender", "name_en": "Exoarchaeolo—You Get The Gist", "type": "bronze", "missable": false, "tip_pt": "Descubra todos os locais nomeados de Nekrotafeyo.", "tip_en": "Discover every named location on Nekrotafeyo." },
+      { "ext_id": null, "name_pt": "Senhor de Tudo o Que Vê", "name_en": "Master Of All You Survey", "type": "silver", "missable": false, "tip_pt": "Descubra todos os locais nomeados do jogo. Se faltar algum, ande por cada área até o nome surgir na tela.", "tip_en": "Discover every named location in the game. If one is missing, walk each area until its name appears on screen." },
+      { "ext_id": null, "name_pt": "À La Carte", "name_en": "À La Carte", "type": "bronze", "missable": false, "tip_pt": "Conclua 20 missões secundárias; sai naturalmente durante a campanha.", "tip_en": "Complete 20 side missions; comes naturally during the campaign." },
+      { "ext_id": null, "name_pt": "Um Pouco de Coisa Por Fora", "name_en": "Getting A Little On The Side", "type": "gold", "missable": false, "tip_pt": "Conclua todas as missões secundárias; algumas só aparecem após a história. Use o registro de missões para achar as que faltam.", "tip_en": "Complete every side mission; some only appear after the story. Use the mission log to find missing ones." },
+      { "ext_id": null, "name_pt": "100% de Teor", "name_en": "100 Proof", "type": "silver", "missable": false, "tip_pt": "Vença os 6 Campos de Provação Eridianos, liberados pelas Lodestars; o progresso não aparece no registro, então anote.", "tip_en": "Beat all 6 Eridian Proving Grounds, unlocked via Lodestars; progress is not tracked in the log, so note it down." },
+      { "ext_id": null, "name_pt": "Caça Grande", "name_en": "Got Big Game", "type": "bronze", "missable": false, "tip_pt": "Conclua as 10 Caçadas Lendárias do Hammerlock, desafios de tripulação espalhados pelos planetas.", "tip_en": "Complete Hammerlock's 10 Legendary Hunts, crew challenges spread across the planets." },
+      { "ext_id": null, "name_pt": "Mira do Zer0", "name_en": "Zer0ed In", "type": "bronze", "missable": false, "tip_pt": "Elimine os 10 Alvos de Oportunidade do Zer0; ative o desafio no local indicado do mapa.", "tip_en": "Kill Zer0's 10 Targets of Opportunity; trigger each challenge at its map marker." },
+      { "ext_id": null, "name_pt": "Passei por Cima Deles", "name_en": "Barreled Right Over Them", "type": "bronze", "missable": false, "tip_pt": "Mate um inimigo atirando num barril explosivo perto dele.", "tip_en": "Kill an enemy by shooting an exploding barrel next to them." },
+      { "ext_id": null, "name_pt": "Meio a Fim de Esfaquear", "name_en": "Feelin' A Little Stabby", "type": "bronze", "missable": false, "tip_pt": "Mate um inimigo com o golpe corpo a corpo de uma arma com lâmina (gun blade).", "tip_en": "Kill an enemy with the melee strike of a gun with a blade attachment." },
+      { "ext_id": null, "name_pt": "Grudado Neles", "name_en": "Stick It To 'Em", "type": "bronze", "missable": false, "tip_pt": "Mate dois ou mais inimigos com uma única granada adesiva; mire em grupos de inimigos fracos.", "tip_en": "Kill two or more enemies with a single sticky grenade; aim at groups of weak enemies." },
+      { "ext_id": null, "name_pt": "Nos Trinques", "name_en": "On Fleek", "type": "silver", "missable": false, "tip_pt": "Equipe itens roxos ou melhores em todos os espaços (berloques não contam); exige o Sincronizador Eridiano de Eden-6.", "tip_en": "Equip purple or better gear in every slot (trinkets excluded); requires the Eridian Synchronizer from Eden-6." },
+      { "ext_id": null, "name_pt": "Cartão de Fidelidade", "name_en": "Rewards Card", "type": "bronze", "missable": false, "tip_pt": "Faça 100 abates com armas de cada um dos 9 fabricantes para receber todos os pacotes de fidelidade.", "tip_en": "Get 100 kills with weapons from each of the 9 manufacturers to receive every loyalty package." },
+      { "ext_id": null, "name_pt": "Bem-vindo aos Crimson Raiders", "name_en": "Welcome to the Crimson Raiders", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Até Mais, Pandora!", "name_en": "So Long, Pandora!", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "NOG Fora", "name_en": "NOG It Off", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Bigodeixa Eu Te Perguntar", "name_en": "I Mustache You A Question", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Longe da Minha Vista", "name_en": "Gone From My Sight", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Essa Foi Fria", "name_en": "That Was Cold", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Herdeiro de um Castelo Vazio", "name_en": "Heir To An Empty Castle", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Cruzando as Serpentinas", "name_en": "Cross The Streamers", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Apocalypso!", "name_en": "Apocalypso!", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Sou uma Deusa, uma Gloriosa Guerreira", "name_en": "I Am A Goddess, A Glorious Female Warrior", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Tchau, Felicia!", "name_en": "Bye, Felicia!", "type": "gold", "missable": false, "tip_pt": "Sai ao ativar o Modo Caos no fim de 'Divine Retribution'. Faça backup antes da Vault of the Serpent caso não destrave.", "tip_en": "Pops when you activate Mayhem Mode at the end of 'Divine Retribution'. Back up before the Vault of the Serpent in case it fails." },
+      { "ext_id": null, "name_pt": "Florida Man", "name_en": "Florida Man", "type": "bronze", "missable": false, "tip_pt": "Derrube-se com a própria granada, foguete ou barril explosivo; tire o escudo para acelerar.", "tip_en": "Down yourself with your own grenade, rocket or exploding barrel; remove your shield to speed it up." },
+      { "ext_id": null, "name_pt": "Continue Dourado", "name_en": "Stay Golden", "type": "bronze", "missable": false, "tip_pt": "Resgate um código SHiFT de Chave Dourada (online) e use-a no baú dourado de Sanctuary III.", "tip_en": "Redeem a SHiFT Golden Key code (online) and use it on the golden chest in Sanctuary III." },
+      { "ext_id": null, "name_pt": "Caramba, Gina", "name_en": "Damn, Gina", "type": "silver", "missable": false, "tip_pt": "Obtenha as recompensas de Arca; é concluído na reta final da história. Faça backup antes da Vault of the Serpent.", "tip_en": "Obtain the Vault rewards; it completes near the end of the story. Back up before the Vault of the Serpent." }
+    ],
+    "platinum_tip_pt": "Faça tudo com um único personagem e no Modo Normal, solo ou como anfitrião. Guarde um backup do save antes da Vault of the Serpent e, se um troféu de local ou de colecionável não destravar, revisite a área ou repita a ação antes de recomeçar qualquer coisa.",
+    "platinum_tip_en": "Do everything on a single character in Normal Mode, solo or as host. Keep a save backup before the Vault of the Serpent and, if a location or collectible trophy fails, revisit the area or repeat the action before restarting anything.",
+    "confidence_note_pt": "PowerPyx e PSNProfiles não puderam ser abertos diretamente (rede da sessão bloqueada); as informações vieram de resultados de busca dessas e das demais fontes. A ordem da lista foi reconstruída pelos IDs do PlayStationTrophies; as posições de You Got Skills, Vaulting Your Way To The Top, City Slicker e Exoarchaeolo—You Get The Gist são inferidas. Os nomes em português são traduções próprias, não os nomes oficiais da PSN brasileira. A quantidade exata de cosméticos do Crazy Earl (fontes citam 20) e a exigência de PS Plus para o correio não foram confirmadas. A dificuldade varia entre 3/10 e 4/10 e o tempo entre 50 e 70 horas conforme a fonte.",
+    "confidence_note_en": "PowerPyx and PSNProfiles could not be opened directly (session network blocked); information came from search results for those and the other sources. List order was rebuilt from PlayStationTrophies IDs; the positions of You Got Skills, Vaulting Your Way To The Top, City Slicker and Exoarchaeolo—You Get The Gist are inferred. Portuguese names are our own translations, not the official Brazilian PSN names. The exact number of Crazy Earl cosmetics (sources cite 20) and whether PS Plus is needed for mail were not confirmed. Difficulty ranges from 3/10 to 4/10 and time from 50 to 70 hours depending on the source."
+  }
+}
