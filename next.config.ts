@@ -2,6 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ["@libsql/client", "libsql"],
+  // Os guias ficam em arquivos JSON no repositório; inclui a pasta no pacote publicado das páginas de guia.
+  outputFileTracingIncludes: {
+    "/guias": ["./guides/**/*.json"],
+    "/guias/*": ["./guides/**/*.json"],
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.igdb.com" },

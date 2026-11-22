@@ -1,17 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { generateGuideAction, toggleMissableAction } from "@/app/actions";
+import { requestGuideAction, toggleMissableAction } from "@/app/actions";
 import { SubmitButton } from "@/components/submit-button";
 import { Cover, Flash, PlatformBadge, ProgressBar, StatTile, TrophyIcon } from "@/components/ui";
 import { all, get } from "@/lib/db";
 import { date, hours, parseJson } from "@/lib/format";
-import { getGuideRow, guideAvailable, guideKind, type Source } from "@/lib/guide";
-import { parseGuide, type Guide } from "@/lib/guide-schema";
+import { guideAutomationAvailable, guideKind, guideRequestStatus, loadGuide } from "@/lib/guide";
+import type { Guide } from "@/lib/guide-schema";
 import type { AchievementRow, GameRow } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
-// Gerar um guia (pesquisa na web + montagem) pode levar alguns minutos.
-export const maxDuration = 300;
 
 const T = {
   pt: {
@@ -44,7 +42,7 @@ const T = {
     images: "Imagens do jogo",
     sources: "Fontes consultadas",
     note: "Atenção",
-    ai: "Guia gerado por IA a partir da lista oficial e de pesquisa na web. Confira os perdíveis antes de começar.",
+    ai: "Guia escrito pelo Claude Code a partir da lista oficial e de pesquisa na web. Confira os perdíveis antes de começar.",
     edited: "Marcações de perdível ajustadas por você.",
     unofficial: "Lista vinda da pesquisa (sincronize a conta para ver a lista oficial e o seu progresso).",
     noList: "Nenhuma lista de troféus sincronizada para este jogo ainda. Ela aparece depois que você jogar e sincronizar a conta em Contas.",
@@ -84,7 +82,7 @@ const T = {
     images: "Game images",
     sources: "Sources",
     note: "Heads-up",
-    ai: "AI-generated guide based on the official list and web research. Double-check missables before you start.",
+    ai: "Guide written by Claude Code from the official list and web research. Double-check missables before you start.",
     edited: "Missable flags adjusted by you.",
     unofficial: "List from research (sync your account to see the official list and your progress).",
     noList: "No trophy list synced for this game yet. It shows up after you play and sync your account.",
@@ -119,12 +117,13 @@ export default async function GuidePage({ params, searchParams }: PageProps<"/gu
   if (!kind) notFound();
 
   const source = kind === "platina" ? "psn" : "xbox";
-  const [official, guideRow] = await Promise.all([
+  const [official, loaded] = await Promise.all([
     all<AchievementRow>("SELECT * FROM achievements WHERE game_id = ? AND source = ? ORDER BY CAST(ext_id AS INTEGER), ext_id", [id, source]),
-    getGuideRow(id),
+    loadGuide(game),
   ]);
-  const guide = parseGuide(guideRow);
-  const sources = parseJson<Source[]>(guideRow?.sources, []);
+  const guide = loaded?.guide ?? null;
+  const sources = loaded?.sources ?? [];
+  const request = await guideRequestStatus(game, loaded);
   const shots = parseJson<string[]>(game.screenshots, []);
 
   // Junta a lista oficial (nomes PT/EN, obtido/faltando, raridade) com as informações do guia (perdível, dica).
@@ -205,16 +204,36 @@ export default async function GuidePage({ params, searchParams }: PageProps<"/gu
           {guide ? <p className="max-w-3xl text-sm leading-relaxed text-ink-2">{lang === "en" ? guide.summary_en : guide.summary_pt}</p> : null}
           <div className="flex flex-wrap gap-2">
             <Link href={`/jogo/${id}`} className="btn-ghost">Ficha do jogo</Link>
-            {guideAvailable() ? (
-              <form action={generateGuideAction.bind(null, id)}>
-                <SubmitButton className={guide ? "btn-ghost" : "btn-primary"} pending="Gerando guia… pode levar até 3 minutos">
-                  {guide ? "Gerar guia novamente" : "Gerar guia com IA"}
+            {guideAutomationAvailable() && request.state === "nenhum" ? (
+              <form action={requestGuideAction.bind(null, id)}>
+                <SubmitButton className={guide ? "btn-ghost" : "btn-primary"} pending="Enviando pedido…">
+                  {guide ? "Pedir guia atualizado" : "Gerar guia com Claude Code"}
                 </SubmitButton>
               </form>
             ) : null}
           </div>
         </div>
       </section>
+
+      {request.state !== "nenhum" ? (
+        <section
+          className={`rounded-lg border p-4 text-sm ${
+            request.state === "falhou" ? "border-red-900/60 bg-red-950/40 text-red-200" : "border-sky-900/60 bg-sky-950/40 text-sky-100"
+          }`}
+          role="status"
+        >
+          {request.state === "fila" ? "⏳ Pedido de guia na fila do GitHub. " : null}
+          {request.state === "rodando" ? "🔎 O Claude Code está pesquisando e escrevendo o guia. " : null}
+          {request.state === "publicando" ? "🚀 Guia pronto! Publicando no site; atualize a página em 1 a 2 minutos. " : null}
+          {request.state === "falhou" ? "Não foi possível gerar o guia. Veja os detalhes no GitHub e tente de novo mais tarde. " : null}
+          <span className="text-xs opacity-80">Pedido em {date(`${request.since.replace(" ", "T")}Z`)}.</span>{" "}
+          {request.url ? (
+            <a href={request.url} target="_blank" rel="noreferrer" className="underline">
+              Acompanhar no GitHub
+            </a>
+          ) : null}
+        </section>
+      ) : null}
 
       {/* Tempo e dificuldade */}
       <section className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
@@ -391,18 +410,6 @@ export default async function GuidePage({ params, searchParams }: PageProps<"/gu
       {/* Vídeo e imagens */}
       <section className="card space-y-4 p-5">
         <h2 className="text-lg font-semibold">{t.video}</h2>
-        {guideRow?.video_id ? (
-          <div className="aspect-video w-full max-w-3xl overflow-hidden rounded-lg">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${guideRow.video_id}`}
-              title={guideRow.video_title ?? "YouTube"}
-              className="h-full w-full"
-              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-            />
-          </div>
-        ) : null}
         <a href={`https://www.youtube.com/results?search_query=${ytQuery}`} target="_blank" rel="noreferrer" className="btn-ghost">
           ▶ {t.watch}
         </a>
@@ -427,7 +434,7 @@ export default async function GuidePage({ params, searchParams }: PageProps<"/gu
             </p>
           ) : null}
           <p className="text-xs text-ink-3">
-            {t.ai} {guideRow?.edited ? t.edited : ""} ({date(guideRow?.updated_at)})
+            {t.ai} {loaded?.edited ? t.edited : ""} ({date(loaded?.updatedAt)})
           </p>
           {sources.length ? (
             <details>

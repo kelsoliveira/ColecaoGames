@@ -5,7 +5,7 @@ import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { SESSION_COOKIE, SESSION_DAYS, checkPassword, createSession, passwordRequired, verifySession } from "@/lib/auth";
 import { batch, get, run } from "@/lib/db";
-import { generateGuide, toggleMissable } from "@/lib/guide";
+import { requestGuide, toggleMissable } from "@/lib/guide";
 import { applyIgdb, bestIgdbMatch, enrichAll } from "@/lib/igdb";
 import { syncPsn } from "@/lib/psn";
 import { igdbCredentials } from "@/lib/settings";
@@ -111,6 +111,7 @@ export async function deleteGame(id: number) {
   await batch([
     { sql: "DELETE FROM achievements WHERE game_id=?", args: [id] },
     { sql: "DELETE FROM guides WHERE game_id=?", args: [id] },
+    { sql: "DELETE FROM guide_requests WHERE game_id=?", args: [id] },
     { sql: "DELETE FROM games WHERE id=?", args: [id] },
   ]);
   revalidatePath("/", "layout");
@@ -174,20 +175,21 @@ export async function refreshMetadata(id: number, form: FormData) {
 
 // ---------- Guias de platina / 100% ----------
 
-export async function generateGuideAction(gameId: number) {
+export async function requestGuideAction(gameId: number) {
   await requireAuth();
   try {
-    await generateGuide(gameId);
+    await requestGuide(gameId);
   } catch (e) {
-    redirect(msg(`/guias/${gameId}`, "erro", `Não foi possível gerar o guia: ${(e as Error).message}`));
+    redirect(msg(`/guias/${gameId}`, "erro", `Não foi possível pedir o guia: ${(e as Error).message}`));
   }
-  revalidatePath("/guias", "layout");
-  redirect(msg(`/guias/${gameId}`, "ok", "Guia gerado! Confira as marcações de perdíveis."));
+  revalidatePath(`/guias/${gameId}`);
+  redirect(msg(`/guias/${gameId}`, "ok", "Pedido enviado! O Claude Code está preparando o guia; ele aparece aqui em cerca de 5 a 10 minutos."));
 }
 
 export async function toggleMissableAction(gameId: number, index: number, query: string) {
   await requireAuth();
-  await toggleMissable(gameId, index);
+  const game = await get<GameRow>("SELECT * FROM games WHERE id = ?", [gameId]);
+  if (game) await toggleMissable(game, index);
   revalidatePath(`/guias/${gameId}`);
   redirect(`/guias/${gameId}${query}`);
 }

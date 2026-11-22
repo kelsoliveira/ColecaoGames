@@ -32,28 +32,6 @@ Guarde a URL e o token num gerenciador de senhas ou num bloco de notas temporár
 3. Abra o app criado, copie o **Client ID** e toque em **New Secret** para gerar e copiar o
    **Client Secret**.
 
-## 3b. Chave da Anthropic para os guias de platina (5 min, opcional)
-
-É o que gera os guias de platina (PlayStation) e de 100% (Xbox) com IA.
-
-1. Acesse **platform.claude.com** e crie a conta (ou entre, se já tiver).
-2. Na área de cobrança (**Billing**), cadastre um meio de pagamento ou compre créditos. A cobrança é por uso.
-3. Em **Spend limits** (`platform.claude.com/settings/spend-limits`), defina um **limite de gasto mensal**
-   (por exemplo, US$ 10) para não ter surpresas.
-4. Abra a página **API keys** (`platform.claude.com/settings/keys`) e toque em **Create key**:
-   - **Nome:** por exemplo `colecao-games`
-   - **Expiração:** a que preferir (com prazo é mais seguro; anote a data para renovar)
-   - **Linked account:** você mesmo
-5. Copie a chave (começa com `sk-ant-`). **Ela aparece uma única vez**: guarde no gerenciador de senhas.
-6. Na Vercel, cadastre a chave como `ANTHROPIC_API_KEY` e faça um **Redeploy**.
-
-Cada guia faz uma pesquisa na web e depois monta o texto. O custo estimado é de **US$ 0,30 a US$ 1 por guia**,
-conforme o tamanho da lista de troféus. O guia fica salvo e só é cobrado de novo se você tocar em "Gerar guia
-novamente".
-
-Opcional: para mostrar um vídeo de guia dentro da página, crie uma chave da **YouTube Data API v3** no Google
-Cloud Console. Sem ela, a página mostra um botão que abre a busca no YouTube.
-
 ## 4. Publicar na Vercel (5 min)
 
 1. Acesse **vercel.com** e entre com o **GitHub**.
@@ -70,8 +48,9 @@ Cloud Console. Sem ela, a página mostra um botão que abre a busca no YouTube.
    | `IGDB_CLIENT_ID` | Client ID do passo 3 |
    | `IGDB_CLIENT_SECRET` | Client Secret do passo 3 |
    | `SESSION_SECRET` | opcional: um texto aleatório longo (o gerador de senhas ajuda) |
-   | `ANTHROPIC_API_KEY` | opcional: chave do passo 3b (guias com IA) |
-   | `YOUTUBE_API_KEY` | opcional: chave da YouTube Data API (vídeo dentro do guia) |
+   | `GITHUB_DISPATCH_TOKEN` | opcional, para o botão de guias: veja a seção 8 |
+   | `GITHUB_REPO` | opcional, para o botão de guias: `seu-usuario/ColecaoGames` |
+   | `GITHUB_BRANCH` | opcional: branch que a Vercel publica (padrão: o próprio branch do deploy) |
 
 5. Toque em **Deploy** e espere 1 a 2 minutos.
 6. Copie o endereço gerado (`https://algumacoisa.vercel.app`).
@@ -94,9 +73,11 @@ Cloud Console. Sem ela, a página mostra um botão que abre a busca no YouTube.
 ## 5b. Guias de platina
 
 1. Sincronize a PSN ou o Xbox primeiro, para o guia usar a lista oficial de troféus e mostrar o que você já tem.
-2. No menu, abra **Guias de platina**, escolha o jogo e toque em **Gerar guia com IA**. Leva de 1 a 3 minutos.
-3. Os troféus perdíveis aparecem destacados. Se algum estiver errado, use **Marcar/Desmarcar perdível**.
-4. Use **PT-BR / EN** no topo do guia para trocar o idioma.
+2. No menu, abra **Guias de platina** e escolha o jogo.
+3. Toque em **Gerar guia com Claude Code** (depois de fazer a configuração da seção 8). A página mostra o andamento
+   ("na fila", "pesquisando", "publicando") e o guia aparece em cerca de 5 a 10 minutos.
+4. Os troféus perdíveis aparecem destacados. Se algum estiver errado, use **Marcar/Desmarcar perdível**.
+5. Use **PT-BR / EN** no topo do guia para trocar o idioma.
 
 ## 6. Instalar na tela inicial
 
@@ -118,3 +99,54 @@ Cloud Console. Sem ela, a página mostra um botão que abre a busca no YouTube.
 - **Atualizações do código:** cada novo commit no branch do projeto gera um deploy automático na Vercel.
   Jogos novos adicionados ao catálogo inicial entram no banco no primeiro acesso depois do deploy, sem
   apagar nada do que já existe.
+
+## 8. Guias com Claude Code (botão no site, sem API)
+
+O botão do site aciona uma tarefa automática no GitHub (Actions) que roda o **Claude Code** com a **sua assinatura
+do Claude**. Ele pesquisa, escreve o guia em `guides/<jogo>.json`, faz o commit e a Vercel publica sozinha.
+**Não usa a API nem gera cobrança por uso**; o consumo entra no limite do plano de quem gerou o token.
+
+> Usando o plano Team da empresa, confirme antes com o administrador e com a política interna se o uso em
+> projeto pessoal é permitido. O token fica ligado à assinatura de quem o gerou.
+
+### 8.1 Gerar o token do Claude Code (precisa de um computador, uma vez)
+
+1. Instale o Claude Code no computador (instruções em **code.claude.com**).
+2. No terminal, rode: `claude setup-token`
+3. Entre com a sua conta do Claude no navegador que abrir e autorize.
+4. Copie o token exibido no terminal. Guarde no gerenciador de senhas e não compartilhe.
+
+### 8.2 Cadastrar o token no GitHub
+
+1. No GitHub, abra o repositório **ColecaoGames** e vá em **Settings → Secrets and variables → Actions**.
+2. Toque em **New repository secret**.
+3. Name: `CLAUDE_CODE_OAUTH_TOKEN`. Secret: o token do passo 8.1. Salve.
+4. Em **Settings → Actions → General**, confira se as Actions estão permitidas e, em **Workflow permissions**,
+   marque **Read and write permissions**.
+
+### 8.3 Criar o token que permite ao site acionar o GitHub
+
+1. No GitHub, vá na sua foto → **Settings → Developer settings → Personal access tokens → Fine-grained tokens**.
+2. **Generate new token**:
+   - **Token name:** `colecao-games-guias`
+   - **Expiration:** escolha um prazo (por exemplo, 1 ano)
+   - **Repository access:** *Only select repositories* → **ColecaoGames**
+   - **Permissions → Repository permissions → Actions:** *Read and write* (as outras ficam como estão)
+3. Gere e copie o token (começa com `github_pat_`).
+
+### 8.4 Cadastrar na Vercel
+
+1. Na Vercel, abra o projeto e vá em **Settings → Environment Variables**.
+2. Crie:
+   - `GITHUB_DISPATCH_TOKEN` = token do passo 8.3
+   - `GITHUB_REPO` = `seu-usuario/ColecaoGames`
+3. Faça um **Redeploy**.
+
+### 8.5 Testar
+
+1. No site, abra **Guias de platina**, escolha um jogo e toque em **Gerar guia com Claude Code**.
+2. Acompanhe pelo aviso na página ou pelo link **Acompanhar no GitHub**.
+3. Quando terminar, a Vercel publica e o guia aparece. Se falhar, abra o link do GitHub e me mande o print do erro.
+
+Também dá para pedir guias diretamente numa sessão do Claude Code: eles são salvos na mesma pasta `guides/` e
+aparecem no site após o deploy.

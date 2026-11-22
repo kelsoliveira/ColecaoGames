@@ -2,8 +2,7 @@ import Link from "next/link";
 import { Cover, PlatformBadge, ProgressBar, TrophyIcon } from "@/components/ui";
 import { all } from "@/lib/db";
 import { emptyTrophies, hours, parseJson } from "@/lib/format";
-import { allGuideRows, guideAvailable, guideKind } from "@/lib/guide";
-import { parseGuide } from "@/lib/guide-schema";
+import { guideAutomationAvailable, guideKind, guidesForGames } from "@/lib/guide";
 import type { GameRow, TrophyCounts } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -14,12 +13,11 @@ export default async function GuiasPage({ searchParams }: PageProps<"/guias">) {
   const sp = await searchParams;
   const filter = (typeof sp.f === "string" ? sp.f : "todos") as Filter;
 
-  const [games, guideRows, earnedRows] = await Promise.all([
+  const [games, earnedRows] = await Promise.all([
     all<GameRow>("SELECT * FROM games WHERE status <> 'desejado' ORDER BY title COLLATE NOCASE"),
-    allGuideRows(),
     all<{ game_id: number; ext_id: string; earned: number }>("SELECT game_id, ext_id, earned FROM achievements"),
   ]);
-  const guides = new Map(guideRows.map((r) => [r.game_id, parseGuide(r)]));
+  const guides = await guidesForGames(games);
   const earnedByGame = new Map<number, Set<string>>();
   for (const r of earnedRows) {
     if (!r.earned) continue;
@@ -78,10 +76,10 @@ export default async function GuiasPage({ searchParams }: PageProps<"/guias">) {
         </p>
       </header>
 
-      {!guideAvailable() ? (
+      {!guideAutomationAvailable() ? (
         <p className="rounded-lg border border-amber-900/60 bg-amber-950/30 p-4 text-sm text-amber-200">
-          Para gerar guias, cadastre a variável <code>ANTHROPIC_API_KEY</code> na Vercel (veja o DEPLOY.md). As listas de troféus
-          e o seu progresso já aparecem sem ela.
+          O botão que pede guias ao Claude Code ainda não está configurado (veja a seção “Guias com Claude Code” do DEPLOY.md).
+          Os guias já salvos no repositório, as listas de troféus e o seu progresso aparecem normalmente.
         </p>
       ) : null}
 

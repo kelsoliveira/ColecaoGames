@@ -43,6 +43,21 @@ export const GuideSchema = z.object({
 
 export type Guide = z.infer<typeof GuideSchema>;
 
+// Arquivo salvo no repositório em guides/<slug>.json (escrito pelo Claude Code no GitHub Actions ou na sessão).
+export const GuideFileSchema = z.object({
+  version: z.literal(1),
+  slug: z.string().regex(/^[a-z0-9-]+$/),
+  title: z.string(),
+  platform: z.string(),
+  kind: z.enum(["platina", "100"]),
+  generated_at: z.string().describe("Data/hora ISO 8601 em que o guia foi gerado"),
+  generator: z.string(),
+  sources: z.array(z.object({ title: z.string(), url: z.string() })),
+  guide: GuideSchema,
+});
+
+export type GuideFile = z.infer<typeof GuideFileSchema>;
+
 export type GuideRow = {
   game_id: number;
   kind: "platina" | "100";

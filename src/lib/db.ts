@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS settings (
   value TEXT
 );
 
--- Guias de platina (PlayStation) / 100% (Xbox) gerados por IA. data = JSON validado (ver src/lib/guide-schema.ts)
+-- Cópias editadas (perdíveis corrigidos no site) dos guias em guides/*.json. data = JSON validado (src/lib/guide-schema.ts)
 CREATE TABLE IF NOT EXISTS guides (
   game_id     INTEGER PRIMARY KEY REFERENCES games(id) ON DELETE CASCADE,
   kind        TEXT NOT NULL,           -- platina | 100
@@ -101,6 +101,13 @@ CREATE TABLE IF NOT EXISTS guides (
   edited      INTEGER NOT NULL DEFAULT 0,
   created_at  TEXT NOT NULL DEFAULT (datetime('now')),
   updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+-- Pedidos de guia enviados ao GitHub Actions (para mostrar "em preparação" na página)
+CREATE TABLE IF NOT EXISTS guide_requests (
+  game_id      INTEGER PRIMARY KEY,
+  slug         TEXT NOT NULL,
+  requested_at TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS login_attempts (
