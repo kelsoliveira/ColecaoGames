@@ -1,0 +1,1493 @@
+{
+  "version": 1,
+  "slug": "ps4--assassin-s-creed-the-ezio-collection",
+  "title": "Assassin's Creed The Ezio Collection",
+  "platform": "PS4",
+  "kind": "platina",
+  "generated_at": "2026-11-22T12:32:34Z",
+  "generator": "claude-code-session",
+  "sources": [
+    {
+      "title": "Assassin's Creed II achievements – Assassin's Creed Wiki (Fandom)",
+      "url": "https://assassinscreed.fandom.com/wiki/Assassin%27s_Creed_II_achievements"
+    },
+    {
+      "title": "Assassin's Creed II/Achievements and trophies – StrategyWiki",
+      "url": "https://strategywiki.org/wiki/Assassin's_Creed_II/Achievements_and_trophies"
+    },
+    {
+      "title": "'Assassin's Creed: Ezio Collection' Guide: The Complete 'Assassin's Creed II' Trophy List – MobileNapps",
+      "url": "https://www.mobilenapps.com/articles/22366/20161118/assassins-creed-ezio-collection-guide-assassins-creed-ii-trophy-list.htm"
+    },
+    {
+      "title": "Assassin's Creed: Brotherhood achievements – Assassin's Creed Wiki (Fandom)",
+      "url": "https://assassinscreed.fandom.com/wiki/Assassin's_Creed:_Brotherhood_achievements"
+    },
+    {
+      "title": "Assassin's Creed: Brotherhood/Achievements and trophies – StrategyWiki",
+      "url": "https://strategywiki.org/wiki/Assassin's_Creed:_Brotherhood/Achievements_and_trophies"
+    },
+    {
+      "title": "The Ezio Collection - Assassin's Creed Brotherhood (PS4) - Trophies – PlayStation Mania",
+      "url": "https://www.psmania.net/trophies/the-ezio-collection---assassins-creed-brotherhood"
+    },
+    {
+      "title": "Assassin's Creed: Revelations achievements – Assassin's Creed Wiki (Fandom)",
+      "url": "https://assassinscreed.fandom.com/wiki/Assassin's_Creed:_Revelations_achievements"
+    },
+    {
+      "title": "Assassin's Creed: Revelations (ACR) - all trophies for PS4 – VGTimes",
+      "url": "https://vgtimes.com/games/assassins-creed-revelations/achievements-and-trophies/ps4/"
+    },
+    {
+      "title": "Assassin's Creed Revelations Trophy Guide – Trophy Hunter",
+      "url": "https://www.trophy-hunter.net/2017/05/17/assassins-creed-revelations/"
+    },
+    {
+      "title": "Trophies - Assassin's Creed Revelations Guide – SuperCheats",
+      "url": "https://www.supercheats.com/guides/assassins-creed-revelations/trophies"
+    },
+    {
+      "title": "Assassin's Creed: The Ezio Collection Achievement Guide & Road Map – XboxAchievements",
+      "url": "https://www.xboxachievements.com/game/assassins-creed-the-ezio-collection/guide/"
+    },
+    {
+      "title": "Assassin's Creed Ezio Collection Trophies Ditch Multiplayer – DualShockers",
+      "url": "https://www.dualshockers.com/assassins-creed-ezio-collection-trophies/"
+    }
+  ],
+  "guide": {
+    "summary_pt": "A versão PS4 de The Ezio Collection tem três listas separadas, cada uma com sua platina: Assassin's Creed II (51 troféus), Brotherhood (51, sem multiplayer e com a DLC O Desaparecimento de Da Vinci) e Revelations (50, sem multiplayer e com a DLC The Lost Archive). São três platinas no total, todas offline. Cada jogo exige uma campanha completa mais limpeza de colecionáveis e atividades; nada é muito difícil, mas o conjunto é longo.",
+    "summary_en": "The PS4 version of The Ezio Collection has three separate lists, each with its own platinum: Assassin's Creed II (51 trophies), Brotherhood (51, no multiplayer, Da Vinci Disappearance DLC included) and Revelations (50, no multiplayer, The Lost Archive DLC included). That is three platinums, all offline. Each game needs one full campaign plus collectible and side-activity cleanup; nothing is very hard, but the whole package is long.",
+    "difficulty": 4,
+    "estimated_hours": 95,
+    "min_playthroughs": 3,
+    "online_required": false,
+    "missable_warning_pt": "AC II: \"Fly Swatter\" só pode ser feito no voo da Sequência 8. Brotherhood: \"Mailer Daemon\" e \"Dust to Dust\" (presente, em 2012) devem ser feitos antes da Sequência 8. Revelations não tem perdíveis. O resto pode ser limpo após a história.",
+    "missable_warning_en": "AC II: \"Fly Swatter\" can only be done during the Sequence 8 flight. Brotherhood: \"Mailer Daemon\" and \"Dust to Dust\" (present day, 2012) must be done before Sequence 8. Revelations has no missables. Everything else can be cleaned up after the story.",
+    "roadmap": [
+      {
+        "title_pt": "Etapa 1 – Assassin's Creed II",
+        "title_en": "Step 1 – Assassin's Creed II",
+        "steps_pt": [
+          "Jogue a história; na Sequência 8, chute um guarda durante o voo na máquina de Leonardo (Fly Swatter).",
+          "Durante a campanha, invista na Villa Auditore: a renda paga armas, armaduras e pinturas.",
+          "Faça as 6 Tumbas de Assassino para a Armadura de Altaïr e os troféus de tumba.",
+          "Após o final, use o modo livre para penas, estatuetas, glifos, pontos de observação e troféus de combate (Sweeper, No-Hitter, Messer Sandman, Doctor)."
+        ],
+        "steps_en": [
+          "Play the story; in Sequence 8 kick a guard during Leonardo's flying machine flight (Fly Swatter).",
+          "Invest in the Villa Auditore early: its income pays for weapons, armor and paintings.",
+          "Do the 6 Assassin's Tombs for Altaïr's Armor and the tomb trophies.",
+          "After the ending, use free roam for feathers, statuettes, glyphs, viewpoints and combat trophies (Sweeper, No-Hitter, Messer Sandman, Doctor)."
+        ]
+      },
+      {
+        "title_pt": "Etapa 2 – Assassin's Creed Brotherhood",
+        "title_en": "Step 2 – Assassin's Creed Brotherhood",
+        "steps_pt": [
+          "Antes da Sequência 8, saia do Animus no presente: leia o e-mail (Mailer Daemon) e ache o artefato (Dust to Dust).",
+          "Queime as torres Borgia cedo para liberar lojas e recrutas; evolua os assassinos com contratos.",
+          "Faça covis de Rômulo, missões das máquinas de Leonardo, glifos e desafios de guilda.",
+          "Conclua a DLC O Desaparecimento de Da Vinci e repita memórias até 100% de sincronia (il Principe)."
+        ],
+        "steps_en": [
+          "Before Sequence 8, exit the Animus in the present: read the email (Mailer Daemon) and find the artifact (Dust to Dust).",
+          "Burn Borgia towers early to unlock shops and recruits; level Assassins with contracts.",
+          "Do the Romulus lairs, Leonardo war machine missions, glyphs and Guild Challenges.",
+          "Finish The Da Vinci Disappearance DLC and replay memories to reach 100% sync (il Principe)."
+        ]
+      },
+      {
+        "title_pt": "Etapa 3 – Assassin's Creed Revelations",
+        "title_en": "Step 3 – Assassin's Creed Revelations",
+        "steps_pt": [
+          "Jogue a história buscando sincronia total quando der; pegue fragmentos de dados para liberar a Jornada de Desmond.",
+          "Recrute e evolua 7 Mestres Assassinos, conquiste covis e domine o Mediterrâneo (Armchair General).",
+          "Limpe livros, páginas de Ishak Pasha, missões de bomba e troféus de combate; repita memórias para 100%.",
+          "Por último, faça The Lost Archive: Impress Warren Vidic e Cross Styx são os troféus mais difíceis da coletânea."
+        ],
+        "steps_en": [
+          "Play the story aiming for full sync when possible; grab data fragments to unlock Desmond's Journey.",
+          "Recruit and level 7 Master Assassins, take dens and dominate the Mediterranean (Armchair General).",
+          "Clean up books, Ishak Pasha pages, bomb missions and combat trophies; replay memories for 100%.",
+          "Finally, play The Lost Archive: Impress Warren Vidic and Cross Styx are the hardest trophies in the collection."
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "ext_id": null,
+        "name_pt": "O Nascimento de um Assassino",
+        "name_en": "The Birth of an Assassin",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Arrivederci Abstergo",
+        "name_en": "Arrivederci Abstergo",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Bem-vindo ao Animus 2.0",
+        "name_en": "Welcome to the Animus 2.0",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "A Dor da Traição",
+        "name_en": "The Pain of Betrayal",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Vingança",
+        "name_en": "Vengeance",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "A Saída do Filho",
+        "name_en": "Exit the Son",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Domingo Sangrento",
+        "name_en": "Bloody Sunday",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Coveiro",
+        "name_en": "Undertaker",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Tumba de Assassino da história, nas catacumbas de Santa Maria Novella (Florença).",
+        "tip_en": "Story Assassin's Tomb in the catacombs under Santa Maria Novella, Florence."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Os Conspiradores",
+        "name_en": "The Conspirators",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Uma Viagem Inesperada",
+        "name_en": "An Unexpected Journey",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Efeito Colateral",
+        "name_en": "Bleeding Effect",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Mercador de Veneza",
+        "name_en": "The Merchant of Venice",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Palácio Impenetrável",
+        "name_en": "The Impenetrable Palazzo",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Baile de Máscaras",
+        "name_en": "Masquerade",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Homem de Bianca",
+        "name_en": "Bianca's Man",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Profeta",
+        "name_en": "The Prophet",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Cofre",
+        "name_en": "The Vault",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Um Velho Amigo Retorna",
+        "name_en": "An Old Friend Returns",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Criador de Mitos",
+        "name_en": "Myth Maker",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Encontre as 8 estatuetas escondidas na Villa Auditore e em Monteriggioni e coloque-as nos nichos.",
+        "tip_en": "Find the 8 statuettes around the Villa and Monteriggioni and place them in their niches."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Homem Vitruviano",
+        "name_en": "Vitruvian Man",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Resolva os 20 enigmas de glifos do Sujeito 16 para liberar todo o vídeo \"A Verdade\".",
+        "tip_en": "Solve all 20 Subject 16 glyph puzzles to unlock the whole \"Truth\" video."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Gari",
+        "name_en": "Street Cleaner",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Carregue e solte 5 corpos dentro de fardos de feno.",
+        "tip_en": "Carry and drop 5 bodies into hay bales."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Mata-Moscas",
+        "name_en": "Fly Swatter",
+        "type": "bronze",
+        "missable": true,
+        "tip_pt": "Na missão da máquina voadora de Leonardo (Sequência 8), dê um chute em um guarda enquanto voa. Única chance.",
+        "tip_en": "During Leonardo's flying machine mission (Sequence 8), kick a guard mid-flight. Only chance."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Messer João Pestana",
+        "name_en": "Messer Sandman",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Jogue areia (agarre e arremesse) em grupos de 4 ou mais guardas de uma vez.",
+        "tip_en": "Throw sand at a group of 4 or more guards at once."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Doutor",
+        "name_en": "Doctor",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Envenene um alvo com a lâmina de veneno e faça um assassinato aéreo nele antes de ele morrer.",
+        "tip_en": "Poison someone with the poison blade, then air-assassinate him before he dies."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Sem Arranhões",
+        "name_en": "No-Hitter",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Mate 10 inimigos em um só combate sem levar dano; contra-ataques facilitam muito.",
+        "tip_en": "Kill 10 enemies in one fight without taking damage; counter-kills make it easy."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Cleptomaníaco",
+        "name_en": "Kleptomaniac",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Bata carteiras até somar 1.000 florins; faça em multidões e use o reload de área se necessário.",
+        "tip_en": "Pickpocket 1,000 florins in total; work crowds and keep notoriety low."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Raio",
+        "name_en": "Lightning Strike",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Corra em disparada por 100 metros sem parar, numa rua longa e reta.",
+        "tip_en": "Sprint 100 meters without stopping on a long, straight street."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Varredor",
+        "name_en": "Sweeper",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Com arma longa (lança/alabarda), use o golpe giratório para derrubar 5 guardas de uma vez.",
+        "tip_en": "With a long weapon, use the sweep attack to knock down 5 guards at once."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Gladiador Veneziano",
+        "name_en": "Venetian Gladiator",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua a Tumba de Assassino em Santa Maria della Visitazione, em Veneza.",
+        "tip_en": "Complete the Assassin's Tomb inside Santa Maria della Visitazione, Venice."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Dá para ver sua casa daqui!",
+        "name_en": "I can see your house from here!",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua a Tumba de Assassino da Torre Grossa, em San Gimignano.",
+        "tip_en": "Complete the Assassin's Tomb inside Torre Grossa, San Gimignano."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Santificado seja o vosso nome",
+        "name_en": "Hallowed be thy name",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua a Tumba de Assassino na Basílica de San Marco, em Veneza.",
+        "tip_en": "Complete the Assassin's Tomb inside the Basilica di San Marco, Venice."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Fuga da Prisão",
+        "name_en": "Prison Escape",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua a Tumba de Assassino da Rocca di Ravaldino (Forlì).",
+        "tip_en": "Complete the Assassin's Tomb in the Rocca di Ravaldino (Forlì)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Menino do Coral",
+        "name_en": "Choir Boy",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua a Tumba de Assassino no Duomo de Florença.",
+        "tip_en": "Complete the Assassin's Tomb in Florence's Duomo."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Assassino de Aluguel",
+        "name_en": "Assassin For Hire",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua o primeiro contrato de assassinato (marcadores de pombal).",
+        "tip_en": "Complete your first assassination contract (pigeon coop markers)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Machão",
+        "name_en": "Macho Man",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua uma missão de surra (marido infiel) para defender a honra de uma mulher.",
+        "tip_en": "Complete a beat-up event to defend a woman's honor."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Roubo em Casa",
+        "name_en": "Steal Home",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Vença uma corrida contra ladrões (missões de corrida).",
+        "tip_en": "Win a race against the thieves."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Mostre suas Cores",
+        "name_en": "Show Your Colors",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Vista a capa Auditore e visite cada cidade e a região de Monteriggioni.",
+        "tip_en": "Wear the Auditore cape and visit each city and the Monteriggioni area."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Faz-Tudo",
+        "name_en": "Handy Man",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Reforme qualquer construção de Monteriggioni.",
+        "tip_en": "Upgrade any building in Monteriggioni."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Gosto da Vista",
+        "name_en": "I like the view",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Sincronize 10 pontos de observação.",
+        "tip_en": "Synchronize 10 viewpoints."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Mergulho Alto",
+        "name_en": "High Dive",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Salte de fé do topo do Campanário de Giotto, em Florença.",
+        "tip_en": "Leap of Faith from the top of Giotto's Campanile in Florence."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Carteiro",
+        "name_en": "Mailman",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Intercepte um mensageiro Borgia (fica marcado no mapa e foge ao ser visto).",
+        "tip_en": "Intercept a Borgia courier (he runs once spotted)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "A Ponta do Iceberg",
+        "name_en": "Tip of the Iceberg",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Escaneie um glifo nas paredes com a Visão de Águia.",
+        "tip_en": "Scan a glyph on a building with Eagle Vision."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Peça do Quebra-Cabeça",
+        "name_en": "A Piece of the Puzzle",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Resolva o primeiro enigma de glifo do Sujeito 16.",
+        "tip_en": "Solve your first Subject 16 glyph puzzle."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Conhecedor de Arte",
+        "name_en": "Art Connoisseur",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Compre uma pintura numa loja de arte (Florença ou Veneza).",
+        "tip_en": "Buy a painting at an art merchant."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Podestà de Monteriggioni",
+        "name_en": "Podestà of Monteriggioni",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Leve a villa a 80% do valor total com reformas, armas, armaduras e pinturas.",
+        "tip_en": "Raise the villa to 80% of its total value via upgrades, weapons, armor and paintings."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Harmonia Perfeita",
+        "name_en": "Perfect Harmony",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "No alfaiate, tinja a roupa com as cores Wetland Ebony e Wetland Ivory.",
+        "tip_en": "At a tailor, dye your outfit Wetland Ebony and Wetland Ivory."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Em Memória de Petruccio",
+        "name_en": "In Memory of Petruccio",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Colete as 100 penas; use um mapa de penas e marque-as conforme pega.",
+        "tip_en": "Collect all 100 feathers; use a feather map and tick them off."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Viciado na Zona Vermelha",
+        "name_en": "Red Light Addict",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Gaste 5.000 florins contratando cortesãs (cerca de 34 contratações).",
+        "tip_en": "Spend 5,000 florins hiring courtesans (about 34 hires)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Homem do Povo",
+        "name_en": "Man of the People",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Jogue dinheiro no chão até somar mais de 300 florins.",
+        "tip_en": "Toss more than 300 florins on the ground in total."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "A vitória está na preparação",
+        "name_en": "Victory lies in preparation",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Compre todas as lâminas ocultas, bolsas e melhorias de armadura de Ezio.",
+        "tip_en": "Get all Hidden Blades, pouches and armor upgrades for Ezio."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Mestre Assassino",
+        "name_en": "Master Assassin",
+        "type": "platinum",
+        "missable": false,
+        "tip_pt": "Platina de Assassin's Creed II: conquiste todos os outros troféus desta lista.",
+        "tip_en": "Assassin's Creed II platinum: earn every other trophy in this list."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Júlio César",
+        "name_en": "Julius Caesar",
+        "type": "platinum",
+        "missable": false,
+        "tip_pt": "Platina de Brotherhood: conquiste todos os outros troféus desta lista (inclui a DLC).",
+        "tip_en": "Brotherhood platinum: earn every other trophy in this list (DLC included)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Dificuldades Técnicas",
+        "name_en": "Technical Difficulties",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Feridas de Batalha",
+        "name_en": "Battle Wounds",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Santuário!",
+        "name_en": "Sanctuary!",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Roma em Ruínas",
+        "name_en": "Rome in Ruins",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Reformador",
+        "name_en": "Fixer-Upper",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Principessa em Outro Castello",
+        "name_en": "Principessa in Another Castello",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Arrecadação de Fundos",
+        "name_en": "Fundraiser",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Esqueça Paris",
+        "name_en": "Forget Paris",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Domingo Sangrento",
+        "name_en": "Bloody Sunday",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Vittoria Agli Assassini",
+        "name_en": "Vittoria Agli Assassini",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Requiescat in Pace",
+        "name_en": "Requiescat in Pace",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Uma Faca no Coração",
+        "name_en": "A Knife to the Heart",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Memória Perfeita",
+        "name_en": "Perfect Recall",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Obtenha 100% de sincronização em qualquer sequência exceto a 1; pode repetir memórias depois.",
+        "tip_en": "Get 100% sync in any sequence other than 1; memories can be replayed."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Déjà Vu",
+        "name_en": "Déjà Vu",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Repita qualquer memória pelo menu do Animus.",
+        "tip_en": "Replay any memory from the Animus menu."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Coveiro 2.0",
+        "name_en": "Undertaker 2.0",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua o covil dos Seguidores de Rômulo nas Catacumbas de Roma.",
+        "tip_en": "Complete the Followers of Romulus lair in the Catacombe di Roma."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Menino de Ouro",
+        "name_en": "Golden Boy",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua o covil nas Termas de Trajano.",
+        "tip_en": "Complete the lair in the Terme di Traiano."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Gladiador",
+        "name_en": "Gladiator",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua o covil no Coliseu.",
+        "tip_en": "Complete the lair in the Colosseum."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Encanador",
+        "name_en": "Plumber",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua o covil na Cloaca Maxima.",
+        "tip_en": "Complete the lair in the Cloaca Maxima."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Equipe de Demolição de Um Homem Só",
+        "name_en": "One-Man Wrecking Crew",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua o covil no Palácio de Latrão.",
+        "tip_en": "Complete the lair in the Palazzo Laterano."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Amém",
+        "name_en": "Amen",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua o covil na Basílica de São Pedro.",
+        "tip_en": "Complete the lair in the Basilica di San Pietro."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Bang!",
+        "name_en": "Bang!",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Missão da máquina de guerra de Leonardo: destrua a metralhadora.",
+        "tip_en": "Leonardo war machine mission: destroy the machine gun."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Splash!",
+        "name_en": "Splash!",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Missão da máquina de guerra: destrua o canhão naval.",
+        "tip_en": "War machine mission: destroy the naval cannon."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Bum!",
+        "name_en": "Boom!",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Missão da máquina de guerra: destrua o bombardeiro.",
+        "tip_en": "War machine mission: destroy the bomber."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Kabum!",
+        "name_en": "Kaboom!",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Missão da máquina de guerra: destrua o tanque.",
+        "tip_en": "War machine mission: destroy the tank."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Reforma em Casa",
+        "name_en": "Home Improvement",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Reforme 5 construções no distrito Antico.",
+        "tip_en": "Renovate 5 buildings in the Antico district."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Ataque às Torres",
+        "name_en": "Tower Offense",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Mate os capitães Borgia e queime todas as torres Borgia.",
+        "tip_en": "Kill the Borgia captains and burn every Borgia tower."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Exibido",
+        "name_en": "Show Off",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua 10 desafios de guilda (cortesãs, ladrões, mercenários, assassinos).",
+        "tip_en": "Complete 10 Guild Challenges."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Estou Vivo (código Morse)",
+        "name_en": "..  .- -- .- .-.. .. ...- .",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Resolva todos os enigmas de glifos do Sujeito 16 (Rifts).",
+        "tip_en": "Solve all of Subject 16's glyph puzzles (Rifts)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Perfeccionista",
+        "name_en": "Perfectionist",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Ganhe 3 medalhas de ouro nas missões de treinamento virtual do Animus.",
+        "tip_en": "Earn 3 gold medals in the Animus virtual training missions."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Irmandade",
+        "name_en": "Brotherhood",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Recrute 3 assassinos salvando cidadãos atacados por guardas.",
+        "tip_en": "Recruit 3 Assassins by rescuing citizens from guards."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Bem-vindo à Irmandade",
+        "name_en": "Welcome to the Brotherhood",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Treine um recruta até o posto de Assassino com contratos pelos pombais.",
+        "tip_en": "Train a recruit to Assassin rank through pigeon coop contracts."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Capture a Bandeira",
+        "name_en": "Capture the Flag",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Remova todas as bandeiras Borgia de Roma; use um mapa.",
+        "tip_en": "Remove every Borgia flag in Rome; use a map."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "In Memoriam",
+        "name_en": "In Memoriam",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Colete todas as penas de Roma.",
+        "tip_en": "Collect all feathers in Rome."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Do Pó ao Pó",
+        "name_en": "Dust to Dust",
+        "type": "bronze",
+        "missable": true,
+        "tip_pt": "Ache o artefato no presente (2012), na Villa Monteriggioni; faça antes da Sequência 8.",
+        "tip_en": "Find the artifact in the present-day Monteriggioni; do it before Sequence 8."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Assassino em Série",
+        "name_en": "Serial Killer",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Faça uma sequência de execução de 10 mortes seguidas em combate.",
+        "tip_en": "Perform a 10-kill execution streak in combat."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Faxina",
+        "name_en": "Spring Cleaning",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Mate um guarda usando uma vassoura (pegue de um varredor).",
+        "tip_en": "Kill a guard with a broom (take one from a sweeper)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Seu Desejo Foi Concedido",
+        "name_en": "Your Wish Is Granted",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Jogue uma moeda em um poço.",
+        "tip_en": "Throw a coin into a well."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Voe como uma Águia",
+        "name_en": "Fly Like an Eagle",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Salte do topo do Castel Sant'Angelo e abra o paraquedas.",
+        "tip_en": "Jump off the top of Castel Sant'Angelo and use a parachute."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Sem Luvas",
+        "name_en": "The Gloves Come Off",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Vença a aposta mais alta nas lutas de rua.",
+        "tip_en": "Win the highest bet at the fist fights."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Mailer Daemon",
+        "name_en": "Mailer Daemon",
+        "type": "bronze",
+        "missable": true,
+        "tip_pt": "Leia o e-mail no computador do presente (2012); faça antes da Sequência 8.",
+        "tip_en": "Read your email on the present-day computer; do it before Sequence 8."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Braço Forte",
+        "name_en": "Strong-Arm",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "DLC: arremesse arma longa, arma pesada e bomba de fumaça a mais de 10 m em guardas.",
+        "tip_en": "DLC: throw a long weapon, heavy weapon and smoke bomb over 10 m at guards."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Grande Apostador",
+        "name_en": "High Roller",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "DLC: ganhe 10.000 florins no jogo de dados Hazard.",
+        "tip_en": "DLC: win 10,000 florins playing Hazard."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "il Principe",
+        "name_en": "il Principe",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "100% de sincronia no jogo base e em todas as missões da DLC; repita memórias.",
+        "tip_en": "100% sync in the base game and all DLC missions; replay memories."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Ataque Aéreo",
+        "name_en": "Airstrike",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "DLC: mate 10 guardas com uma única Chuva de Flechas dos recrutas.",
+        "tip_en": "DLC: kill 10 guards with a single Arrow Storm."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "GPS",
+        "name_en": "GPS",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Conclua a DLC O Desaparecimento de Da Vinci.",
+        "tip_en": "Complete The Da Vinci Disappearance."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Palhaçada",
+        "name_en": "Clowning Around",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "DLC: encontre e espanque os 5 arlequins sedentos.",
+        "tip_en": "DLC: find and beat up the 5 thirsty harlequins."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Entrega Especial",
+        "name_en": "Special Delivery",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "DLC: faça um assassinato duplo descendo de paraquedas.",
+        "tip_en": "DLC: double assassinate from a parachute."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Grande Roubo de Adestramento",
+        "name_en": "Grand Theft Dressage",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "DLC: roube 5 cavalos dos cavaleiros sem descer do seu.",
+        "tip_en": "DLC: steal 5 horses from riders without dismounting."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Subindo",
+        "name_en": "Going Up",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "DLC: mate um guarda com o saco que cai de um elevador.",
+        "tip_en": "DLC: kill a guard with the sack that drops from a lift."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Fácil Vem, Fácil Vai",
+        "name_en": "Easy Come, Easy Go",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "DLC: pague 500 florins a um orador e depois bata a carteira dele.",
+        "tip_en": "DLC: pay an orator 500 florins, then pickpocket him."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Conquistador",
+        "name_en": "The Conqueror",
+        "type": "platinum",
+        "missable": false,
+        "tip_pt": "Platina de Revelations: conquiste todos os outros troféus, incluindo os de The Lost Archive.",
+        "tip_en": "Revelations platinum: earn every other trophy, The Lost Archive included."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Servido Frio",
+        "name_en": "Best Served Cold",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Istambul e Constantinopla",
+        "name_en": "Istanbul and Constantinople",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Selar o Acordo",
+        "name_en": "Seal the Deal",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Príncipe",
+        "name_en": "The Prince",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "A Trama se Complica",
+        "name_en": "The Plot Thickens",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Sucessos e Fracassos",
+        "name_en": "Successes and Failures",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Chefe Antigo, Chefe Novo",
+        "name_en": "Old Boss, New Boss",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Prioridades",
+        "name_en": "Priorities",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Revelações",
+        "name_en": "Revelations",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Os Primeiros Anos",
+        "name_en": "The Early Years",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Jornada de Desmond 1: colete fragmentos de dados do Animus para liberar.",
+        "tip_en": "Desmond's Journey 1: collect Animus data fragments to unlock it."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Assassino Relutante",
+        "name_en": "The Reluctant Assassin",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Jornada de Desmond 2 (fragmentos de dados).",
+        "tip_en": "Desmond's Journey 2 (data fragments)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Fuga para Nova York",
+        "name_en": "Escape To New York",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Jornada de Desmond 3 (fragmentos de dados).",
+        "tip_en": "Desmond's Journey 3 (data fragments)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "A Maçã Podre",
+        "name_en": "The Rotten Apple",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Jornada de Desmond 4 (fragmentos de dados).",
+        "tip_en": "Desmond's Journey 4 (data fragments)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Você é Desmond Miles?",
+        "name_en": "Are You Desmond Miles?",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Jornada de Desmond 5 (fragmentos de dados).",
+        "tip_en": "Desmond's Journey 5 (data fragments)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Dedos Rápidos",
+        "name_en": "Fast Fingers",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Saqueie 50 guardas mortos usando o saque de ladrão (habilidade da guilda).",
+        "tip_en": "Loot 50 dead guards with thief looting."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Sabedoria Sagrada",
+        "name_en": "Holy Wisdom",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Conclua o desafio da Hagia Sofia (sequência opcional de plataformas).",
+        "tip_en": "Complete the Hagia Sofia challenge level."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Maníaco por Criação",
+        "name_en": "Craft Maniac",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Fabrique 30 bombas nas mesas de bombas.",
+        "tip_en": "Craft 30 bombs at bomb tables."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Cortina de Ferro",
+        "name_en": "Iron Curtain",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Faça uma defesa de covil perfeita sem usar o canhão.",
+        "tip_en": "Perform a perfect den defense without using the cannon."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Meu Protegido",
+        "name_en": "My Protégé",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Leve um recruta ao posto de Mestre Assassino.",
+        "tip_en": "Get one trainee to Master Assassin rank."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Coletado",
+        "name_en": "Capped",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Colete todos os fragmentos de dados do Animus.",
+        "tip_en": "Collect all Animus data fragments."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Vale Mais que Mil Palavras",
+        "name_en": "Worth a Thousand Words",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Colete todas as páginas das memórias de Ishak Pasha (missões dos covis).",
+        "tip_en": "Collect all of Ishak Pasha's memoir pages."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Sábio",
+        "name_en": "Sage",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Colete todos os livros disponíveis nas livrarias.",
+        "tip_en": "Collect all available books."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Valentão",
+        "name_en": "Bully",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Encontre Duccio em Constantinopla e dê uma surra nele.",
+        "tip_en": "Find Duccio in Constantinople and beat him up."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Assassino-Aranha",
+        "name_en": "Spider Assassin",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Escale a Hagia Sofia do chão ao topo em menos de 25 segundos usando a lâmina-gancho.",
+        "tip_en": "Climb Hagia Sofia from ground to pinnacle in under 25 seconds; use the hookblade."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Amigo de Verdade",
+        "name_en": "A Friend Indeed",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua todos os desafios de credo de uma facção.",
+        "tip_en": "Complete all Faction Creed Challenges for one faction."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Piromaníaco",
+        "name_en": "Pyromaniac",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua todas as missões de bomba de Piri Reis.",
+        "tip_en": "Complete all of Piri Reis's bomb missions."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Dança do Monstro",
+        "name_en": "Monster's Dance",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Envenene um guarda numa multidão e espere ele derrubar 3 civis.",
+        "tip_en": "Poison a guard in a crowd and let him take down 3 civilians."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Mentor",
+        "name_en": "The Mentor",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Leve 7 recrutas ao posto de Mestre Assassino.",
+        "tip_en": "Get 7 trainees to Master Assassin rank."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "General de Poltrona",
+        "name_en": "Armchair General",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "No Mediterrâneo, controle todas as cidades (exceto Rodes) ao mesmo tempo.",
+        "tip_en": "Control all Mediterranean Defense cities (except Rhodes) at once."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Exibido",
+        "name_en": "Show-Off",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Abra o paraquedas e pouse direto em uma tirolesa.",
+        "tip_en": "Parachute onto a zipline."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Sonegação",
+        "name_en": "Tax Evasion",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Recupere seu dinheiro de um coletor de impostos templário.",
+        "tip_en": "Get your money back from a Templar tax collector."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Relâmpagos",
+        "name_en": "Lightning Strikes",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Mate 5 guardas em 5 segundos só com as lâminas ocultas (encadeie mortes).",
+        "tip_en": "Kill 5 guards in 5 seconds with only Hidden Blades (kill streaks)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Exagerado",
+        "name_en": "Overkiller",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Assassine 50 guardas com a lâmina oculta.",
+        "tip_en": "Assassinate 50 guards with the Hidden Blade."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Roda Punk",
+        "name_en": "Mosh Pit",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Tenha 10 guardas envenenados ao mesmo tempo (bombas de veneno ajudam).",
+        "tip_en": "Have 10 guards poisoned at once (poison bombs help)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Ratoeira",
+        "name_en": "Mouse Trap",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Atordoe guardas com estrepes e mate 5 deles com um andaime.",
+        "tip_en": "Stun guards with caltrops, then kill 5 with a scaffold."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Quase Voando",
+        "name_en": "Almost Flying",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Do topo da Torre de Gálata, paraqueda até o Chifre de Ouro.",
+        "tip_en": "Parachute from the top of Galata Tower to the Golden Horn."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Silencioso mas Mortal",
+        "name_en": "Silent but Deadly",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Mate 3 guardas simultaneamente só com facas de arremesso.",
+        "tip_en": "Kill three guards at once with throwing knives only."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Eu Vejo Você",
+        "name_en": "I Can See You",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Mate 5 guardas dentro de uma nuvem de bomba de fumaça.",
+        "tip_en": "Kill 5 guards inside a smoke screen."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Boas Lembranças",
+        "name_en": "Fond Memories",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "100% de sincronização em todas as sequências; repita memórias pelo menu.",
+        "tip_en": "100% sync in all sequences; replay memories from the menu."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Parte do Credo",
+        "name_en": "Part of the Creed",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Pule, eles dizem",
+        "name_en": "Jump they say",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Entre no Animus",
+        "name_en": "Enter the Animus",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Conheça seu Criador",
+        "name_en": "Meet your maker",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Ciclo",
+        "name_en": "The Loop",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Encontre Todas as Peças",
+        "name_en": "Find all Pieces",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Lost Archive: colete todos os fragmentos de decifração.",
+        "tip_en": "Lost Archive: collect all decipher fragments."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Quebrando o Ciclo",
+        "name_en": "Breaking the Loop",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Salve-se",
+        "name_en": "Save yourself",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Lost Archive: caia mais de 25 m e pouse sobre um bloco.",
+        "tip_en": "Lost Archive: fall over 25 m and land on a block."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Impressione Warren Vidic",
+        "name_en": "Impress Warren Vidic",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Lost Archive: termine o teste do Animus (Memória 4) sem morrer; mortes antes de entrar no teste não contam.",
+        "tip_en": "Lost Archive: finish the Animus test (Memory 4) without dying."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Atravesse o Estige sem Morrer",
+        "name_en": "Cross Styx without dying",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Lost Archive: atravesse o rio Estige sem falhar; vá devagar e pratique.",
+        "tip_en": "Lost Archive: cross the river Styx without failing; take it slow."
+      }
+    ],
+    "platinum_tip_pt": "Faça um jogo de cada vez e use mapas de colecionáveis (penas, bandeiras, fragmentos). Os únicos pontos de atenção são os perdíveis de AC II e Brotherhood antes da Sequência 8 e os desafios de plataforma do Lost Archive, que pedem paciência.",
+    "platinum_tip_en": "Do one game at a time and use collectible maps (feathers, flags, fragments). The only real watch-outs are the AC II and Brotherhood missables before Sequence 8 and the Lost Archive platforming challenges, which need patience.",
+    "confidence_note_pt": "As páginas de troféus não puderam ser abertas diretamente (só via resumos de busca). A ordem exata das listas PS4 de Brotherhood e Revelations, a distribuição prata/bronze de alguns troféus (covis de Brotherhood, Holy Wisdom, Fond Memories, The Mentor, Jornada de Desmond) e algumas descrições (Home Improvement, Monster's Dance) não foram confirmadas. Fontes divergem se Mailer Daemon/Dust to Dust são realmente perdíveis no PS4. Nomes em português são traduções livres.",
+    "confidence_note_en": "Trophy pages could not be opened directly (only via search summaries). The exact order of the PS4 Brotherhood and Revelations lists, the silver/bronze split of some trophies (Brotherhood lairs, Holy Wisdom, Fond Memories, The Mentor, Desmond's Journey) and some descriptions (Home Improvement, Monster's Dance) were not confirmed. Sources disagree on whether Mailer Daemon/Dust to Dust are truly missable on PS4. Portuguese names are free translations."
+  }
+}
