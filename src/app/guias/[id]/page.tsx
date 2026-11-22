@@ -144,10 +144,38 @@ export default async function GuidePage({ params, searchParams }: PageProps<"/gu
   const earnedCount = rows.filter(isEarned).length;
   const progress = kind === "platina" ? game.psn_progress : game.xbox_progress;
 
-  const name = (r: Row) =>
-    lang === "en"
-      ? (r.official?.name_en ?? r.info?.name_en ?? r.official?.name ?? "")
-      : (r.official?.name ?? r.info?.name_pt ?? r.official?.name_en ?? "");
+  const same = (a: string, b: string) =>
+    a.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "") ===
+    b.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+  /**
+   * Nome exibido. Em inglês: o nome original. Em português: se o troféu tem nome oficial traduzido pela
+   * Sony/Microsoft, ele aparece (com o original embaixo); se o nome oficial é em inglês, ele fica como está
+   * e a tradução aparece embaixo.
+   */
+  const label = (r: Row): { main: string; sub: string | null; subKind: "traducao" | "original" | null } => {
+    const original = r.official?.name_en ?? r.info?.name_en ?? r.official?.name ?? r.info?.name_pt ?? "";
+    if (lang === "en") return { main: original, sub: null, subKind: null };
+    const officialPt = r.official?.name ?? null;
+    if (officialPt && original && !same(officialPt, original)) return { main: officialPt, sub: original, subKind: "original" };
+    const translation = r.info?.name_pt ?? null;
+    if (translation && !same(translation, original)) return { main: original, sub: translation, subKind: "traducao" };
+    return { main: original, sub: null, subKind: null };
+  };
+  const name = (r: Row) => label(r).main;
+  const renderName = (r: Row) => {
+    const l = label(r);
+    return (
+      <span>
+        <span>{l.main}</span>
+        {l.sub ? (
+          <span className="block text-xs font-normal text-ink-3">
+            {l.subKind === "traducao" ? "Tradução: " : "Original: "}
+            <span className={l.subKind === "traducao" ? "italic" : ""}>{l.sub}</span>
+          </span>
+        ) : null}
+      </span>
+    );
+  };
   const desc = (r: Row) =>
     lang === "en" ? (r.official?.description_en ?? r.official?.description ?? "") : (r.official?.description ?? r.official?.description_en ?? "");
   const tip = (r: Row) => (lang === "en" ? r.info?.tip_en : r.info?.tip_pt) ?? "";
@@ -261,9 +289,9 @@ export default async function GuidePage({ params, searchParams }: PageProps<"/gu
             )}
           </div>
           <div className="space-y-2">
-            <p className="flex items-center gap-2 text-xl font-semibold">
-              <TrophyIcon type="platinum" className="h-5 w-5" />
-              {platinumRow ? name(platinumRow) : kind === "platina" ? "Platina" : "100%"}
+            <p className="flex items-start gap-2 text-xl font-semibold">
+              <TrophyIcon type="platinum" className="mt-1 h-5 w-5 shrink-0" />
+              {platinumRow ? renderName(platinumRow) : kind === "platina" ? "Platina" : "100%"}
             </p>
             {platinumRow ? <p className="text-sm text-ink-2">{desc(platinumRow)}</p> : null}
             <p className="text-sm">
@@ -296,6 +324,7 @@ export default async function GuidePage({ params, searchParams }: PageProps<"/gu
                   <span className={isEarned(r) ? "text-emerald-300" : "text-red-300"}>{isEarned(r) ? "✓" : "○"}</span>
                   <span>
                     <strong>{name(r)}</strong>
+                    {label(r).sub ? <span className="text-ink-3"> ({label(r).sub})</span> : null}
                     {tip(r) ? <span className="text-ink-2">: {tip(r)}</span> : null}
                   </span>
                 </li>
@@ -353,7 +382,9 @@ export default async function GuidePage({ params, searchParams }: PageProps<"/gu
             const type = (r.official?.type ?? r.info?.type ?? "bronze") as "bronze";
             const content = (
               <>
-                <p className="text-sm font-medium">{name(r)}</p>
+                <p className="text-sm font-medium">
+                  {renderName(r)}
+                </p>
                 {desc(r) ? <p className="text-xs text-ink-2">{desc(r)}</p> : null}
                 {tip(r) ? <p className="mt-1 rounded bg-panel-2 px-2 py-1 text-xs text-ink">💡 {tip(r)}</p> : null}
               </>

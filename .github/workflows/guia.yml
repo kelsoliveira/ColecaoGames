@@ -98,6 +98,8 @@ jobs:
                - Textos em português do Brasil natural nos campos *_pt e a versão em inglês nos campos *_en.
                - Se houver lista oficial: um item em `trophies` para cada linha, na mesma ordem, com `ext_id` igual ao
                  id da lista. Sem lista oficial: use os troféus encontrados nas fontes, com ext_id = null.
+               - name_en = nome oficial em inglês, exatamente como na lista. name_pt = tradução fiel do nome para o
+                 português do Brasil (o site mostra o original e a tradução embaixo); se houver nome oficial em PT-BR, use-o.
                - Marque `missable: true` somente quando as fontes confirmarem; na dúvida, deixe false e explique em
                  confidence_note_*.
                - Escreva com suas próprias palavras. Não copie trechos de outros guias.
