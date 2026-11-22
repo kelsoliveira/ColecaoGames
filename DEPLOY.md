@@ -36,9 +36,16 @@ Guarde a URL e o token num gerenciador de senhas ou num bloco de notas temporár
 
 É o que gera os guias de platina (PlayStation) e de 100% (Xbox) com IA.
 
-1. Acesse **console.anthropic.com**, crie a conta e cadastre um meio de pagamento (a cobrança é por uso).
-2. Em **Settings → Limits**, defina um **limite de gasto mensal** (por exemplo, US$ 10) para não ter surpresas.
-3. Em **API Keys**, crie uma chave e copie.
+1. Acesse **platform.claude.com** e crie a conta (ou entre, se já tiver).
+2. Na área de cobrança (**Billing**), cadastre um meio de pagamento ou compre créditos. A cobrança é por uso.
+3. Em **Spend limits** (`platform.claude.com/settings/spend-limits`), defina um **limite de gasto mensal**
+   (por exemplo, US$ 10) para não ter surpresas.
+4. Abra a página **API keys** (`platform.claude.com/settings/keys`) e toque em **Create key**:
+   - **Nome:** por exemplo `colecao-games`
+   - **Expiração:** a que preferir (com prazo é mais seguro; anote a data para renovar)
+   - **Linked account:** você mesmo
+5. Copie a chave (começa com `sk-ant-`). **Ela aparece uma única vez**: guarde no gerenciador de senhas.
+6. Na Vercel, cadastre a chave como `ANTHROPIC_API_KEY` e faça um **Redeploy**.
 
 Cada guia faz uma pesquisa na web e depois monta o texto. O custo estimado é de **US$ 0,30 a US$ 1 por guia**,
 conforme o tamanho da lista de troféus. O guia fica salvo e só é cobrado de novo se você tocar em "Gerar guia
