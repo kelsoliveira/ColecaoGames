@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "slug": "ps4--bloodborne",
+  "title": "Bloodborne",
+  "platform": "PS4",
+  "kind": "platina",
+  "generated_at": "2026-11-22T12:28:26Z",
+  "generator": "claude-code-session",
+  "sources": [
+    { "title": "PSNProfiles - Bloodborne Trophy Guide", "url": "https://psnprofiles.com/guide/2603-bloodborne-trophy-guide" },
+    { "title": "PSNProfiles - Bloodborne Trophies", "url": "https://psnprofiles.com/trophies/3431-bloodborne" },
+    { "title": "PowerPyx - Bloodborne Trophy Guide & Roadmap", "url": "https://powerpyx.com/guides/bloodborne.html" },
+    { "title": "PlayStationTrophies - Bloodborne Trophies (40)", "url": "https://www.playstationtrophies.org/game/bloodborne/trophies/" },
+    { "title": "PlayStationTrophies - Bloodborne Trophy Guide & Road Map", "url": "https://www.playstationtrophies.org/game/bloodborne/guide/" },
+    { "title": "TrueTrophies - The Old Hunters trophies in Bloodborne", "url": "https://www.truetrophies.com/game/Bloodborne/dlc/The-Old-Hunters" },
+    { "title": "Gamepressure - Bloodborne & The Old Hunters trophy list", "url": "https://www.gamepressure.com/bloodborne/list-of-all-trophies/z7aad1" },
+    { "title": "Bloodborne Wiki (Fandom) - Trophies", "url": "https://bloodborne.fandom.com/wiki/Trophies" },
+    { "title": "Game-Checklists - Bloodborne All Trophies", "url": "https://game-checklists.com/bloodborne/all-trophies/" },
+    { "title": "Gamer Guides - Bloodborne Trophy Guide", "url": "https://www.gamerguides.com/bloodborne/guide/appendix/trophies-2489/trophy-guide" },
+    { "title": "FuzionByte - Bloodborne trophy guide", "url": "https://www.fuzionbyte.com/bloodborne/" }
+  ],
+  "guide": {
+    "summary_pt": "A platina de Bloodborne (edição Game of the Year) exige derrotar todos os chefes da história e os opcionais, explorar áreas secretas, avançar nas Masmorras do Cálice até a Rainha Pthumeriana, coletar todas as armas e ferramentas de caçador e ver os três finais. Os finais pedem três jogadas (NG, NG+ e NG++) ou uma só, usando cópia de segurança do save antes da escolha final. A lista tem 40 troféus: 34 do jogo base (incluindo a platina) e 6 da DLC The Old Hunters, que NÃO contam para a platina. Nada exige online.",
+    "summary_en": "The Bloodborne platinum (Game of the Year Edition) requires beating every story and optional boss, finding hidden areas, pushing through the Chalice Dungeons to Yharnam, Pthumerian Queen, collecting every hunter weapon and tool, and seeing all three endings. The endings take three playthroughs (NG, NG+, NG++) or just one with save backups before the final choice. The list has 40 trophies: 34 from the base game (including the platinum) and 6 from The Old Hunters DLC, which do NOT count toward the platinum. Nothing requires online play.",
+    "difficulty": 6,
+    "estimated_hours": 50,
+    "min_playthroughs": 3,
+    "online_required": false,
+    "missable_warning_pt": "Os três finais são exclusivos entre si: faça backup do save (nuvem PS Plus ou pendrive) antes de falar com Gehrman, porque derrotar o chefe final leva direto ao NG+. Algumas armas de Hunter's Essence dependem de NPCs (ex.: Lâmina da Misericórdia, de Eileen) e podem se perder na jogada atual; se acontecer, pegue no NG+. Chefes opcionais ficam indisponíveis ao zerar, mas voltam no NG+.",
+    "missable_warning_en": "The three endings are mutually exclusive: back up your save (PS Plus cloud or USB) before talking to Gehrman, since beating the final boss sends you straight into NG+. Some Hunter's Essence weapons depend on NPCs (e.g. Blade of Mercy from Eileen) and can be lost for the current run; if so, grab them in NG+. Optional bosses are locked once you finish the game, but return in NG+.",
+    "roadmap": [
+      {
+        "title_pt": "Etapa 1: Primeira jogada completa",
+        "title_en": "Step 1: Full first playthrough",
+        "steps_pt": [
+          "Jogue no seu ritmo, explorando tudo; derrote os chefes obrigatórios e também Cleric Beast, Blood-starved Beast, Witch of Hemwick, Darkbeast Paarl, Martyr Logarius, Amygdala, Celestial Emissary e Ebrietas.",
+          "Visite as áreas secretas: Cainhurst (via Cainhurst Summons), a Alta Catedral (chave da Catedral Superior, em Yahar'gul), o Prédio de Palestras do Pesadelo e a Antiga Oficina Abandonada.",
+          "Pegue os cálices de Pthumeru (Blood-starved Beast), Ailing Loran (Amygdala) e Isz (Ebrietas).",
+          "Colete todas as armas e ferramentas especiais de caçador que encontrar; siga as missões de Eileen e dos outros NPCs para não perder armas.",
+          "Junte os quatro cordões umbilicais (1/3 of Umbilical Cord) disponíveis, mas não consuma o terceiro ainda."
+        ],
+        "steps_en": [
+          "Play at your own pace and explore everything; beat the required bosses plus Cleric Beast, Blood-starved Beast, Witch of Hemwick, Darkbeast Paarl, Martyr Logarius, Amygdala, Celestial Emissary and Ebrietas.",
+          "Visit the hidden areas: Cainhurst (via the Cainhurst Summons), the Upper Cathedral Ward (Upper Cathedral Key, found in Yahar'gul), the Nightmare Lecture Building and the Abandoned Old Workshop.",
+          "Pick up the Pthumeru (Blood-starved Beast), Ailing Loran (Amygdala) and Isz (Ebrietas) chalices.",
+          "Collect every hunter weapon and special hunter tool you find; follow Eileen's and other NPCs' quests so you do not lose weapons.",
+          "Gather the available One Third of Umbilical Cord items, but do not consume the third one yet."
+        ]
+      },
+      {
+        "title_pt": "Etapa 2: Masmorras do Cálice e limpeza",
+        "title_en": "Step 2: Chalice Dungeons and cleanup",
+        "steps_pt": [
+          "Siga a cadeia de cálices de Pthumeru até o Grande Cálice de Pthumeru Ihyll e derrote Yharnam, Pthumerian Queen.",
+          "Nas masmorras profundas, consiga uma gema de sangue de nível altíssimo (Blood Gem Master).",
+          "Melhore uma arma até +10 (Weapon Master) e confirme que tem uma Runa de Caryll rara (Rune Master).",
+          "Antes de seguir para o final, revise a lista de armas e ferramentas de caçador."
+        ],
+        "steps_en": [
+          "Follow the Pthumeru chalice chain to the Great Pthumeru Ihyll Chalice and defeat Yharnam, Pthumerian Queen.",
+          "In the deep dungeons, obtain an extremely high-tier blood gem (Blood Gem Master).",
+          "Upgrade a weapon to +10 (Weapon Master) and make sure you own a rare Caryll Rune (Rune Master).",
+          "Before heading to the ending, double-check your hunter weapon and tool list."
+        ]
+      },
+      {
+        "title_pt": "Etapa 3: Os três finais",
+        "title_en": "Step 3: The three endings",
+        "steps_pt": [
+          "Com dois cordões consumidos e o terceiro guardado, faça backup do save antes de falar com Gehrman no Sonho do Caçador.",
+          "Aceite a oferta de Gehrman para Yharnam Sunrise; restaure o backup.",
+          "Recuse e derrote Gehrman sem ter consumido três cordões para Honoring Wishes; restaure o backup.",
+          "Consuma o terceiro cordão, recuse, derrote Gehrman e depois a Moon Presence para Childhood's Beginning.",
+          "Sem backup, faça um final por jogada (NG, NG+ e NG++)."
+        ],
+        "steps_en": [
+          "With two cords consumed and the third kept, back up your save before talking to Gehrman in the Hunter's Dream.",
+          "Accept Gehrman's offer for Yharnam Sunrise; restore the backup.",
+          "Refuse and defeat Gehrman without having consumed three cords for Honoring Wishes; restore the backup.",
+          "Consume the third cord, refuse, defeat Gehrman and then the Moon Presence for Childhood's Beginning.",
+          "Without backups, do one ending per playthrough (NG, NG+ and NG++)."
+        ]
+      },
+      {
+        "title_pt": "Etapa 4: DLC The Old Hunters (opcional, fora da platina)",
+        "title_en": "Step 4: The Old Hunters DLC (optional, not part of the platinum)",
+        "steps_pt": [
+          "Depois de vencer Vicar Amelia, receba o Olho de um Caçador Ébrio de Sangue na Capela Oedon e entre no Pesadelo do Caçador.",
+          "Derrote Ludwig, Living Failures, Lady Maria, Laurence e o Orphan of Kos.",
+          "Colete todas as armas da DLC para Old Hunter's Essence; o ideal é fazer isso antes de zerar o jogo base."
+        ],
+        "steps_en": [
+          "After beating Vicar Amelia, receive the Eye of a Blood-drunk Hunter at Oedon Chapel and enter the Hunter's Nightmare.",
+          "Defeat Ludwig, Living Failures, Lady Maria, Laurence and the Orphan of Kos.",
+          "Collect every DLC weapon for Old Hunter's Essence; ideally do this before finishing the base game."
+        ]
+      }
+    ],
+    "trophies": [
+      { "ext_id": null, "name_pt": "Bloodborne", "name_en": "Bloodborne", "type": "platinum", "missable": false, "tip_pt": "Obtenha todos os troféus do jogo base; os da DLC The Old Hunters não são necessários.", "tip_en": "Earn every base game trophy; The Old Hunters DLC trophies are not needed." },
+      { "ext_id": null, "name_pt": "Alvorecer em Yharnam", "name_en": "Yharnam Sunrise", "type": "gold", "missable": true, "tip_pt": "Aceite a oferta de Gehrman no fim. Faça backup do save antes para obter os outros finais.", "tip_en": "Accept Gehrman's offer at the end. Back up your save first to get the other endings." },
+      { "ext_id": null, "name_pt": "Honrando Desejos", "name_en": "Honoring Wishes", "type": "gold", "missable": true, "tip_pt": "Recuse a oferta de Gehrman e derrote-o sem ter consumido três cordões umbilicais.", "tip_en": "Refuse Gehrman's offer and defeat him without having consumed three umbilical cords." },
+      { "ext_id": null, "name_pt": "O Início da Infância", "name_en": "Childhood's Beginning", "type": "gold", "missable": true, "tip_pt": "Consuma três cordões umbilicais, recuse Gehrman, derrote-o e depois vença a Moon Presence.", "tip_en": "Consume three umbilical cords, refuse Gehrman, defeat him and then beat the Moon Presence." },
+      { "ext_id": null, "name_pt": "Yharnam, Rainha Pthumeriana", "name_en": "Yharnam, Pthumerian Queen", "type": "gold", "missable": false, "tip_pt": "Siga a cadeia de cálices de Pthumeru até o Grande Cálice de Pthumeru Ihyll e derrote a rainha no fundo.", "tip_en": "Follow the Pthumeru chalice chain to the Great Pthumeru Ihyll Chalice and beat the queen at the bottom." },
+      { "ext_id": null, "name_pt": "Essência do Caçador", "name_en": "Hunter's Essence", "type": "gold", "missable": true, "tip_pt": "Colete todas as armas de caçador do jogo base. Algumas dependem de NPCs ou emblemas; se perder alguma, pegue no NG+.", "tip_en": "Collect every base game hunter weapon. Some depend on NPCs or badges; if you miss one, get it in NG+." },
+      { "ext_id": null, "name_pt": "Ofício do Caçador", "name_en": "Hunter's Craft", "type": "gold", "missable": false, "tip_pt": "Junte todas as ferramentas especiais de caçador, como Beast Roar, Augur of Ebrietas, A Call Beyond e Choir Bell.", "tip_en": "Gather all special hunter tools, such as Beast Roar, Augur of Ebrietas, A Call Beyond and Choir Bell." },
+      { "ext_id": null, "name_pt": "Mestre das Armas", "name_en": "Weapon Master", "type": "silver", "missable": false, "tip_pt": "Melhore qualquer arma até +10; as Pedras de Sangue de nível máximo vêm das Masmorras do Cálice.", "tip_en": "Upgrade any weapon to +10; top-tier Blood Stones come from the Chalice Dungeons." },
+      { "ext_id": null, "name_pt": "Mestre das Gemas de Sangue", "name_en": "Blood Gem Master", "type": "silver", "missable": false, "tip_pt": "Consiga uma gema de sangue de nível altíssimo; elas aparecem nas Masmorras do Cálice mais profundas.", "tip_en": "Get an extremely high-tier blood gem; they appear in the deepest Chalice Dungeons." },
+      { "ext_id": null, "name_pt": "Mestre das Runas", "name_en": "Rune Master", "type": "silver", "missable": false, "tip_pt": "Obtenha uma Runa de Caryll extremamente rara, como Formless Oedon.", "tip_en": "Obtain an extremely precious Caryll Rune, such as Formless Oedon." },
+      { "ext_id": null, "name_pt": "Cainhurst", "name_en": "Cainhurst", "type": "silver", "missable": false, "tip_pt": "Pegue o convite Cainhurst Summons e use-o em Hemwick Charnel Lane para ir ao castelo.", "tip_en": "Pick up the Cainhurst Summons and use it in Hemwick Charnel Lane to reach the castle." },
+      { "ext_id": null, "name_pt": "O Coro", "name_en": "The Choir", "type": "silver", "missable": false, "tip_pt": "Use a chave da Catedral Superior, encontrada em Yahar'gul, no portão no alto da Ala da Catedral.", "tip_en": "Use the Upper Cathedral Key, found in Yahar'gul, on the gate atop Cathedral Ward." },
+      { "ext_id": null, "name_pt": "A Fonte do Sonho", "name_en": "The Source of the Dream", "type": "silver", "missable": false, "tip_pt": "Chegue à Antiga Oficina Abandonada por uma rota escondida na Ala da Catedral que exige um salto preciso.", "tip_en": "Reach the Abandoned Old Workshop through a hidden Cathedral Ward route that needs a precise jump." },
+      { "ext_id": null, "name_pt": "Prédio de Palestras do Pesadelo", "name_en": "Nightmare Lecture Building", "type": "silver", "missable": false, "tip_pt": "Entre no prédio de Byrgenwerth no pesadelo, deixando uma Amygdala menor agarrar você com a Tonsil Stone no inventário.", "tip_en": "Enter the Byrgenwerth building in the nightmare by letting a lesser Amygdala grab you with the Tonsil Stone in inventory." },
+      { "ext_id": null, "name_pt": "Padre Gascoigne", "name_en": "Father Gascoigne", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Vigária Amelia", "name_en": "Vicar Amelia", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Sombra de Yharnam", "name_en": "Shadow of Yharnam", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Rom, a Aranha Vácua", "name_en": "Rom, the Vacuous Spider", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "O Renascido", "name_en": "The One Reborn", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Micolash, Anfitrião do Pesadelo", "name_en": "Micolash, Host of the Nightmare", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Ama de Leite de Mergo", "name_en": "Mergo's Wet Nurse", "type": "bronze", "missable": false, "tip_pt": "", "tip_en": "" },
+      { "ext_id": null, "name_pt": "Fera Clériga", "name_en": "Cleric Beast", "type": "bronze", "missable": false, "tip_pt": "Chefe opcional na ponte da Yharnam Central; derrote-o antes de zerar.", "tip_en": "Optional boss on the Central Yharnam bridge; beat it before finishing the game." },
+      { "ext_id": null, "name_pt": "Fera Faminta de Sangue", "name_en": "Blood-starved Beast", "type": "bronze", "missable": false, "tip_pt": "Chefe opcional na Velha Yharnam; ele também dá o cálice de Pthumeru.", "tip_en": "Optional boss in Old Yharnam; it also drops the Pthumeru Chalice." },
+      { "ext_id": null, "name_pt": "Bruxa de Hemwick", "name_en": "Witch of Hemwick", "type": "bronze", "missable": false, "tip_pt": "Chefe opcional no fim de Hemwick Charnel Lane.", "tip_en": "Optional boss at the end of Hemwick Charnel Lane." },
+      { "ext_id": null, "name_pt": "Paarl, a Fera Sombria", "name_en": "Darkbeast Paarl", "type": "bronze", "missable": false, "tip_pt": "Chefe opcional em Yahar'gul; use armas sem dano elétrico.", "tip_en": "Optional boss in Yahar'gul; avoid bolt damage." },
+      { "ext_id": null, "name_pt": "Amygdala", "name_en": "Amygdala", "type": "bronze", "missable": false, "tip_pt": "Chefe opcional na Fronteira do Pesadelo; dá o cálice de Ailing Loran.", "tip_en": "Optional boss in the Nightmare Frontier; drops the Ailing Loran Chalice." },
+      { "ext_id": null, "name_pt": "Mártir Logarius", "name_en": "Martyr Logarius", "type": "bronze", "missable": false, "tip_pt": "Chefe opcional no telhado do Castelo Cainhurst.", "tip_en": "Optional boss on the Cainhurst Castle rooftop." },
+      { "ext_id": null, "name_pt": "Emissário Celestial", "name_en": "Celestial Emissary", "type": "bronze", "missable": false, "tip_pt": "Chefe opcional na Ala Superior da Catedral; foque o emissário maior.", "tip_en": "Optional boss in the Upper Cathedral Ward; focus the larger emissary." },
+      { "ext_id": null, "name_pt": "Ebrietas, Filha do Cosmos", "name_en": "Ebrietas, Daughter of the Cosmos", "type": "bronze", "missable": false, "tip_pt": "Chefe opcional no Altar do Desespero; dá o cálice de Isz.", "tip_en": "Optional boss at the Altar of Despair; drops the Isz Chalice." },
+      { "ext_id": null, "name_pt": "Contato com Gema de Sangue", "name_en": "Blood Gem Contact", "type": "bronze", "missable": false, "tip_pt": "Basta pegar qualquer gema de sangue; não precisa equipar.", "tip_en": "Just pick up any blood gem; equipping is not required." },
+      { "ext_id": null, "name_pt": "Contato com Runa", "name_en": "Rune Contact", "type": "bronze", "missable": false, "tip_pt": "Pegue qualquer Runa de Caryll durante a história.", "tip_en": "Pick up any Caryll Rune during the story." },
+      { "ext_id": null, "name_pt": "Cálice de Pthumeru", "name_en": "Chalice of Pthumeru", "type": "bronze", "missable": false, "tip_pt": "Recebido ao derrotar a Blood-starved Beast.", "tip_en": "Received by defeating the Blood-starved Beast." },
+      { "ext_id": null, "name_pt": "Cálice de Ailing Loran", "name_en": "Chalice of Ailing Loran", "type": "bronze", "missable": false, "tip_pt": "Recebido ao derrotar a Amygdala na Fronteira do Pesadelo.", "tip_en": "Received by defeating Amygdala in the Nightmare Frontier." },
+      { "ext_id": null, "name_pt": "Cálice de Isz", "name_en": "Chalice of Isz", "type": "bronze", "missable": false, "tip_pt": "Recebido ao derrotar Ebrietas.", "tip_en": "Received by defeating Ebrietas." },
+      { "ext_id": null, "name_pt": "Ludwig, a Lâmina Sagrada", "name_en": "Ludwig, the Holy Blade", "type": "bronze", "missable": false, "tip_pt": "DLC (fora da platina): chefe do Pesadelo do Caçador; arma com dano sério e esquive para os lados.", "tip_en": "DLC (not for platinum): Hunter's Nightmare boss; use serious damage and dodge sideways." },
+      { "ext_id": null, "name_pt": "Fracassos Vivos", "name_en": "Living Failures", "type": "bronze", "missable": false, "tip_pt": "DLC (fora da platina): fique perto deles e ataque sem parar para evitar a chuva de meteoros.", "tip_en": "DLC (not for platinum): stay close and keep attacking to avoid the meteor shower." },
+      { "ext_id": null, "name_pt": "Lady Maria da Torre do Relógio Astral", "name_en": "Lady Maria of the Astral Clocktower", "type": "bronze", "missable": false, "tip_pt": "DLC (fora da platina): aprenda a esquivar das combinações; aparar com a pistola ajuda muito.", "tip_en": "DLC (not for platinum): learn to dodge her combos; gun parries help a lot." },
+      { "ext_id": null, "name_pt": "Laurence, o Primeiro Vigário", "name_en": "Laurence, the First Vicar", "type": "bronze", "missable": false, "tip_pt": "DLC (fora da platina): chefe opcional; use resistência a fogo e ataque as patas traseiras.", "tip_en": "DLC (not for platinum): optional boss; use fire resistance and hit the hind legs." },
+      { "ext_id": null, "name_pt": "Órfão de Kos", "name_en": "Orphan of Kos", "type": "silver", "missable": false, "tip_pt": "DLC (fora da platina): chefe final, bem agressivo; seja paciente e use aparos com a pistola.", "tip_en": "DLC (not for platinum): very aggressive final boss; be patient and use gun parries." },
+      { "ext_id": null, "name_pt": "Essência do Velho Caçador", "name_en": "Old Hunter's Essence", "type": "gold", "missable": false, "tip_pt": "DLC (fora da platina): colete todas as armas da DLC; algumas vêm de NPCs, como Simon.", "tip_en": "DLC (not for platinum): collect every DLC weapon; some come from NPCs such as Simon." }
+    ],
+    "platinum_tip_pt": "Faça tudo do jogo base na primeira jogada e guarde um backup do save antes de Gehrman: assim os três finais saem na mesma jogada e o NG+ vira opcional. Não esqueça que os troféus da DLC The Old Hunters não contam para a platina.",
+    "platinum_tip_en": "Do all base game content on your first run and keep a save backup before Gehrman: that way all three endings come in the same playthrough and NG+ becomes optional. Remember that The Old Hunters DLC trophies do not count toward the platinum.",
+    "confidence_note_pt": "Os sites PowerPyx e PSNProfiles não puderam ser abertos diretamente nesta sessão (bloqueio de rede); os dados vieram de trechos de busca dessas e de outras fontes. A ordem exata dos troféus de chefes e da DLC na lista oficial não foi confirmada. Os nomes em português são traduções próprias, não os oficiais. Não foi confirmado se alguma arma da DLC (Old Hunter's Essence) ou ferramenta de Hunter's Craft pode ser perdida sem volta. O nível exato de gema exigido por Blood Gem Master varia entre as fontes.",
+    "confidence_note_en": "PowerPyx and PSNProfiles could not be opened directly in this session (network block); data came from search snippets of those and other sources. The exact order of the boss and DLC trophies in the official list was not confirmed. Portuguese names are own translations, not official ones. It was not confirmed whether any DLC weapon (Old Hunter's Essence) or Hunter's Craft tool can be permanently missed. The exact gem tier required for Blood Gem Master varies between sources."
+  }
+}
