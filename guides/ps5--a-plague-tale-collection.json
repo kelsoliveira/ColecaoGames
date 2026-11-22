@@ -1,0 +1,807 @@
+{
+  "version": 1,
+  "slug": "ps5--a-plague-tale-collection",
+  "title": "A Plague Tale Collection",
+  "platform": "PS5",
+  "kind": "platina",
+  "generated_at": "2026-11-22T12:29:31Z",
+  "generator": "claude-code-session",
+  "sources": [
+    {
+      "title": "PSNProfiles – A Plague Tale: Innocence Trophy Guide",
+      "url": "https://psnprofiles.com/guide/11730-a-plague-tale-innocence-trophy-guide"
+    },
+    {
+      "title": "PSNProfiles – A Plague Tale: Innocence Trophies (PS5)",
+      "url": "https://psnprofiles.com/trophies/13342-a-plague-tale-innocence"
+    },
+    {
+      "title": "Exophase – A Plague Tale: Innocence Trophies (PS5)",
+      "url": "https://www.exophase.com/game/a-plague-tale-innocence-psn-2/trophies/"
+    },
+    {
+      "title": "A Plague Tale Wiki (Fandom) – Achievements",
+      "url": "https://aplaguetale.fandom.com/wiki/Achievements"
+    },
+    {
+      "title": "PlayStation Mania – A Plague Tale: Innocence (PS5) Trophies",
+      "url": "https://www.psmania.net/trophies/a-plague-tale-innocence-ps5/ApolloStrand"
+    },
+    {
+      "title": "Trophy-Tom – A Plague Tale: Innocence Trophy Guide",
+      "url": "https://www.trophy-tom.com/a-plague-tale-innocence-trophy-guide/"
+    },
+    {
+      "title": "Platget – A Plague Tale: Innocence Trophy Guide & Road Map",
+      "url": "https://platget.com/guides/a-plague-tale-innocence-trophy-guide/"
+    },
+    {
+      "title": "Steam Community – A Plague Tale: Full Achievement Guide",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1987696466"
+    },
+    {
+      "title": "TrueAchievements – A Plague Tale: Innocence Achievements",
+      "url": "https://www.trueachievements.com/game/A-Plague-Tale-Innocence/achievements"
+    },
+    {
+      "title": "Push Square – A Plague Tale: Requiem Trophy Guide",
+      "url": "https://www.pushsquare.com/guides/a-plague-tale-requiem-trophy-guide-all-trophies-and-how-to-get-the-platinum"
+    },
+    {
+      "title": "PowerPyx – A Plague Tale Requiem Trophy Guide & Roadmap",
+      "url": "https://www.powerpyx.com/a-plague-tale-requiem-trophy-guide-roadmap/"
+    },
+    {
+      "title": "PSNProfiles – A Plague Tale: Requiem Trophy Guide",
+      "url": "https://psnprofiles.com/guide/15459-a-plague-tale-requiem-trophy-guide"
+    },
+    {
+      "title": "PSNProfiles – A Plague Tale: Requiem Trophies",
+      "url": "https://psnprofiles.com/trophies/18796-a-plague-tale-requiem"
+    },
+    {
+      "title": "Prima Games – All A Plague Tale: Requiem Trophies Listed",
+      "url": "https://primagames.com/tips/a-plague-tale-requiem-trophies-listed"
+    },
+    {
+      "title": "KeenGamer – A Plague Tale: Requiem Trophies & Achievement List",
+      "url": "https://www.keengamer.com/articles/features/others/a-plague-tale-requiem-trophies-acheivement-list/"
+    },
+    {
+      "title": "GameFAQs – A Plague Tale: Requiem Trophies guide",
+      "url": "https://gamefaqs.gamespot.com/ps5/323487-a-plague-tale-requiem/faqs/82248/trophies"
+    },
+    {
+      "title": "Platget – A Plague Tale: Requiem Trophy Guide & Road Map",
+      "url": "https://platget.com/guides/a-plague-tale-requiem-trophy-guide/"
+    },
+    {
+      "title": "GameCrave – A Plague Tale: Requiem Trophy Guide",
+      "url": "https://gamecraves.com/a-plague-tale-requiem-trophy-guide/"
+    },
+    {
+      "title": "PlayStationTrophies – Night guard (A Plague Tale: Requiem)",
+      "url": "https://www.playstationtrophies.org/game/a-plague-tale-requiem/trophy/507813-night-guard.html"
+    }
+  ],
+  "guide": {
+    "summary_pt": "A coletânea física de PS5 traz duas listas e duas platinas separadas: A Plague Tale: Innocence (36 troféus) e A Plague Tale: Requiem (36 troféus). Ambas são tranquilas, sem online e sem perdíveis definitivos graças à seleção de capítulos (e ao NG+ em Requiem). Conte com cerca de 12–15 h para Innocence e 20–25 h para Requiem, focando em colecionáveis, melhorias e, em Requiem, nas três árvores de habilidades.",
+    "summary_en": "The PS5 physical collection contains two separate lists and two platinums: A Plague Tale: Innocence (36 trophies) and A Plague Tale: Requiem (36 trophies). Both are relaxed, with no online and no permanent missables thanks to Chapter Select (plus NG+ in Requiem). Expect about 12–15 h for Innocence and 20–25 h for Requiem, mostly collectibles, upgrades and, in Requiem, the three skill trees.",
+    "difficulty": 3,
+    "estimated_hours": 38,
+    "min_playthroughs": 2,
+    "online_required": false,
+    "missable_warning_pt": "Nenhum troféu é perdível de forma definitiva nas duas listas: colecionáveis e eventos de capítulo podem ser refeitos pela seleção de capítulos. Atenção aos troféus situacionais (eventos opcionais em Innocence; Tiro Perfeito, Misericórdia, Arremesso Perfeito e Velho Protetor em Requiem) e às árvores de habilidades de Requiem, que dificilmente fecham numa única jogada.",
+    "missable_warning_en": "No trophy is permanently missable in either list: collectibles and chapter events can be redone via Chapter Select. Watch out for situational trophies (optional events in Innocence; Perfect Shot, Mercy, Perfect Throw and Old Protector in Requiem) and Requiem's skill trees, which rarely all max out in a single run.",
+    "roadmap": [
+      {
+        "title_pt": "Jogo 1 – A Plague Tale: Innocence (platina 1)",
+        "title_en": "Game 1 – A Plague Tale: Innocence (platinum 1)",
+        "steps_pt": [
+          "Jogue a história em qualquer dificuldade (não há troféu de dificuldade), com um guia de colecionáveis aberto: flores, curiosidades e presentes.",
+          "Faça os eventos opcionais quando aparecerem (lanche de Hugo, esconde-esconde, soldado, túmulo, porta principal, forja de Rodric, capitão e moribundos).",
+          "Gaste materiais nas bancadas priorizando funda e equipamento; fabricar munição conta para Alquimista.",
+          "Entre nas 5 carroças de alquimista e complete o treino de mira."
+        ],
+        "steps_en": [
+          "Play the story on any difficulty (there is no difficulty trophy) with a collectible guide open: flowers, curiosities and gifts.",
+          "Do the optional events as they appear (Hugo's lunch, hide-and-seek, the soldier, the tomb, the main door, Rodric's forge, the captain and the dying).",
+          "Spend materials at workbenches, prioritizing sling and equipment; crafting ammo counts toward Alchemist.",
+          "Enter the 5 alchemist carts and complete the aiming training."
+        ]
+      },
+      {
+        "title_pt": "Innocence – limpeza pela seleção de capítulos",
+        "title_en": "Innocence – cleanup via Chapter Select",
+        "steps_pt": [
+          "Após os créditos e o epílogo (Cavaleiros!), use a seleção de capítulos para pegar colecionáveis e eventos que faltaram.",
+          "Repita capítulos para juntar materiais até maximizar funda e equipamento; o progresso é mantido."
+        ],
+        "steps_en": [
+          "After the credits and epilogue (Knights!), use Chapter Select to grab missing collectibles and events.",
+          "Replay chapters to gather materials until sling and equipment are maxed; progress is kept."
+        ]
+      },
+      {
+        "title_pt": "Jogo 2 – A Plague Tale: Requiem (platina 2)",
+        "title_en": "Game 2 – A Plague Tale: Requiem (platinum 2)",
+        "steps_pt": [
+          "Primeira jogada em qualquer dificuldade, seguindo um guia de colecionáveis (flores, penas, baús secretos e souvenirs).",
+          "Não perca os situacionais: pinhas no capítulo 1, poupar o guarda das docas no capítulo 4, guirlandas no capítulo 8 e objetos do antigo protetor no capítulo 9.",
+          "Varie o estilo para evoluir Prudência (furtividade), Agressiva (combate) e Oportunismo (alquimia e cenário); apague fogos sempre que puder para Vigia Noturna."
+        ],
+        "steps_en": [
+          "First run on any difficulty, following a collectible guide (flowers, feathers, secret chests and souvenirs).",
+          "Do not skip the situational ones: pine cones in chapter 1, sparing the dock guard in chapter 4, wreaths in chapter 8 and the old protector's items in chapter 9.",
+          "Mix your playstyle to level Prudence (stealth), Aggressive (combat) and Opportunism (alchemy and environment); put out fires whenever you can for Night guard."
+        ]
+      },
+      {
+        "title_pt": "Requiem – NG+ ou seleção de capítulos",
+        "title_en": "Requiem – NG+ or Chapter Select",
+        "steps_pt": [
+          "Use a seleção de capítulos para colecionáveis e situacionais que faltaram.",
+          "Para fechar as árvores de habilidades e as melhorias, jogue o NG+ (habilidades e melhorias são mantidas) ou repita capítulos focando no estilo que falta."
+        ],
+        "steps_en": [
+          "Use Chapter Select for any missing collectibles and situational trophies.",
+          "To finish the skill trees and upgrades, play NG+ (skills and upgrades carry over) or replay chapters focusing on the missing playstyle."
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "ext_id": null,
+        "name_pt": "Innocence",
+        "name_en": "Innocence",
+        "type": "platinum",
+        "missable": false,
+        "tip_pt": "Obtenha todos os outros troféus de A Plague Tale: Innocence.",
+        "tip_en": "Earn every other trophy in A Plague Tale: Innocence."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Legado de Rune",
+        "name_en": "The de Rune Legacy",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Os Estranhos",
+        "name_en": "The Strangers",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Retribuição",
+        "name_en": "Retribution",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Aprendiz",
+        "name_en": "The Apprentice",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Espólio dos Corvos",
+        "name_en": "The Ravens' Spoils",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Bens Danificados",
+        "name_en": "Damaged Goods",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Caminho à Nossa Frente",
+        "name_en": "The Path Before Us",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Nosso Lar",
+        "name_en": "Our Home",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "À Sombra das Muralhas",
+        "name_en": "In the Shadow of Ramparts",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Caminho das Rosas",
+        "name_en": "The Way of Roses",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Vivos",
+        "name_en": "Alive",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Tudo o que Resta",
+        "name_en": "All That Remains",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Penitência",
+        "name_en": "Penance",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Laços de Sangue",
+        "name_en": "Blood Ties",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Lembrança",
+        "name_en": "Remembrance",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Coroação",
+        "name_en": "Coronation",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Cavaleiros!",
+        "name_en": "Knights!",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Desbloqueia ao terminar o epílogo (capítulo 17), depois do capítulo 16.",
+        "tip_en": "Unlocks after finishing the epilogue (chapter 17) that follows chapter 16."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Herbalista",
+        "name_en": "Herbalist",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Encontre 6 flores para o herbário de Hugo; sai naturalmente explorando.",
+        "tip_en": "Find 6 flowers for Hugo's herbarium; comes naturally while exploring."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Botânica",
+        "name_en": "Botanist",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Encontre todas as flores. Use um guia de colecionáveis e a seleção de capítulos para as que faltarem.",
+        "tip_en": "Find all flowers. Use a collectible guide and Chapter Select for any you missed."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Caçadora de Curiosidades",
+        "name_en": "Curiosities hunter",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Encontre 13 curiosidades; vem com a exploração normal.",
+        "tip_en": "Find 13 curiosities; comes with normal exploration."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Colecionadora de Curiosidades",
+        "name_en": "Curiosities collector",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Encontre todas as curiosidades; o menu de capítulos mostra quantas faltam em cada um.",
+        "tip_en": "Find all curiosities; the chapter menu shows how many are missing in each."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Irmã Mais Velha",
+        "name_en": "Big sister",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Encontre todos os presentes (gifts) para os órfãos. Siga um guia de colecionáveis e repita capítulos se necessário.",
+        "tip_en": "Find all the gifts for the orphans. Follow a collectible guide and replay chapters if needed."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Não É Mais um Brinquedo",
+        "name_en": "Not a toy anymore",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Melhore a funda ao máximo nas bancadas. Faltando material, repita capítulos para coletar mais.",
+        "tip_en": "Fully upgrade the sling at workbenches. If short on materials, replay chapters to gather more."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Bolsos de Sobra",
+        "name_en": "Handfull of pockets",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Melhore todo o equipamento ao máximo; economize materiais e repita capítulos para coletar o que faltar.",
+        "tip_en": "Fully upgrade the equipment; save materials and replay chapters to gather what is missing."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Alquimista",
+        "name_en": "Alchemist",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Fabrique 100 munições no total; o contador é cumulativo e sai jogando normalmente.",
+        "tip_en": "Craft 100 ammunition in total; the counter is cumulative and comes naturally."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Partilha de Recursos",
+        "name_en": "Resource sharing",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Entre nas 5 carroças de alquimista espalhadas pela campanha; consulte um guia para as localizações.",
+        "tip_en": "Enter all 5 alchemist carts spread through the campaign; check a guide for their locations."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Mais Treino",
+        "name_en": "More practice",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Complete o treino de mira com a funda no início do jogo.",
+        "tip_en": "Complete the sling aiming training early in the game."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Alimentando os Famintos",
+        "name_en": "Feeding the hungry",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Evento opcional: encontre um lanche para Hugo quando ele reclamar de fome. Se perder, repita o capítulo pela seleção de capítulos.",
+        "tip_en": "Optional event: find a lunch for Hugo when he says he is hungry. If missed, replay the chapter via Chapter Select."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Achei!",
+        "name_en": "Found!",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Evento opcional: aceite a brincadeira de esconde-esconde. Se perder, repita o capítulo pela seleção de capítulos.",
+        "tip_en": "Optional event: play the hide-and-seek game. If missed, replay the chapter via Chapter Select."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Salvadora",
+        "name_en": "Savior",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Evento opcional: salve o soldado em perigo em vez de seguir adiante. Se perder, repita o capítulo pela seleção de capítulos.",
+        "tip_en": "Optional event: save the soldier in danger instead of moving on. If missed, replay the chapter via Chapter Select."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Homenagem",
+        "name_en": "Tribute",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Capítulo 8 (Nosso Lar): encontre o túmulo na área explorável. Se perder, repita o capítulo pela seleção de capítulos.",
+        "tip_en": "Chapter 8 (Our Home): find the tomb in the explorable area. If missed, replay the chapter via Chapter Select."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Do Jeito Difícil",
+        "name_en": "The hard way",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Entre pela porta principal em vez de usar a rota alternativa. Se perder, repita o capítulo pela seleção de capítulos.",
+        "tip_en": "Enter through the main door instead of the alternate route. If missed, replay the chapter via Chapter Select."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Misericordiosa",
+        "name_en": "Merciful",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Salve os moribundos no trecho indicado pelos guias (capítulo 14). Considerado o mais chato; repita o capítulo se falhar.",
+        "tip_en": "Save the dying in the section guides point to (chapter 14). Considered the trickiest; replay the chapter if you fail."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Capitão Ajudante",
+        "name_en": "Captain Sidekick",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Capítulo 14: fique com o capitão; esconda-se sob a mesa na sala onde Nicholas fecha a porta.",
+        "tip_en": "Chapter 14: stay with the captain; hide under the table in the room where Nicholas shuts the door."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Ferreiro",
+        "name_en": "The Blacksmith",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Encontre a forja de Rodric no trecho opcional do capítulo. Se perder, repita o capítulo pela seleção de capítulos.",
+        "tip_en": "Find Rodric's forge in the chapter's optional area. If missed, replay the chapter via Chapter Select."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Requiem",
+        "name_en": "Requiem",
+        "type": "platinum",
+        "missable": false,
+        "tip_pt": "Obtenha todos os outros troféus de A Plague Tale: Requiem.",
+        "tip_en": "Earn every other trophy in A Plague Tale: Requiem."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Sob um Novo Sol",
+        "name_en": "Under a New Sun",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Recém-Chegados",
+        "name_en": "Newcomers",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Um Fardo de Sangue",
+        "name_en": "A Burden of Blood",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Dever do Protetor",
+        "name_en": "Protector's Duty",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Em Nosso Rastro",
+        "name_en": "In Our Wake",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Deixando Tudo para Trás",
+        "name_en": "Leaving All Behind",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Fora da Lei",
+        "name_en": "Felons",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Um Mar de Promessas",
+        "name_en": "A Sea of Promises",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Contos e Revelações",
+        "name_en": "Tales and Revelations",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Linhagem",
+        "name_en": "Bloodline",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Berço dos Séculos",
+        "name_en": "The Cradle of Centuries",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "A Vida que Merecemos",
+        "name_en": "The Life We Deserve",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Nada Restou",
+        "name_en": "Nothing Left",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Curando Nossas Feridas",
+        "name_en": "Healing Our Wounds",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Sol Moribundo",
+        "name_en": "Dying Sun",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Rei Hugo",
+        "name_en": "King Hugo",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Cavaleiros!",
+        "name_en": "Knights!",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Desbloqueia ao concluir o breve capítulo 17, após os créditos; pode pular os créditos.",
+        "tip_en": "Unlocks after the short chapter 17, after the credits; skipping the credits is fine."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Herbalista",
+        "name_en": "Herbalist",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Encontre todas as flores. Nenhum colecionável é perdível; use a seleção de capítulos.",
+        "tip_en": "Find all flowers. No collectible is missable; use Chapter Select."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Ornitóloga",
+        "name_en": "Ornithologist",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Encontre todas as penas para o caderno de Hugo; siga um guia de colecionáveis.",
+        "tip_en": "Find all feathers for Hugo's notebook; follow a collectible guide."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Exploradora",
+        "name_en": "Explorer",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Abra todos os baús secretos; costumam exigir a faca para abrir passagens bloqueadas.",
+        "tip_en": "Open all secret chests; they often require the knife to open blocked passages."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Memórias Imortais",
+        "name_en": "Immortal memories",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Relembre todos os souvenirs (lembranças). Alguns, como o das guirlandas, são minijogos.",
+        "tip_en": "Recall all souvenirs. Some, like the wreath one, are mini-games."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Não É Mais um Brinquedo",
+        "name_en": "Not a toy anymore",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Melhore a funda ao máximo nas bancadas; as melhorias seguem no NG+.",
+        "tip_en": "Fully upgrade the sling at workbenches; upgrades carry into NG+."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Besta Aprimorada",
+        "name_en": "Improved crossbow",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Melhore a besta ao máximo; ela só aparece na segunda metade da história.",
+        "tip_en": "Fully upgrade the crossbow; it only appears in the second half of the story."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Bolsos de Sobra",
+        "name_en": "Handful of pockets",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Melhore todo o equipamento gastando ferramentas e sucata nas bancadas.",
+        "tip_en": "Fully upgrade the gear by spending tools and scrap at workbenches."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Instrumentos Eficazes",
+        "name_en": "Effective instruments",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Melhore todos os instrumentos ao máximo; termine no NG+ ou repetindo capítulos se faltar material.",
+        "tip_en": "Fully upgrade all instruments; finish in NG+ or via chapter replays if short on materials."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Laboratório de Bolso",
+        "name_en": "Pocket laboratory",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Melhore a alquimia ao máximo nas bancadas.",
+        "tip_en": "Fully upgrade alchemy at workbenches."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Alquimista",
+        "name_en": "Alchemist",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Fabrique 100 munições no total; sai naturalmente ao longo da história.",
+        "tip_en": "Craft 100 ammunition in total; comes naturally during the story."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Vigia Noturna",
+        "name_en": "Night guard",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Apague 40 fogos, por exemplo com a munição Extinguis (liberada no capítulo 3). É cumulativo.",
+        "tip_en": "Extinguish 40 fires, e.g. with Extinguis ammo (from chapter 3). It is cumulative."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Furtiva",
+        "name_en": "Sneaky",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Complete a árvore Prudência jogando de forma furtiva, sem ser vista. Termine no NG+ se preciso.",
+        "tip_en": "Max the Prudence tree by playing stealthily, unseen. Finish in NG+ if needed."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Lutadora",
+        "name_en": "Fighter",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Complete a árvore Agressiva eliminando inimigos. Dificilmente fecha junto com as outras numa só jogada; use NG+.",
+        "tip_en": "Max the Aggressive tree by killing enemies. Hard to finish alongside the others in one run; use NG+."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Maligna",
+        "name_en": "Malignant",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Complete a árvore Oportunismo usando alquimia, ratos e o cenário contra inimigos. Use NG+ ou repetição de capítulos.",
+        "tip_en": "Max the Opportunism tree using alchemy, rats and the environment against enemies. Use NG+ or chapter replays."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Tiro Perfeito",
+        "name_en": "Perfect Shot",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Capítulo 1: acerte todas as pinhas com a funda. Se perder, repita o capítulo pela seleção de capítulos.",
+        "tip_en": "Chapter 1: hit all the pine cones with the sling. If missed, replay the chapter via Chapter Select."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Arremesso Perfeito",
+        "name_en": "Perfect Throw",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Capítulo 8: no souvenir das guirlandas de flores, acerte os 4 potes através das guirlandas.",
+        "tip_en": "Chapter 8: in the flower-wreath souvenir, throw all 4 pots through the wreaths."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Velho Protetor",
+        "name_en": "Old Protector",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Capítulo 9: interaja com todos os objetos do antigo protetor no Santuário.",
+        "tip_en": "Chapter 9: interact with all of the old protector's items in the Sanctuary."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Misericórdia",
+        "name_en": "Mercy",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Capítulo 4: não mate o guarda das docas. Se perder, repita o capítulo pela seleção de capítulos.",
+        "tip_en": "Chapter 4: do not kill the guard on the docks. If missed, replay the chapter via Chapter Select."
+      }
+    ],
+    "platinum_tip_pt": "São duas platinas independentes: comece por Innocence para conhecer a história e o sistema. Em Requiem, evolua as habilidades com estilos variados desde o início para reduzir o trabalho no NG+.",
+    "platinum_tip_en": "These are two independent platinums: start with Innocence to learn the story and systems. In Requiem, level skills with varied playstyles from the start to reduce NG+ work.",
+    "confidence_note_pt": "As páginas dos guias não puderam ser abertas diretamente (bloqueio de rede para sites como PSNProfiles e PowerPyx); as informações vêm de resultados de busca que citam várias fontes. A ordem dos troféus pode diferir da lista oficial, e não foram encontrados nomes oficiais em português (os name_pt são traduções). Não confirmamos o capítulo exato de Achei!, Salvadora, Alimentando os Famintos, Do Jeito Difícil e O Ferreiro em Innocence, nem detalhes exatos de Misericórdia e Tiro Perfeito em Requiem. A lista de PC/Xbox de Requiem difere da de PS5 nos últimos troféus; aqui usamos os nomes da versão PS5 encontrados.",
+    "confidence_note_en": "Guide pages could not be opened directly (network block on sites such as PSNProfiles and PowerPyx); the data comes from search results citing several sources. Trophy order may differ from the official list, and no official Portuguese names were found (name_pt are translations). The exact chapter for Found!, Savior, Feeding the hungry, The hard way and The Blacksmith in Innocence, and the exact details of Mercy and Perfect Shot in Requiem, were not confirmed. Requiem's PC/Xbox list differs from PS5 in the last trophies; the PS5 names found are used here."
+  }
+}

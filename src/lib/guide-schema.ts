@@ -99,10 +99,15 @@ export function matchGuideTrophies(trophies: Guide["trophies"], official: Offici
   const out = new Map<string, number>();
   const used = new Set<number>();
   const byId = new Map<string, number>();
-  const byName = new Map<string, number>();
+  // Um nome pode se repetir (coletâneas com vários jogos): guarda todos os índices e usa o primeiro livre.
+  const byName = new Map<string, number[]>();
   trophies.forEach((t, i) => {
     if (t.ext_id) byId.set(t.ext_id, i);
-    for (const n of [norm(t.name_en), norm(t.name_pt)]) if (n && !byName.has(n)) byName.set(n, i);
+    for (const n of new Set([norm(t.name_en), norm(t.name_pt)])) {
+      if (!n) continue;
+      if (!byName.has(n)) byName.set(n, []);
+      byName.get(n)!.push(i);
+    }
   });
   for (const a of official) {
     const i = byId.get(a.ext_id);
@@ -114,8 +119,8 @@ export function matchGuideTrophies(trophies: Guide["trophies"], official: Offici
   for (const a of official) {
     if (out.has(a.ext_id)) continue;
     for (const n of [norm(a.name_en), norm(a.name)]) {
-      const i = n ? byName.get(n) : undefined;
-      if (i != null && !used.has(i)) {
+      const i = n ? byName.get(n)?.find((idx) => !used.has(idx)) : undefined;
+      if (i != null) {
         out.set(a.ext_id, i);
         used.add(i);
         break;
