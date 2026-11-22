@@ -1,7 +1,11 @@
 // Coleção física identificada a partir das fotos da estante.
 // Itens com "(confirmar)" na edição tiveram a plataforma/versão inferida pela lombada.
 
-export type SeedGame = { title: string; platform: string; edition?: string };
+// `since`: versão do catálogo em que o jogo foi incluído. Bancos já existentes recebem só os jogos
+// de versões mais novas que a deles (jogos removidos pelo usuário não voltam).
+export type SeedGame = { title: string; platform: string; edition?: string; since?: number };
+
+export const SEED_VERSION = 2;
 
 const ps5: SeedGame[] = [
   { title: "Borderlands 4", platform: "PS5" },
@@ -34,6 +38,11 @@ const ps5: SeedGame[] = [
   { title: "The Last of Us Part II Remastered", platform: "PS5" },
   { title: "Wo Long: Fallen Dynasty", platform: "PS5" },
   { title: "A Plague Tale Collection", platform: "PS5" },
+  // incluídos depois (versão 2 do catálogo)
+  { title: "Castlevania: Belmont's Curse", platform: "PS5", edition: "Midnight Edition", since: 2 },
+  { title: "Black Myth: Wukong", platform: "PS5", since: 2 },
+  { title: "Octopath Traveler 0", platform: "PS5", since: 2 },
+  { title: "Dragon Quest I & II HD-2D Remake", platform: "PS5", since: 2 },
 ];
 
 const ps4: SeedGame[] = [

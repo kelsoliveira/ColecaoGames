@@ -39,6 +39,8 @@ espalhado entre PSNProfiles, TrueAchievements, Exophase, HowLongToBeat e PSPrice
 
 ## Publicar pelo celular (Vercel + Turso)
 
+> Passo a passo detalhado, com solução de problemas: **[DEPLOY.md](DEPLOY.md)**.
+
 1. **Turso** (<https://turso.tech>): crie uma conta, depois um banco (escolha a região mais próxima). Copie a
    **URL** (`libsql://...`) e gere um **token** do banco.
 2. **IGDB** (opcional, recomendado): em <https://dev.twitch.tv/console/apps>, registre um app (Redirect URL

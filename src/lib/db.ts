@@ -2,7 +2,7 @@ import "server-only";
 import { createClient, type Client, type InArgs, type InStatement } from "@libsql/client";
 import fs from "node:fs";
 import path from "node:path";
-import { SEED_GAMES } from "./seed";
+import { SEED_GAMES, SEED_VERSION } from "./seed";
 
 // Em produção (Vercel) usa o Turso: TURSO_DATABASE_URL=libsql://... e TURSO_AUTH_TOKEN.
 // Localmente, sem essas variáveis, usa um arquivo SQLite em ./data/colecao.db.
@@ -116,14 +116,22 @@ function connect() {
     );
     const seeded = await client.execute("SELECT 1 FROM settings WHERE key = 'seeded'");
     const count = await client.execute("SELECT COUNT(*) AS n FROM games");
-    if (seeded.rows.length === 0 && Number(count.rows[0].n) === 0) {
+    const versionRow = await client.execute("SELECT value FROM settings WHERE key = 'seed_version'");
+    const fresh = seeded.rows.length === 0 && Number(count.rows[0].n) === 0;
+    const current = fresh ? 0 : Number(versionRow.rows[0]?.value ?? 1);
+    if (current < SEED_VERSION) {
+      const toAdd = SEED_GAMES.filter((g) => (g.since ?? 1) > current);
       await client.batch(
         [
-          ...SEED_GAMES.map((g) => ({
-            sql: "INSERT INTO games (title, platform, format, edition, status, owned) VALUES (?, ?, 'fisico', ?, 'backlog', 1)",
-            args: [g.title, g.platform, g.edition ?? null],
+          // não duplica se o jogo já tiver sido cadastrado manualmente
+          ...toAdd.map((g) => ({
+            sql: `INSERT INTO games (title, platform, format, edition, status, owned)
+                  SELECT ?, ?, 'fisico', ?, 'backlog', 1
+                  WHERE NOT EXISTS (SELECT 1 FROM games WHERE lower(title) = lower(?) AND platform = ?)`,
+            args: [g.title, g.platform, g.edition ?? null, g.title, g.platform],
           })),
           "INSERT OR REPLACE INTO settings (key, value) VALUES ('seeded', '1')",
+          { sql: "INSERT OR REPLACE INTO settings (key, value) VALUES ('seed_version', ?)", args: [String(SEED_VERSION)] },
         ],
         "write",
       );
