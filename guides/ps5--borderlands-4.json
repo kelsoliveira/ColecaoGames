@@ -1,0 +1,455 @@
+{
+  "version": 1,
+  "slug": "ps5--borderlands-4",
+  "title": "Borderlands 4",
+  "platform": "PS5",
+  "kind": "platina",
+  "generated_at": "2026-11-22T12:27:37Z",
+  "generator": "claude-code-session",
+  "sources": [
+    {
+      "title": "PowerPyx - Borderlands 4 Trophy Guide & Roadmap",
+      "url": "https://www.powerpyx.com/borderlands-4-trophy-guide-roadmap/"
+    },
+    {
+      "title": "PSNProfiles - Borderlands 4 Trophies",
+      "url": "https://psnprofiles.com/trophies/36493-borderlands-4"
+    },
+    {
+      "title": "Game8 - Borderlands 4 List of All Trophies and Achievements",
+      "url": "https://game8.co/games/Borderlands-4/archives/550102"
+    },
+    {
+      "title": "Game8 - Borderlands 4 List of All Missables",
+      "url": "https://game8.co/games/Borderlands-4/archives/550891"
+    },
+    {
+      "title": "Borderlands Wiki (Fandom) - Achievement (Borderlands 4)",
+      "url": "https://borderlands.fandom.com/wiki/Achievement_(Borderlands_4)"
+    },
+    {
+      "title": "TrueAchievements - Catch-A-Ride achievement",
+      "url": "https://www.trueachievements.com/a590549/catcharide-achievement"
+    },
+    {
+      "title": "Everytrophy - Borderlands 4 full platinum guide",
+      "url": "https://everytrophy.com/en/borderlands-4/trophies-and-achievements/full-platinum-guide/"
+    },
+    {
+      "title": "Gamer Rant - All Trophies in Borderlands 4 & How to Unlock Them",
+      "url": "https://gamerant.com/borderlands-bl4-all-trophies-how-to-get/"
+    },
+    {
+      "title": "Neoseeker - Borderlands 4 Trophy List",
+      "url": "https://www.neoseeker.com/borderlands-4/Lists/Trophy_List"
+    },
+    {
+      "title": "PC Gamer - How to unlock all Ultimate Vault Hunter Mode ranks in Borderlands 4",
+      "url": "https://www.pcgamer.com/games/fps/borderlands-4-ultimate-vault-hunter-mode-unlocks"
+    }
+  ],
+  "guide": {
+    "summary_pt": "Platina longa, mas tranquila: a lista do jogo base tem 36 troféus (1 platina, 4 ouro, 14 prata, 17 bronze), todos offline, e a maior parte sai jogando a história, as missões secundárias e limpando o mapa das quatro regiões. O grande trabalho fica no pós-jogo: subir até o Ultimate Vault Hunter 5 e juntar 10 veículos pessoais. Só a dificuldade importa para Gear Five!, então o resto pode ser feito no Fácil. As DLCs (Mad Ellie and the Vault of the Damned, os Bounty Packs etc.) têm troféus próprios que não contam para a platina.",
+    "summary_en": "A long but relaxed platinum: the base-game list has 36 trophies (1 platinum, 4 gold, 14 silver, 17 bronze), all offline, and most come from the story, side missions and clearing the map in all four regions. The real grind is post-game: climbing to Ultimate Vault Hunter 5 and gathering 10 personal vehicles. Difficulty only matters for Gear Five!, so everything else can be done on Easy. The DLCs (Mad Ellie and the Vault of the Damned, the Bounty Packs, etc.) have their own trophies that do not count toward the platinum.",
+    "difficulty": 5,
+    "estimated_hours": 120,
+    "min_playthroughs": 1,
+    "online_required": false,
+    "missable_warning_pt": "Dois perdíveis: All Things Vend (na missão Vend of the Line, venda 3 itens verdes antes de comprar a lendária) e Rift Incompatible (no fim de Exit Through the Rift Shop, soque Oddman em vez de atirar). As missões não são repetíveis; se errar, só com um personagem novo.",
+    "missable_warning_en": "Two missables: All Things Vend (in Vend of the Line, sell 3 green items before buying the legendary) and Rift Incompatible (at the end of Exit Through the Rift Shop, punch Oddman instead of shooting). The missions are not repeatable; if you fail, you need a new character.",
+    "roadmap": [
+      {
+        "title_pt": "Etapa 1: História e exploração",
+        "title_en": "Step 1: Story and exploration",
+        "steps_pt": [
+          "Jogue no Fácil ou Normal; a dificuldade só importa para Gear Five!.",
+          "Faça as missões secundárias assim que aparecerem e descubra todos os locais de cada região enquanto passa por elas.",
+          "Atenção aos dois perdíveis: em Vend of the Line, venda 3 itens verdes antes de comprar a lendária; em Exit Through the Rift Shop, soque Oddman em vez de atirar.",
+          "Pegue contratos, faça os desafios de equipamento e de fabricante e participe dos eventos de mundo que aparecerem."
+        ],
+        "steps_en": [
+          "Play on Easy or Normal; difficulty only matters for Gear Five!.",
+          "Do side missions as they appear and discover every location in each region as you pass through.",
+          "Watch the two missables: in Vend of the Line, sell 3 green items before buying the legendary; in Exit Through the Rift Shop, punch Oddman instead of shooting.",
+          "Take contracts, work on gear and manufacturer challenges and join any world events that pop up."
+        ]
+      },
+      {
+        "title_pt": "Etapa 2: Limpeza do mapa",
+        "title_en": "Step 2: Map cleanup",
+        "steps_pt": [
+          "Após The Timekeeper's Order, termine todas as missões secundárias e as linhas de Outbounders, Auger, Electi e Claptrap.",
+          "Conclua todas as atividades das quatro regiões, os três Guardiões dos Cofres Primordiais e um chefe de mundo.",
+          "Cace os três eventos de mundo (Goredello, Airship e Creep Impact); baixar a tendência do mundo pode ajudar.",
+          "Pegue os colecionáveis avulsos: Dave, o Burrito, o recorte da Tannis e a gorjeta da Moxxi."
+        ],
+        "steps_en": [
+          "After The Timekeeper's Order, finish all side missions and the Outbounder, Auger, Electi and Claptrap lines.",
+          "Complete every activity in the four regions, the three Primordial Vault Guardians and one world boss.",
+          "Hunt the three world events (Goredello, Airship and Creep Impact); lowering world tendency may help.",
+          "Grab the one-off collectibles: Dave the Burrito, the Tannis cutout and Moxxi's tip."
+        ]
+      },
+      {
+        "title_pt": "Etapa 3: Ultimate Vault Hunter 1 a 5",
+        "title_en": "Step 3: Ultimate Vault Hunter 1 to 5",
+        "steps_pt": [
+          "Cumpra os desafios de UVH (menu Missões > Desafios) sempre no rank mais alto já liberado.",
+          "No UVH 4, faça as missões curinga dos Cofres Primordiais e The Timekeeper's Order para liberar o UVH 5.",
+          "Jogar em cooperativo ou com uma build forte acelera bastante essa etapa."
+        ],
+        "steps_en": [
+          "Clear the UVH challenges (Missions > Challenges menu) on your highest unlocked rank.",
+          "On UVH 4, do the Primordial Vault wildcard missions and The Timekeeper's Order to unlock UVH 5.",
+          "Co-op or a strong build speeds this step up a lot."
+        ]
+      },
+      {
+        "title_pt": "Etapa 4: Veículos e pendências",
+        "title_en": "Step 4: Vehicles and leftovers",
+        "steps_pt": [
+          "Confira em Personalização > Veículo os requisitos de cada veículo; são necessários 10.",
+          "Sem DLCs, leve os quatro Caçadores da Arca base ao nível 50 para completar os veículos que faltam.",
+          "Feche cosméticos (60), equipamento lendário em todos os espaços e os 80 contratos.",
+          "Se perdeu um perdível, crie um personagem novo para refazer a missão."
+        ],
+        "steps_en": [
+          "Check Customization > Vehicle for each vehicle's requirement; you need 10.",
+          "Without DLC, get the four base Vault Hunters to level 50 to fill the missing vehicles.",
+          "Wrap up cosmetics (60), legendary gear in every slot and the 80 contracts.",
+          "If you missed a missable, make a new character to redo the mission."
+        ]
+      }
+    ],
+    "trophies": [
+      {
+        "ext_id": null,
+        "name_pt": "Ah, Cara, Agora Temos que Fazer o BL5",
+        "name_en": "Aw Man, Now We Have to Make BL5",
+        "type": "platinum",
+        "missable": false,
+        "tip_pt": "Conquiste todos os outros troféus do jogo base.",
+        "tip_en": "Earn every other base-game trophy."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Ascensão Carmesim",
+        "name_en": "Crimson Rising",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Bom Caçador",
+        "name_en": "Good Hunter",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Mestre da Morte e da Dança",
+        "name_en": "Master of Death and Dance",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Nível 50 chega naturalmente com história, missões secundárias e atividades do mundo.",
+        "tip_en": "Level 50 comes naturally from the story, side missions and world activities."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Quinta Marcha!",
+        "name_en": "Gear Five!",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Após a história, cumpra os desafios de cada rank de UVH no rank mais alto liberado; no UVH 4 faça os Cofres Primordiais e The Timekeeper's Order.",
+        "tip_en": "After the story, clear each UVH rank's challenges on your highest rank; on UVH 4 finish the Primordial Vaults and The Timekeeper's Order."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Catálogo é a Receita",
+        "name_en": "The Lookbook is the Cookbook",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Colete 60 cosméticos; saem de cápsulas perdidas, desafios, chefes e atividades do mapa.",
+        "tip_en": "Collect 60 cosmetics; they drop from lost capsules, challenges, bosses and map activities."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Pegue uma Carona",
+        "name_en": "Catch-A-Ride",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Bastam 10 veículos pessoais. Seis vêm da campanha/atualizações; o resto via DLCs ou levando os quatro Caçadores base ao nível 50.",
+        "tip_en": "Only 10 personal vehicles are needed. Six come from the campaign/updates; the rest via DLC or by getting the four base Vault Hunters to level 50."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Eu Mereci Isso",
+        "name_en": "I Earned This",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Equipe ao mesmo tempo itens lendários em todos os espaços (armas, escudo, granada, reparo, classe, aprimoramento).",
+        "tip_en": "Equip legendary gear in every slot at once (weapons, shield, grenade, repkit, class mod, enhancement)."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Área de Especialização",
+        "name_en": "Area of Expertise",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Complete qualquer categoria de Desafios de Equipamento; escolha o tipo de arma que você mais usa.",
+        "tip_en": "Complete any Gear Challenge category; pick the weapon type you use most."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Valor de Marca",
+        "name_en": "Brand Equity",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Complete qualquer categoria de Desafios de Fabricante; foque no fabricante da sua arma favorita.",
+        "tip_en": "Complete any Manufacturer Challenge category; focus on your favorite gun's manufacturer."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Governante de Tudo",
+        "name_en": "Ruler of Everything",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Conclua todas as atividades do mapa nas quatro regiões; acompanhe pelo menu de desafios do mundo.",
+        "tip_en": "Finish every map activity across all four regions; track it in the world challenges menu."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Arena Grande",
+        "name_en": "Arena Grande",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua o evento de mundo Goredello. Os eventos são aleatórios; fique atento ao mapa nas regiões externas.",
+        "tip_en": "Complete the Goredello world event. Events are random; keep watching the map in the outer regions."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Abdução Reversa",
+        "name_en": "Reverse Abduction",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua o evento de mundo do Dirigível (Airship). Baixar a tendência do mundo para normal parece ajudar a aparecer.",
+        "tip_en": "Complete the Airship world event. Lowering world tendency to normal reportedly helps it spawn."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Atire na Lua",
+        "name_en": "Shoot the Moon",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua o evento de mundo Creep Impact; é o terceiro evento rotativo do mapa.",
+        "tip_en": "Complete the Creep Impact world event, the third rotating map event."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Freelancer, mas Não de Graça",
+        "name_en": "Freelance, but Not For Free",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua 80 contratos ao longo do jogo; pegue vários de uma vez e faça-os enquanto explora.",
+        "tip_en": "Complete 80 contracts over the game; grab several at once and do them while exploring."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Aparição",
+        "name_en": "Pop Out",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Derrote um chefe de mundo; aparecem como grandes esferas com \"!\" no mapa.",
+        "tip_en": "Defeat a world boss; they show up as large \"!\" spheres on the map."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Nada Mais a Guardar",
+        "name_en": "Nothing Left to Guard",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "Derrote os três Guardiões dos Cofres Primordiais, um por região principal; colete os fragmentos de cofre antes.",
+        "tip_en": "Defeat the three Primordial Vault Guardians, one per main region; collect the vault fragments first."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Ativista de Base",
+        "name_en": "Grassroots Campaigner",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Conclua todas as missões secundárias; algumas só liberam depois de avançar na história.",
+        "tip_en": "Complete all side missions; some only unlock after story progress."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Inapagável",
+        "name_en": "Unfaded",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Descubra todos os locais do mapa em The Fadefields.",
+        "tip_en": "Discover every map location in The Fadefields."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "A Montanha Provê",
+        "name_en": "The Mountain Provides",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Descubra todos os locais do mapa em Terminus Range.",
+        "tip_en": "Discover every map location in Terminus Range."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Agite a Queimada",
+        "name_en": "Churn the Burn",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Descubra todos os locais do mapa em Carcadia Burn.",
+        "tip_en": "Discover every map location in Carcadia Burn."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Pálido Ponto Mirtilo",
+        "name_en": "Pale Blueberry Dot",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua todas as missões dos Outbounders, que começam em The Fadefields.",
+        "tip_en": "Complete all Outbounder missions, which start in The Fadefields."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Quem Manda Aqui?",
+        "name_en": "Who's the Boss?",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua todas as missões de Auger.",
+        "tip_en": "Complete all Auger missions."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Mais Toupeira, Mais Problemas",
+        "name_en": "Mole Money, Mole Problems",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua todas as missões dos Electi.",
+        "tip_en": "Complete all Electi missions."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Mascote Amplamente Amado",
+        "name_en": "Widely Beloved Mascot",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Conclua todas as missões do Claptrap.",
+        "tip_en": "Complete all Claptrap missions."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Guardião da Glicose",
+        "name_en": "Glucose Guardian",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Dê gorjeta à Moxxi no pote do balcão do bar Moxxi's Bottoms Up.",
+        "tip_en": "Tip Moxxi using the tip jar on the counter at Moxxi's Bottoms Up."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Falso Idólatra",
+        "name_en": "False Idolator",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Como se Movido por Mão Oculta",
+        "name_en": "As If Moved by an Occult Hand",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Vida Longa à Rainha",
+        "name_en": "Long Live the Queen",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Uivando na Lua",
+        "name_en": "Howling on the Moon",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Tudo se Quebra",
+        "name_en": "Everything Breaks",
+        "type": "gold",
+        "missable": false,
+        "tip_pt": "",
+        "tip_en": ""
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Cidadão Útil",
+        "name_en": "Useful Citizen",
+        "type": "silver",
+        "missable": false,
+        "tip_pt": "Descubra todos os locais do mapa em Dominion.",
+        "tip_en": "Discover every map location in Dominion."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Corta Essa",
+        "name_en": "Cut That Out",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Encontre o recorte de papelão da Dra. Patricia Tannis; use um mapa interativo para achar o local.",
+        "tip_en": "Find Dr. Patricia Tannis's cardboard cutout; use an interactive map to locate it."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "O Guacamole é à Parte",
+        "name_en": "Guac is Extra",
+        "type": "bronze",
+        "missable": false,
+        "tip_pt": "Ache Dave, o Burrito: destrua os burritos espalhados por Dominion para abrir a sala secreta atrás da cachoeira.",
+        "tip_en": "Find Dave the Burrito: destroy the burritos scattered around Dominion to open the secret room behind the waterfall."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Tudo Acaba em Venda",
+        "name_en": "All Things Vend",
+        "type": "bronze",
+        "missable": true,
+        "tip_pt": "Na missão Vend of the Line, venda 3 itens verdes ANTES de comprar a lendária na máquina; leve a foto ao Zane no Moxxi's.",
+        "tip_en": "In Vend of the Line, sell 3 green items BEFORE buying the legendary from the machine; bring the photo to Zane at Moxxi's."
+      },
+      {
+        "ext_id": null,
+        "name_pt": "Incompatível com a Fenda",
+        "name_en": "Rift Incompatible",
+        "type": "bronze",
+        "missable": true,
+        "tip_pt": "No fim de Exit Through the Rift Shop, SOQUE Francis Oddman (não atire); depois ache o corpo congelado dele em Windspear.",
+        "tip_en": "At the end of Exit Through the Rift Shop, PUNCH Francis Oddman (don't shoot); then find his frozen body in Windspear."
+      }
+    ],
+    "platinum_tip_pt": "Cuide dos dois perdíveis na primeira jogada e deixe o pós-jogo para o UVH e os veículos; um mapa interativo poupa muitas horas na limpeza das atividades.",
+    "platinum_tip_en": "Handle the two missables on your first run and save the post-game for UVH and vehicles; an interactive map saves many hours when clearing activities.",
+    "confidence_note_pt": "Os sites PowerPyx e Space4Games não puderam ser abertos diretamente; os dados vieram de resultados de busca (PSNProfiles, Game8, TrueAchievements, Fandom e outros). A ordem oficial foi confirmada só em parte (posições 7, 8, 11, 12, 15, 22, 23, 25 e 31); as demais seguem a melhor estimativa. Os nomes em português são traduções livres, não os oficiais. O requisito de Catch-A-Ride (10 veículos e como obtê-los) mudou com atualizações e pode variar. Há relatos de que eventos de mundo e Catch-A-Ride às vezes demoram a disparar.",
+    "confidence_note_en": "PowerPyx and Space4Games could not be opened directly; data came from search results (PSNProfiles, Game8, TrueAchievements, Fandom and others). The official order was only partly confirmed (positions 7, 8, 11, 12, 15, 22, 23, 25 and 31); the rest follows a best estimate. Portuguese names are free translations, not official ones. Catch-A-Ride's requirement (10 vehicles and how to get them) changed with updates and may vary. Some players report world events and Catch-A-Ride occasionally popping late."
+  }
+}
