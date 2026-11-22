@@ -66,6 +66,8 @@ export type AchievementRow = {
   ext_id: string;
   name: string | null;
   description: string | null;
+  name_en: string | null;
+  description_en: string | null;
   icon_url: string | null;
   type: string | null;
   points: number | null;

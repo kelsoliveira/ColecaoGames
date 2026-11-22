@@ -20,6 +20,7 @@ const NAV = [
   { href: "/", label: "Painel" },
   { href: "/colecao", label: "Coleção" },
   { href: "/conquistas", label: "Troféus e conquistas" },
+  { href: "/guias", label: "Guias de platina" },
   { href: "/desejos", label: "Lista de desejos" },
   { href: "/adicionar", label: "Adicionar jogo" },
   { href: "/contas", label: "Contas e sincronização" },

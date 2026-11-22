@@ -18,6 +18,7 @@ espalhado entre PSNProfiles, TrueAchievements, Exophase, HowLongToBeat e PSPrice
 | **Guias**: links diretos para PSNProfiles, TrueAchievements, PlayStationTrophies, XboxAchievements, Exophase e HowLongToBeat | Links |
 | **Painel**: estatísticas, mais jogados, perto da platina, troféus recentes e mais raros | — |
 | **Lista de desejos** com preço-alvo, **filtros e ordenação**, **unir registros duplicados** e **backup em JSON** | — |
+| **Guias de platina (PlayStation) e 100% (Xbox)**: roteiro, perdíveis destacados, dicas por troféu, dificuldade, tempo estimado e restante, o que você já tem e o que falta, em PT-BR com opção de EN | IA da Anthropic com busca na web + lista oficial da PSN/Xbox |
 | **Instalável no celular** (ícone na tela inicial) | — |
 
 ## Tecnologia
@@ -91,5 +92,6 @@ src/lib/seed.ts     jogos físicos identificados nas fotos
 src/lib/psn.ts      sincronização PSN (troféus + tempo de jogo)
 src/lib/xbox.ts     sincronização Xbox (OpenXBL)
 src/lib/igdb.ts     metadados e tempo para zerar
+src/lib/guide.ts    geração dos guias (pesquisa na web + montagem estruturada)
 src/proxy.ts        exige login antes de qualquer página
 ```

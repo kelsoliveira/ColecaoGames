@@ -32,6 +32,21 @@ Guarde a URL e o token num gerenciador de senhas ou num bloco de notas temporár
 3. Abra o app criado, copie o **Client ID** e toque em **New Secret** para gerar e copiar o
    **Client Secret**.
 
+## 3b. Chave da Anthropic para os guias de platina (5 min, opcional)
+
+É o que gera os guias de platina (PlayStation) e de 100% (Xbox) com IA.
+
+1. Acesse **console.anthropic.com**, crie a conta e cadastre um meio de pagamento (a cobrança é por uso).
+2. Em **Settings → Limits**, defina um **limite de gasto mensal** (por exemplo, US$ 10) para não ter surpresas.
+3. Em **API Keys**, crie uma chave e copie.
+
+Cada guia faz uma pesquisa na web e depois monta o texto. O custo estimado é de **US$ 0,30 a US$ 1 por guia**,
+conforme o tamanho da lista de troféus. O guia fica salvo e só é cobrado de novo se você tocar em "Gerar guia
+novamente".
+
+Opcional: para mostrar um vídeo de guia dentro da página, crie uma chave da **YouTube Data API v3** no Google
+Cloud Console. Sem ela, a página mostra um botão que abre a busca no YouTube.
+
 ## 4. Publicar na Vercel (5 min)
 
 1. Acesse **vercel.com** e entre com o **GitHub**.
@@ -48,6 +63,8 @@ Guarde a URL e o token num gerenciador de senhas ou num bloco de notas temporár
    | `IGDB_CLIENT_ID` | Client ID do passo 3 |
    | `IGDB_CLIENT_SECRET` | Client Secret do passo 3 |
    | `SESSION_SECRET` | opcional: um texto aleatório longo (o gerador de senhas ajuda) |
+   | `ANTHROPIC_API_KEY` | opcional: chave do passo 3b (guias com IA) |
+   | `YOUTUBE_API_KEY` | opcional: chave da YouTube Data API (vídeo dentro do guia) |
 
 5. Toque em **Deploy** e espere 1 a 2 minutos.
 6. Copie o endereço gerado (`https://algumacoisa.vercel.app`).
@@ -66,6 +83,13 @@ Guarde a URL e o token num gerenciador de senhas ou num bloco de notas temporár
    1. Entre em **xbl.io** com a conta Microsoft e gere uma **API Key**.
    2. Cole em **Sincronizar** no site.
 5. Se a mensagem disser que ainda falta algo, sincronize de novo; o site continua de onde parou.
+
+## 5b. Guias de platina
+
+1. Sincronize a PSN ou o Xbox primeiro, para o guia usar a lista oficial de troféus e mostrar o que você já tem.
+2. No menu, abra **Guias de platina**, escolha o jogo e toque em **Gerar guia com IA**. Leva de 1 a 3 minutos.
+3. Os troféus perdíveis aparecem destacados. Se algum estiver errado, use **Marcar/Desmarcar perdível**.
+4. Use **PT-BR / EN** no topo do guia para trocar o idioma.
 
 ## 6. Instalar na tela inicial
 

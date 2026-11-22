@@ -206,18 +206,21 @@ export async function syncPsn(npsso: string, budgetMs = 240_000): Promise<SyncRe
 
 async function syncTrophies(g: GameRow, a: AuthorizationPayload) {
   const npServiceName = (g.psn_service as "trophy" | "trophy2") ?? "trophy2";
-  const [defs, earned] = await Promise.all([
+  const [defs, defsEn, earned] = await Promise.all([
     getTitleTrophies(a, g.psn_np_id!, "all", { npServiceName, ...LANG }),
+    getTitleTrophies(a, g.psn_np_id!, "all", { npServiceName, headerOverrides: { "Accept-Language": "en-US" } }),
     getUserTrophiesEarnedForTitle(a, "me", g.psn_np_id!, "all", { npServiceName, ...LANG }),
   ]);
   const earnedMap = new Map(earned.trophies.map((t) => [t.trophyId, t]));
+  const enMap = new Map(defsEn.trophies.map((t) => [t.trophyId, t]));
   await batch([
     ...defs.trophies.map((d) => {
       const e = earnedMap.get(d.trophyId);
       return {
-        sql: `INSERT INTO achievements (game_id, source, ext_id, name, description, icon_url, type, points, rarity, hidden, earned, earned_at)
-              VALUES (?, 'psn', ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?)
+        sql: `INSERT INTO achievements (game_id, source, ext_id, name, description, name_en, description_en, icon_url, type, points, rarity, hidden, earned, earned_at)
+              VALUES (?, 'psn', ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?)
               ON CONFLICT (game_id, source, ext_id) DO UPDATE SET name=excluded.name, description=excluded.description,
+                name_en=excluded.name_en, description_en=excluded.description_en,
                 icon_url=excluded.icon_url, type=excluded.type, rarity=excluded.rarity, hidden=excluded.hidden,
                 earned=excluded.earned, earned_at=excluded.earned_at`,
         args: [
@@ -225,6 +228,8 @@ async function syncTrophies(g: GameRow, a: AuthorizationPayload) {
           String(d.trophyId),
           d.trophyName ?? null,
           d.trophyDetail ?? null,
+          enMap.get(d.trophyId)?.trophyName ?? null,
+          enMap.get(d.trophyId)?.trophyDetail ?? null,
           d.trophyIconUrl ?? null,
           d.trophyType,
           e?.trophyEarnedRate ? Number(e.trophyEarnedRate) : null,

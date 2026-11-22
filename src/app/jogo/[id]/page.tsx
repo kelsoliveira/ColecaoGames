@@ -83,6 +83,11 @@ export default async function GamePage({ params, searchParams }: PageProps<"/jog
             </div>
             <h1 className="text-3xl font-bold">{game.title}</h1>
             {game.edition ? <p className="text-ink-2">{game.edition}</p> : null}
+            {platformFamily(game.platform) === "playstation" || platformFamily(game.platform) === "xbox" ? (
+              <Link href={`/guias/${id}`} className="btn-ghost mt-3">
+                🏆 {platformFamily(game.platform) === "playstation" ? "Guia de platina" : "Guia 100% (1000G)"}
+              </Link>
+            ) : null}
           </div>
           <dl className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm sm:grid-cols-4">
             <div><dt className="text-ink-3">Lançamento</dt><dd>{date(game.release_date)}</dd></div>

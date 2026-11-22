@@ -5,6 +5,7 @@ import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { SESSION_COOKIE, SESSION_DAYS, checkPassword, createSession, passwordRequired, verifySession } from "@/lib/auth";
 import { batch, get, run } from "@/lib/db";
+import { generateGuide, toggleMissable } from "@/lib/guide";
 import { applyIgdb, bestIgdbMatch, enrichAll } from "@/lib/igdb";
 import { syncPsn } from "@/lib/psn";
 import { igdbCredentials } from "@/lib/settings";
@@ -109,6 +110,7 @@ export async function deleteGame(id: number) {
   await requireAuth();
   await batch([
     { sql: "DELETE FROM achievements WHERE game_id=?", args: [id] },
+    { sql: "DELETE FROM guides WHERE game_id=?", args: [id] },
     { sql: "DELETE FROM games WHERE id=?", args: [id] },
   ]);
   revalidatePath("/", "layout");
@@ -138,6 +140,7 @@ export async function mergeGames(keepId: number, form: FormData) {
   await batch([
     { sql: "UPDATE OR IGNORE achievements SET game_id=? WHERE game_id=?", args: [keepId, otherId] },
     { sql: "DELETE FROM achievements WHERE game_id=?", args: [otherId] },
+    { sql: "DELETE FROM guides WHERE game_id=?", args: [otherId] },
     { sql: "DELETE FROM games WHERE id=?", args: [otherId] },
     {
       sql: `UPDATE games SET ${sets}, playtime_minutes = COALESCE(playtime_minutes, 0) + :pt,
@@ -167,6 +170,26 @@ export async function refreshMetadata(id: number, form: FormData) {
   }
   revalidatePath("/", "layout");
   redirect(msg(`/jogo/${id}`, "ok", "Metadados atualizados."));
+}
+
+// ---------- Guias de platina / 100% ----------
+
+export async function generateGuideAction(gameId: number) {
+  await requireAuth();
+  try {
+    await generateGuide(gameId);
+  } catch (e) {
+    redirect(msg(`/guias/${gameId}`, "erro", `Não foi possível gerar o guia: ${(e as Error).message}`));
+  }
+  revalidatePath("/guias", "layout");
+  redirect(msg(`/guias/${gameId}`, "ok", "Guia gerado! Confira as marcações de perdíveis."));
+}
+
+export async function toggleMissableAction(gameId: number, index: number, query: string) {
+  await requireAuth();
+  await toggleMissable(gameId, index);
+  revalidatePath(`/guias/${gameId}`);
+  redirect(`/guias/${gameId}${query}`);
 }
 
 // ---------- Sincronização (credenciais usadas só durante a requisição; nada é gravado) ----------

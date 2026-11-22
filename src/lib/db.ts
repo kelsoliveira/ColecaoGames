@@ -89,6 +89,20 @@ CREATE TABLE IF NOT EXISTS settings (
   value TEXT
 );
 
+-- Guias de platina (PlayStation) / 100% (Xbox) gerados por IA. data = JSON validado (ver src/lib/guide-schema.ts)
+CREATE TABLE IF NOT EXISTS guides (
+  game_id     INTEGER PRIMARY KEY REFERENCES games(id) ON DELETE CASCADE,
+  kind        TEXT NOT NULL,           -- platina | 100
+  data        TEXT NOT NULL,
+  sources     TEXT,                    -- JSON [{title,url}]
+  video_id    TEXT,
+  video_title TEXT,
+  model       TEXT,
+  edited      INTEGER NOT NULL DEFAULT 0,
+  created_at  TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS login_attempts (
   ip         TEXT PRIMARY KEY,
   failures   INTEGER NOT NULL,
@@ -113,6 +127,19 @@ function connect() {
     // Remove credenciais que versões antigas do site guardavam no banco.
     await client.execute(
       "DELETE FROM settings WHERE key IN ('psn_refresh_token','psn_refresh_expires','psn_access_token','psn_access_expires','xbox_api_key','igdb_client_id','igdb_client_secret','igdb_token','igdb_token_expires')",
+    );
+    // Colunas adicionadas depois da primeira versão (ALTER falha se já existir; ignoramos)
+    for (const col of ["name_en TEXT", "description_en TEXT"]) {
+      try {
+        await client.execute(`ALTER TABLE achievements ADD COLUMN ${col}`);
+      } catch {
+        /* já existe */
+      }
+    }
+    // Força nova busca dos troféus da PSN que ainda não têm o nome em inglês
+    await client.execute(
+      `UPDATE games SET psn_details_at = NULL WHERE psn_np_id IS NOT NULL AND id IN
+         (SELECT DISTINCT game_id FROM achievements WHERE source = 'psn' AND name_en IS NULL)`,
     );
     const seeded = await client.execute("SELECT 1 FROM settings WHERE key = 'seeded'");
     const count = await client.execute("SELECT COUNT(*) AS n FROM games");
