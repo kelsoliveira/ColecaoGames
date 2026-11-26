@@ -80,6 +80,30 @@ export async function createGame(form: FormData) {
   redirect(`/jogo/${id}`);
 }
 
+/** Adiciona um jogo vindo do catálogo de sagas (à coleção ou à lista de desejos) e volta para a saga. */
+export async function addFromCatalog(form: FormData) {
+  await requireAuth();
+  const title = str(form, "title");
+  const platform = str(form, "platform") ?? "Outro";
+  const saga = str(form, "saga");
+  const status = str(form, "status") === "desejado" ? "desejado" : "backlog";
+  const back = str(form, "back") ?? "/colecao?agrupar=1";
+  const safeBack = back.startsWith("/colecao") ? back : "/colecao?agrupar=1";
+  if (!title) redirect(safeBack);
+  const { id } = await run(
+    "INSERT INTO games (title, platform, format, status, saga) VALUES (?, ?, 'fisico', ?, ?)",
+    [title, platform, status, saga],
+  );
+  try {
+    const m = await bestIgdbMatch(title!, platform);
+    if (m) await applyIgdb(id, m.id);
+  } catch {
+    /* metadados são opcionais */
+  }
+  revalidatePath("/", "layout");
+  redirect(msg(safeBack, "ok", `“${title}” ${status === "desejado" ? "foi para a lista de desejos" : "foi adicionado à coleção"}.`));
+}
+
 export async function updateGame(id: number, form: FormData) {
   await requireAuth();
   const status = str(form, "status");

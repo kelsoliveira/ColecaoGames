@@ -80,7 +80,7 @@ export function titleSimilarity(a: string, b: string): number {
 export function platformFamily(p: string): "playstation" | "xbox" | "nintendo" | "pc" | "outro" {
   if (/^ps|playstation/i.test(p)) return "playstation";
   if (/xbox/i.test(p)) return "xbox";
-  if (/switch|nintendo|wii|3ds|ds|gamecube|n64/i.test(p)) return "nintendo";
+  if (/switch|nintendo|wii|3ds|\bds\b|gamecube|n64|snes|\bnes\b|game ?boy|gba/i.test(p)) return "nintendo";
   if (/pc|steam/i.test(p)) return "pc";
   return "outro";
 }

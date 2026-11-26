@@ -2,7 +2,6 @@ import "server-only";
 import fs from "node:fs";
 import path from "node:path";
 import { all, get, run } from "./db";
-import { platformFamily } from "./format";
 import { GuideFileSchema, parseGuide, type Guide, type GuideFile, type GuideRow } from "./guide-schema";
 import type { AchievementRow, GameRow } from "./types";
 
@@ -12,9 +11,11 @@ import type { AchievementRow, GameRow } from "./types";
 
 const GUIDES_DIR = path.join(process.cwd(), "guides");
 
+/** Só plataformas com troféus (PS3 em diante, Vita) ou conquistas (Xbox 360 em diante). */
 export const guideKind = (platform: string): "platina" | "100" | null => {
-  const fam = platformFamily(platform);
-  return fam === "playstation" ? "platina" : fam === "xbox" ? "100" : null;
+  if (["PS5", "PS4", "PS3", "PS Vita"].includes(platform)) return "platina";
+  if (["Xbox Series", "Xbox One", "Xbox 360"].includes(platform)) return "100";
+  return null;
 };
 
 export type Source = { title: string; url: string };

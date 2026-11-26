@@ -19,7 +19,7 @@ espalhado entre PSNProfiles, TrueAchievements, Exophase, HowLongToBeat e PSPrice
 | **Painel**: estatísticas, mais jogados, perto da platina, troféus recentes e mais raros | — |
 | **Lista de desejos** com preço-alvo, **filtros e ordenação**, **unir registros duplicados** e **backup em JSON** | — |
 | **Guias de platina (PlayStation) e 100% (Xbox)**: roteiro, perdíveis destacados, dicas por troféu, dificuldade, tempo estimado e restante, o que você já tem e o que falta, em PT-BR com opção de EN | Claude Code (botão no site → GitHub Actions, com a assinatura do Claude; sem API) + lista oficial da PSN/Xbox |
-| **Sagas**: agrupamento e filtro por saga/franquia na Coleção, sagas no painel | Catálogo + IGDB (séries/franquias) + edição manual |
+| **Sagas**: agrupamento e filtro por saga/franquia na Coleção, sagas no painel, e os jogos principais que faltam em cada saga (informativo), com botão para a coleção ou a lista de desejos | Catálogo + IGDB (séries/franquias) + edição manual |
 | **Instalável no celular** (ícone na tela inicial) | — |
 
 ## Tecnologia
@@ -90,6 +90,7 @@ src/components/     componentes visuais
 src/lib/db.ts       conexão Turso/SQLite, esquema e carga inicial
 src/lib/auth.ts     sessão assinada e verificação de senha
 src/lib/seed.ts     jogos físicos identificados nas fotos
+src/lib/saga-catalog.ts  jogos principais de cada saga (para mostrar o que falta)
 src/lib/psn.ts      sincronização PSN (troféus + tempo de jogo)
 src/lib/xbox.ts     sincronização Xbox (OpenXBL)
 src/lib/igdb.ts     metadados e tempo para zerar

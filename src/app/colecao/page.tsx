@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { Flash, GameCard } from "@/components/ui";
+import { addFromCatalog } from "@/app/actions";
+import { Flash, GameCard, PlatformBadge } from "@/components/ui";
+import { all } from "@/lib/db";
+import { sagaProgress } from "@/lib/saga-catalog";
 import { allGenres, allSagas, listGames, usedPlatforms } from "@/lib/queries";
-import type { GameRow } from "@/lib/types";
+import { PLATFORMS, type GameRow } from "@/lib/types";
 import { STATUSES, STATUS_LABEL } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -41,6 +44,10 @@ export default async function ColecaoPage({ searchParams }: PageProps<"/colecao"
       groups.get(key)!.push(g);
     }
   }
+  const everyGame = grouped ? await all<{ id: number; title: string; status: string }>("SELECT id, title, status FROM games") : [];
+  const back = `/colecao?${new URLSearchParams(
+    Object.entries({ ...filters, agrupar: "1" }).filter((e): e is [string, string] => !!e[1]),
+  ).toString()}`;
   const groupKeys = [...groups.keys()].sort((a, b) => (!a ? 1 : !b ? -1 : a.localeCompare(b, "pt-BR")));
 
   return (
@@ -113,17 +120,77 @@ export default async function ColecaoPage({ searchParams }: PageProps<"/colecao"
 
       {games.length && grouped ? (
         <div className="space-y-10">
-          {groupKeys.map((key) => (
-            <section key={key || "avulsos"}>
-              <h2 className="mb-4 flex items-baseline gap-2 border-b border-line pb-2 text-lg font-semibold">
-                {key || "Jogos avulsos"}
-                <span className="text-sm font-normal text-ink-3">{groups.get(key)!.length} jogo(s)</span>
-              </h2>
-              <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-                {groups.get(key)!.map((g) => <GameCard key={g.id} game={g} />)}
-              </div>
-            </section>
-          ))}
+          {groupKeys.map((key) => {
+            const progress = key ? sagaProgress(key, everyGame) : null;
+            const missing = progress?.items.filter((i) => !i.owned.length) ?? [];
+            return (
+              <section key={key || "avulsos"}>
+                <h2 className="mb-4 flex flex-wrap items-baseline gap-x-2 border-b border-line pb-2 text-lg font-semibold">
+                  {key || "Jogos avulsos"}
+                  <span className="text-sm font-normal text-ink-3">
+                    {progress
+                      ? `${progress.ownedCount} de ${progress.total} jogos principais da saga`
+                      : `${groups.get(key)!.length} jogo(s)`}
+                  </span>
+                </h2>
+                <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+                  {groups.get(key)!.map((g) => <GameCard key={g.id} game={g} />)}
+                </div>
+                {missing.length ? (
+                  <details className="mt-4 rounded-lg border border-dashed border-line bg-panel/50 p-3">
+                    <summary className="cursor-pointer text-sm text-ink-2">
+                      Faltam {missing.length} jogo(s) da saga na coleção (informativo)
+                    </summary>
+                    <ul className="mt-3 grid gap-2 md:grid-cols-2">
+                      {missing.map(({ entry, wished }) => {
+                        const options = entry.platforms.filter((p) => (PLATFORMS as readonly string[]).includes(p));
+                        // Sugere a plataforma mais atual em que o jogo existe.
+                        const PREFER = ["PS5", "PS4", "Xbox Series", "Switch 2", "Switch", "Xbox One", "PC"];
+                        const suggested = PREFER.find((p) => options.includes(p)) ?? options[0] ?? "Outro";
+                        return (
+                          <li key={entry.title} className="rounded-lg border border-line p-3 opacity-80 hover:opacity-100">
+                            <div className="flex items-start justify-between gap-2">
+                              <div className="min-w-0">
+                                <p className="text-sm font-medium">{entry.title}</p>
+                                <p className="text-xs text-ink-3">{entry.year}</p>
+                              </div>
+                              {wished ? (
+                                <a href={`/jogo/${wished.id}`} className="shrink-0 rounded bg-fuchsia-500/15 px-1.5 py-0.5 text-[11px] text-fuchsia-200">
+                                  Na lista de desejos
+                                </a>
+                              ) : null}
+                            </div>
+                            <div className="mt-1.5 flex flex-wrap gap-1">
+                              {entry.platforms.map((p) => <PlatformBadge key={p} platform={p} />)}
+                            </div>
+                            {entry.note ? <p className="mt-1 text-xs text-ink-3">{entry.note}</p> : null}
+                            {!wished ? (
+                              <form action={addFromCatalog} className="mt-2 flex flex-wrap items-center gap-2">
+                                <input type="hidden" name="title" value={entry.title} />
+                                <input type="hidden" name="saga" value={key} />
+                                <input type="hidden" name="back" value={back} />
+                                <select name="platform" defaultValue={suggested} className="input w-auto py-1 text-xs" aria-label="Plataforma">
+                                  {[...new Set([...options, ...PLATFORMS])].map((p) => <option key={p}>{p}</option>)}
+                                </select>
+                                <button name="status" value="desejado" className="btn-ghost px-2.5 py-1 text-xs" type="submit">
+                                  + Desejos
+                                </button>
+                                <button name="status" value="backlog" className="btn-ghost px-2.5 py-1 text-xs" type="submit">
+                                  + Coleção
+                                </button>
+                              </form>
+                            ) : null}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </details>
+                ) : progress ? (
+                  <p className="mt-3 text-xs text-emerald-300">✓ Você tem todos os jogos principais desta saga.</p>
+                ) : null}
+              </section>
+            );
+          })}
         </div>
       ) : games.length ? (
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
