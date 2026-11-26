@@ -19,6 +19,7 @@ export const viewport: Viewport = {
 const NAV = [
   { href: "/", label: "Painel" },
   { href: "/colecao", label: "Coleção" },
+  { href: "/consoles", label: "Meus consoles" },
   { href: "/conquistas", label: "Troféus e conquistas" },
   { href: "/guias", label: "Guias de platina" },
   { href: "/desejos", label: "Lista de desejos" },

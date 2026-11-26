@@ -110,6 +110,20 @@ CREATE TABLE IF NOT EXISTS guide_requests (
   requested_at TEXT NOT NULL
 );
 
+-- Consoles que você possui (cadastro manual + detecção pela PSN/Xbox)
+CREATE TABLE IF NOT EXISTS consoles (
+  id            INTEGER PRIMARY KEY AUTOINCREMENT,
+  name          TEXT NOT NULL,
+  platform      TEXT NOT NULL,         -- mesma lista de plataformas dos jogos (PS5, Xbox Series...)
+  model         TEXT,                  -- ex.: Slim, Pro, Series X, edição digital
+  purchase_date TEXT,
+  price_paid    REAL,
+  notes         TEXT,
+  detected_by   TEXT,                  -- psn | xbox (detectado na sincronização)
+  detected_at   TEXT,
+  created_at    TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS login_attempts (
   ip         TEXT PRIMARY KEY,
   failures   INTEGER NOT NULL,
@@ -171,6 +185,26 @@ function connect() {
           })),
           "INSERT OR REPLACE INTO settings (key, value) VALUES ('seeded', '1')",
           { sql: "INSERT OR REPLACE INTO settings (key, value) VALUES ('seed_version', ?)", args: [String(SEED_VERSION)] },
+        ],
+        "write",
+      );
+    }
+    // Consoles iniciais (uma única vez; depois você edita na página Meus consoles)
+    const consolesSeeded = await client.execute("SELECT 1 FROM settings WHERE key = 'consoles_seeded'");
+    if (consolesSeeded.rows.length === 0) {
+      await client.batch(
+        [
+          ...[
+            ["PlayStation 5", "PS5", null],
+            ["PlayStation 4", "PS4", null],
+            ["Xbox Series X", "Xbox Series", "Series X"],
+            ["Xbox One", "Xbox One", null],
+            ["Nintendo Switch 2", "Switch 2", null],
+          ].map(([name, platform, model]) => ({
+            sql: "INSERT INTO consoles (name, platform, model) VALUES (?, ?, ?)",
+            args: [name, platform, model],
+          })),
+          "INSERT OR REPLACE INTO settings (key, value) VALUES ('consoles_seeded', '1')",
         ],
         "write",
       );

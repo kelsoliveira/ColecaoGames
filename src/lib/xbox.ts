@@ -1,4 +1,5 @@
 import "server-only";
+import { markDetected } from "./consoles";
 import { all, batch, get, run } from "./db";
 import { platformFamily, titleSimilarity } from "./format";
 import { setSetting } from "./settings";
@@ -91,6 +92,11 @@ export async function syncXbox(apiKey: string, maxDetails = 60, budgetMs = 240_0
     (t) => t.type === "Game" && t.devices.some((d) => d.startsWith("Xbox") || d === "PC"),
   );
   report.titles = titles.length;
+
+  // Consoles em que você jogou (o Xbox não lista os aparelhos da conta; usamos o histórico)
+  const devicesUsed = new Set(titles.flatMap((t) => t.devices));
+  if (devicesUsed.has("XboxSeries")) await markDetected("Xbox Series", "Xbox Series X|S", "xbox");
+  if (devicesUsed.has("XboxOne")) await markDetected("Xbox One", "Xbox One", "xbox");
 
   const games = await all<GameRow>("SELECT * FROM games");
   const byTitle = new Map(games.filter((g) => g.xbox_title_id).map((g) => [g.xbox_title_id!, g]));

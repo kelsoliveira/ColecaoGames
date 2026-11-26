@@ -207,6 +207,30 @@ export async function refreshMetadata(id: number, form: FormData) {
   redirect(msg(`/jogo/${id}`, "ok", "Metadados atualizados."));
 }
 
+// ---------- Consoles ----------
+
+export async function saveConsole(id: number | null, form: FormData) {
+  await requireAuth();
+  const name = str(form, "name");
+  const platform = str(form, "platform");
+  if (!name || !platform) redirect(msg("/consoles", "erro", "Informe o nome e a plataforma."));
+  const args = [name, platform, str(form, "model"), str(form, "purchase_date"), num(form, "price_paid"), str(form, "notes")];
+  if (id) {
+    await run("UPDATE consoles SET name=?, platform=?, model=?, purchase_date=?, price_paid=?, notes=? WHERE id=?", [...args, id]);
+  } else {
+    await run("INSERT INTO consoles (name, platform, model, purchase_date, price_paid, notes) VALUES (?, ?, ?, ?, ?, ?)", args);
+  }
+  revalidatePath("/consoles");
+  redirect(msg("/consoles", "ok", id ? "Console atualizado." : "Console adicionado."));
+}
+
+export async function deleteConsole(id: number) {
+  await requireAuth();
+  await run("DELETE FROM consoles WHERE id=?", [id]);
+  revalidatePath("/consoles");
+  redirect(msg("/consoles", "ok", "Console removido."));
+}
+
 // ---------- Guias de platina / 100% ----------
 
 export async function requestGuideAction(gameId: number) {

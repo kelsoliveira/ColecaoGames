@@ -2,6 +2,7 @@ import "server-only";
 import {
   exchangeAccessCodeForAuthTokens,
   exchangeNpssoForAccessCode,
+  getAccountDevices,
   getProfileFromAccountId,
   getTitleTrophies,
   getUserPlayedGames,
@@ -11,6 +12,7 @@ import {
   type AuthorizationPayload,
   type TrophyTitle,
 } from "psn-api";
+import { markDetected } from "./consoles";
 import { all, batch, get, run } from "./db";
 import { isoDurationToMinutes, platformFamily, titleSimilarity } from "./format";
 import { setSetting } from "./settings";
@@ -89,6 +91,18 @@ export async function syncPsn(npsso: string, budgetMs = 240_000): Promise<SyncRe
     await setSetting("psn_avatar", avatar?.url ?? null);
   } catch {
     /* opcional */
+  }
+
+  // Consoles ativados na conta (PS5/PS4) -> página Meus consoles
+  try {
+    const devices = await getAccountDevices(a);
+    const names: Record<string, string> = { PS5: "PlayStation 5", PS4: "PlayStation 4", PS3: "PlayStation 3", PSVITA: "PS Vita" };
+    for (const type of new Set(devices.accountDevices.map((d) => d.deviceType.toUpperCase()))) {
+      const platform = type === "PSVITA" ? "PS Vita" : type;
+      if (names[type]) await markDetected(platform, names[type], "psn");
+    }
+  } catch {
+    /* opcional: alguns perfis não retornam dispositivos */
   }
 
   // 1) Listas de troféus
