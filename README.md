@@ -19,6 +19,7 @@ espalhado entre PSNProfiles, TrueAchievements, Exophase, HowLongToBeat e PSPrice
 | **Painel**: estatísticas, mais jogados, perto da platina, troféus recentes e mais raros | — |
 | **Lista de desejos** com preço-alvo, **filtros e ordenação**, **unir registros duplicados** e **backup em JSON** | — |
 | **Guias de platina (PlayStation) e 100% (Xbox)**: roteiro, perdíveis destacados, dicas por troféu, dificuldade, tempo estimado e restante, o que você já tem e o que falta, em PT-BR com opção de EN | Claude Code (botão no site → GitHub Actions, com a assinatura do Claude; sem API) + lista oficial da PSN/Xbox |
+| **Sagas**: agrupamento e filtro por saga/franquia na Coleção, sagas no painel | Catálogo + IGDB (séries/franquias) + edição manual |
 | **Instalável no celular** (ícone na tela inicial) | — |
 
 ## Tecnologia

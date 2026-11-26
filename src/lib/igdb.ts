@@ -32,6 +32,8 @@ export type IgdbGame = {
   genres?: { name: string }[];
   platforms?: { id: number; abbreviation?: string; name: string }[];
   involved_companies?: { developer: boolean; publisher: boolean; company: { name: string } }[];
+  collections?: { name: string }[];
+  franchises?: { name: string }[];
 };
 
 export const igdbImage = (imageId: string, size = "t_cover_big_2x") =>
@@ -74,7 +76,8 @@ async function query<T>(endpoint: string, body: string): Promise<T> {
 const GAME_FIELDS =
   "fields name,slug,summary,first_release_date,total_rating,aggregated_rating,cover.image_id," +
   "screenshots.image_id,genres.name,platforms.id,platforms.abbreviation,platforms.name," +
-  "involved_companies.developer,involved_companies.publisher,involved_companies.company.name;";
+  "involved_companies.developer,involved_companies.publisher,involved_companies.company.name," +
+  "collections.name,franchises.name;";
 
 const escape = (s: string) => s.replace(/"/g, '\\"');
 
@@ -123,7 +126,7 @@ export async function applyIgdb(gameId: number, igdbId: number) {
   await run(
       `UPDATE games SET igdb_id=?, igdb_slug=?, cover_url=?, summary=?, genres=?, developer=?, publisher=?,
          release_date=?, igdb_rating=?, critic_rating=?, screenshots=?, ttb_main=?, ttb_extra=?, ttb_complete=?,
-         metadata_at=datetime('now'), updated_at=datetime('now')
+         saga=COALESCE(saga, ?), metadata_at=datetime('now'), updated_at=datetime('now')
        WHERE id=?`,
     [
       g.id,
@@ -140,6 +143,8 @@ export async function applyIgdb(gameId: number, igdbId: number) {
       ttb?.hastily ?? ttb?.normally ?? null,
       ttb?.normally ?? null,
       ttb?.completely ?? null,
+      // Saga: série (collection) do IGDB; se não houver, a franquia
+      g.collections?.[0]?.name ?? g.franchises?.[0]?.name ?? null,
       gameId,
     ],
   );

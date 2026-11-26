@@ -57,6 +57,15 @@ export async function createGame(form: FormData) {
     ],
   );
 
+  // Saga: se o título começa com o nome de uma saga já existente (ex.: "Final Fantasy IX"), usa essa saga.
+  await run(
+    `UPDATE games SET saga = (
+       SELECT s.saga FROM (SELECT DISTINCT saga FROM games WHERE saga IS NOT NULL AND saga <> '') s
+       WHERE lower(?) LIKE lower(s.saga) || '%' ORDER BY length(s.saga) DESC LIMIT 1)
+     WHERE id = ? AND saga IS NULL`,
+    [title, id],
+  );
+
   const igdbId = num(form, "igdb_id");
   try {
     if (igdbId) await applyIgdb(id, igdbId);
@@ -76,7 +85,7 @@ export async function updateGame(id: number, form: FormData) {
   const status = str(form, "status");
   const hours = num(form, "playtime_hours");
   await run(
-    `UPDATE games SET title=?, platform=?, format=?, edition=?, status=?, user_rating=?, notes=?, price_paid=?,
+    `UPDATE games SET title=?, platform=?, format=?, edition=?, saga=?, status=?, user_rating=?, notes=?, price_paid=?,
        purchase_date=?, market_value=?, target_price=?, playtime_minutes=COALESCE(?, playtime_minutes),
        updated_at=datetime('now') WHERE id=?`,
     [
@@ -84,6 +93,7 @@ export async function updateGame(id: number, form: FormData) {
       str(form, "platform"),
       str(form, "format") ?? "fisico",
       str(form, "edition"),
+      str(form, "saga"),
       status && (STATUSES as readonly string[]).includes(status) ? status : "backlog",
       num(form, "user_rating"),
       str(form, "notes"),

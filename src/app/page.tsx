@@ -78,6 +78,15 @@ export default async function Dashboard() {
         </section>
       </div>
 
+      {s.bySaga.length ? (
+        <section className="card p-5">
+          <SectionTitle action={<Link href="/colecao?agrupar=1" className="text-sm text-accent">Ver por saga</Link>}>
+            Maiores sagas da coleção
+          </SectionTitle>
+          <BarList items={s.bySaga} unit=" jogos" />
+        </section>
+      ) : null}
+
       {s.recentlyPlayed.length ? (
         <section>
           <SectionTitle action={<Link href="/colecao?sort=recentes" className="text-sm text-accent">Ver todos</Link>}>

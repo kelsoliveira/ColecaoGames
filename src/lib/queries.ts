@@ -9,6 +9,7 @@ export type GameFilters = {
   format?: string;
   status?: string;
   genre?: string;
+  saga?: string;
   sort?: string;
 };
 
@@ -44,6 +45,10 @@ export async function listGames(f: GameFilters): Promise<GameRow[]> {
   } else {
     where.push("status <> 'desejado'");
   }
+  if (f.saga) {
+    where.push("saga = @saga");
+    params.saga = f.saga;
+  }
   if (f.genre) {
     where.push("genres LIKE @genre");
     params.genre = `%"${f.genre}"%`;
@@ -59,6 +64,12 @@ export async function allGenres(): Promise<string[]> {
   const set = new Set<string>();
   for (const r of rows) for (const g of parseJson<string[]>(r.genres, [])) set.add(g);
   return [...set].sort((a, b) => a.localeCompare(b, "pt-BR"));
+}
+
+export async function allSagas(): Promise<string[]> {
+  return (
+    await all<{ saga: string }>("SELECT DISTINCT saga FROM games WHERE saga IS NOT NULL AND saga <> '' ORDER BY saga COLLATE NOCASE")
+  ).map((r) => r.saga);
 }
 
 export async function usedPlatforms(): Promise<string[]> {
@@ -113,6 +124,7 @@ export async function getStats() {
   const byPlatform = new Map<string, number>();
   const byStatus = new Map<string, number>();
   const byGenre = new Map<string, number>();
+  const bySaga = new Map<string, number>();
   let minutes = 0;
   let paid = 0;
   let value = 0;
@@ -121,6 +133,7 @@ export async function getStats() {
   for (const g of owned) {
     byPlatform.set(g.platform, (byPlatform.get(g.platform) ?? 0) + 1);
     byStatus.set(g.status, (byStatus.get(g.status) ?? 0) + 1);
+    if (g.saga) bySaga.set(g.saga, (bySaga.get(g.saga) ?? 0) + 1);
     for (const genre of parseJson<string[]>(g.genres, [])) byGenre.set(genre, (byGenre.get(genre) ?? 0) + 1);
     const e = parseJson<TrophyCounts>(g.psn_earned, emptyTrophies());
     trophies.bronze += e.bronze;
@@ -160,6 +173,7 @@ export async function getStats() {
     byPlatform: sortDesc(byPlatform),
     byStatus: sortDesc(byStatus),
     byGenre: sortDesc(byGenre).slice(0, 8),
+    bySaga: sortDesc(bySaga).slice(0, 8),
     mostPlayed: [...owned]
       .filter((g) => g.playtime_minutes)
       .sort((a, b) => (b.playtime_minutes ?? 0) - (a.playtime_minutes ?? 0))

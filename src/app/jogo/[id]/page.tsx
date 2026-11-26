@@ -9,7 +9,7 @@ import {
 } from "@/app/actions";
 import { Cover, Flash, PlatformBadge, ProgressBar, StatTile, StatusBadge, TrophyCountsView, TrophyIcon } from "@/components/ui";
 import { brl, date, emptyTrophies, hours, parseJson, platformFamily, secondsToHours } from "@/lib/format";
-import { gamesForMerge, getAchievements, getGame } from "@/lib/queries";
+import { allSagas, gamesForMerge, getAchievements, getGame } from "@/lib/queries";
 import { PLATFORMS, STATUSES, STATUS_LABEL, type TrophyCounts } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -56,7 +56,7 @@ export default async function GamePage({ params, searchParams }: PageProps<"/jog
   const game = await getGame(id);
   if (!game) notFound();
 
-  const [achievements, mergeCandidates] = await Promise.all([getAchievements(id), gamesForMerge(game)]);
+  const [achievements, mergeCandidates, sagas] = await Promise.all([getAchievements(id), gamesForMerge(game), allSagas()]);
   const earnedCount = achievements.filter((a) => a.earned).length;
   const genres = parseJson<string[]>(game.genres, []);
   const shots = parseJson<string[]>(game.screenshots, []);
@@ -83,6 +83,14 @@ export default async function GamePage({ params, searchParams }: PageProps<"/jog
             </div>
             <h1 className="text-3xl font-bold">{game.title}</h1>
             {game.edition ? <p className="text-ink-2">{game.edition}</p> : null}
+            {game.saga ? (
+              <Link
+                href={`/colecao?agrupar=1&saga=${encodeURIComponent(game.saga)}`}
+                className="mt-2 inline-flex rounded-full bg-panel-2 px-2.5 py-0.5 text-xs text-ink-2 hover:text-ink"
+              >
+                Saga: {game.saga}
+              </Link>
+            ) : null}
             {platformFamily(game.platform) === "playstation" || platformFamily(game.platform) === "xbox" ? (
               <Link href={`/guias/${id}`} className="btn-ghost mt-3">
                 🏆 {platformFamily(game.platform) === "playstation" ? "Guia de platina" : "Guia 100% (1000G)"}
@@ -240,6 +248,13 @@ export default async function GamePage({ params, searchParams }: PageProps<"/jog
           <div>
             <label className="label" htmlFor="edition">Edição</label>
             <input id="edition" name="edition" defaultValue={game.edition ?? ""} className="input" />
+          </div>
+          <div>
+            <label className="label" htmlFor="saga">Saga / franquia</label>
+            <input id="saga" name="saga" list="sagas" defaultValue={game.saga ?? ""} placeholder="Ex.: Final Fantasy" className="input" />
+            <datalist id="sagas">
+              {sagas.map((g) => <option key={g} value={g} />)}
+            </datalist>
           </div>
           <div>
             <label className="label" htmlFor="status">Status</label>

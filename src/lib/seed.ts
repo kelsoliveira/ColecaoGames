@@ -5,7 +5,7 @@
 // de versões mais novas que a deles (jogos removidos pelo usuário não voltam).
 export type SeedGame = { title: string; platform: string; edition?: string; since?: number };
 
-export const SEED_VERSION = 2;
+export const SEED_VERSION = 3;
 
 const ps5: SeedGame[] = [
   { title: "Borderlands 4", platform: "PS5" },
@@ -43,6 +43,11 @@ const ps5: SeedGame[] = [
   { title: "Black Myth: Wukong", platform: "PS5", since: 2 },
   { title: "Octopath Traveler 0", platform: "PS5", since: 2 },
   { title: "Dragon Quest I & II HD-2D Remake", platform: "PS5", since: 2 },
+  // versão 3 do catálogo
+  { title: "The Adventures of Elliot: The Millennium Tales", platform: "PS5", since: 3 },
+  { title: "Assassin's Creed Shadows", platform: "PS5", edition: "Limited Edition", since: 3 },
+  { title: "Octopath Traveler II", platform: "PS5", since: 3 },
+  { title: "Lies of P", platform: "PS5", since: 3 },
 ];
 
 const ps4: SeedGame[] = [
@@ -75,6 +80,7 @@ const xbox: SeedGame[] = [
   { title: "Tales of Arise", platform: "Xbox Series" },
   { title: "The Witcher 3: Wild Hunt", platform: "Xbox One", edition: "Game of the Year Edition" },
   { title: "Titanfall", platform: "Xbox One" },
+  { title: "Crisis Core –Final Fantasy VII– Reunion", platform: "Xbox Series", edition: "Importado · região livre", since: 3 },
 ];
 
 const nintendo: SeedGame[] = [
@@ -82,3 +88,66 @@ const nintendo: SeedGame[] = [
 ];
 
 export const SEED_GAMES: SeedGame[] = [...ps5, ...ps4, ...xbox, ...nintendo];
+
+// Sagas/franquias dos jogos do catálogo (usado para agrupar na Coleção).
+// Jogos avulsos ficam sem saga. Ao mudar este mapa, aumente SAGA_VERSION para reaplicar nos bancos existentes
+// (só preenche jogos que ainda não têm saga; o que você editou no site é mantido).
+export const SAGA_VERSION = 1;
+
+export const SAGA_BY_TITLE: Record<string, string> = {
+  "A Plague Tale Collection": "A Plague Tale",
+  "Assassin's Creed The Ezio Collection": "Assassin's Creed",
+  "Assassin's Creed Shadows": "Assassin's Creed",
+  "Black Myth: Wukong": "Black Myth",
+  "Borderlands 3": "Borderlands",
+  "Borderlands 4": "Borderlands",
+  "Castlevania: Belmont's Curse": "Castlevania",
+  "Dark Souls Trilogy": "Souls",
+  "Demon's Souls": "Souls",
+  "Devil May Cry 5": "Devil May Cry",
+  "Dragon Quest I & II HD-2D Remake": "Dragon Quest",
+  "Dragon Quest III HD-2D Remake": "Dragon Quest",
+  "Dragon Quest VII Reimagined": "Dragon Quest",
+  "Dragon Quest XI S: Echoes of an Elusive Age": "Dragon Quest",
+  "Dying Light 2 Stay Human": "Dying Light",
+  "Final Fantasy I-VI Collection": "Final Fantasy",
+  "Final Fantasy Tactics: The Ivalice Chronicles": "Final Fantasy",
+  "Final Fantasy VII Remake Intergrade": "Final Fantasy",
+  "Final Fantasy VIII Remastered": "Final Fantasy",
+  "Final Fantasy X/X-2 HD Remaster": "Final Fantasy",
+  "Final Fantasy XII The Zodiac Age": "Final Fantasy",
+  "Final Fantasy XV": "Final Fantasy",
+  "Final Fantasy XVI": "Final Fantasy",
+  "Stranger of Paradise: Final Fantasy Origin": "Final Fantasy",
+  "Crisis Core –Final Fantasy VII– Reunion": "Final Fantasy",
+  "Ghost of Tsushima": "Ghost of Tsushima",
+  "Ghost of Yōtei": "Ghost of Tsushima",
+  "God of War": "God of War",
+  "God of War III Remastered": "God of War",
+  "God of War Ragnarök": "God of War",
+  "Horizon Forbidden West": "Horizon",
+  "Horizon Zero Dawn Remastered": "Horizon",
+  "Lords of the Fallen": "Lords of the Fallen",
+  "Mass Effect Legendary Edition": "Mass Effect",
+  "Mega Man Legacy Collection": "Mega Man",
+  "Mega Man Legacy Collection 2": "Mega Man",
+  "Metal Gear Solid Delta: Snake Eater": "Metal Gear",
+  "Nioh 3": "Nioh",
+  "Nioh Collection": "Nioh",
+  "Octopath Traveler 0": "Octopath Traveler",
+  "Octopath Traveler II": "Octopath Traveler",
+  "Red Dead Redemption": "Red Dead",
+  "Red Dead Redemption 2": "Red Dead",
+  "Resident Evil Requiem": "Resident Evil",
+  "Secret of Mana": "Mana",
+  "Silent Hill 2": "Silent Hill",
+  "Star Wars Jedi: Survivor": "Star Wars Jedi",
+  "Tactics Ogre: Reborn": "Ogre Battle",
+  "Tales of Arise": "Tales of",
+  "The Last of Us Part I": "The Last of Us",
+  "The Last of Us Part II Remastered": "The Last of Us",
+  "The Witcher 3: Wild Hunt": "The Witcher",
+  "Titanfall": "Titanfall",
+  "Warhammer 40,000: Space Marine 2": "Warhammer 40,000",
+  "The Legend of Zelda: Ocarina of Time": "The Legend of Zelda",
+};

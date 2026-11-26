@@ -29,6 +29,7 @@ export type GameRow = {
   ttb_main: number | null;
   ttb_extra: number | null;
   ttb_complete: number | null;
+  saga: string | null;
   metadata_at: string | null;
 
   psn_np_id: string | null;

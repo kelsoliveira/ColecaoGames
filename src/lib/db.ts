@@ -2,7 +2,7 @@ import "server-only";
 import { createClient, type Client, type InArgs, type InStatement } from "@libsql/client";
 import fs from "node:fs";
 import path from "node:path";
-import { SEED_GAMES, SEED_VERSION } from "./seed";
+import { SAGA_BY_TITLE, SAGA_VERSION, SEED_GAMES, SEED_VERSION } from "./seed";
 
 // Em produção (Vercel) usa o Turso: TURSO_DATABASE_URL=libsql://... e TURSO_AUTH_TOKEN.
 // Localmente, sem essas variáveis, usa um arquivo SQLite em ./data/colecao.db.
@@ -143,6 +143,11 @@ function connect() {
         /* já existe */
       }
     }
+    try {
+      await client.execute("ALTER TABLE games ADD COLUMN saga TEXT");
+    } catch {
+      /* já existe */
+    }
     // Força nova busca dos troféus da PSN que ainda não têm o nome em inglês
     await client.execute(
       `UPDATE games SET psn_details_at = NULL WHERE psn_np_id IS NOT NULL AND id IN
@@ -159,13 +164,27 @@ function connect() {
         [
           // não duplica se o jogo já tiver sido cadastrado manualmente
           ...toAdd.map((g) => ({
-            sql: `INSERT INTO games (title, platform, format, edition, status, owned)
-                  SELECT ?, ?, 'fisico', ?, 'backlog', 1
+            sql: `INSERT INTO games (title, platform, format, edition, status, owned, saga)
+                  SELECT ?, ?, 'fisico', ?, 'backlog', 1, ?
                   WHERE NOT EXISTS (SELECT 1 FROM games WHERE lower(title) = lower(?) AND platform = ?)`,
-            args: [g.title, g.platform, g.edition ?? null, g.title, g.platform],
+            args: [g.title, g.platform, g.edition ?? null, SAGA_BY_TITLE[g.title] ?? null, g.title, g.platform],
           })),
           "INSERT OR REPLACE INTO settings (key, value) VALUES ('seeded', '1')",
           { sql: "INSERT OR REPLACE INTO settings (key, value) VALUES ('seed_version', ?)", args: [String(SEED_VERSION)] },
+        ],
+        "write",
+      );
+    }
+    // Sagas dos jogos já cadastrados (só preenche quem ainda não tem saga)
+    const sagaRow = await client.execute("SELECT value FROM settings WHERE key = 'saga_version'");
+    if (Number(sagaRow.rows[0]?.value ?? 0) < SAGA_VERSION) {
+      await client.batch(
+        [
+          ...Object.entries(SAGA_BY_TITLE).map(([title, saga]) => ({
+            sql: "UPDATE games SET saga = ? WHERE saga IS NULL AND lower(title) = lower(?)",
+            args: [saga, title],
+          })),
+          { sql: "INSERT OR REPLACE INTO settings (key, value) VALUES ('saga_version', ?)", args: [String(SAGA_VERSION)] },
         ],
         "write",
       );
