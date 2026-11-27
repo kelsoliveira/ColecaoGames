@@ -2,7 +2,7 @@ import "server-only";
 import { createClient, type Client, type InArgs, type InStatement } from "@libsql/client";
 import fs from "node:fs";
 import path from "node:path";
-import { SAGA_BY_TITLE, SAGA_VERSION, SEED_GAMES, SEED_VERSION } from "./seed";
+import { FIXES, FIXES_VERSION, SAGA_BY_TITLE, SAGA_VERSION, SEED_GAMES, SEED_VERSION } from "./seed";
 
 // Em produção (Vercel) usa o Turso: TURSO_DATABASE_URL=libsql://... e TURSO_AUTH_TOKEN.
 // Localmente, sem essas variáveis, usa um arquivo SQLite em ./data/colecao.db.
@@ -205,6 +205,17 @@ function connect() {
             args: [name, platform, model],
           })),
           "INSERT OR REPLACE INTO settings (key, value) VALUES ('consoles_seeded', '1')",
+        ],
+        "write",
+      );
+    }
+    // Correções de dados (uma vez por versão)
+    const fixesRow = await client.execute("SELECT value FROM settings WHERE key = 'fixes_version'");
+    if (Number(fixesRow.rows[0]?.value ?? 0) < FIXES_VERSION) {
+      await client.batch(
+        [
+          ...FIXES,
+          { sql: "INSERT OR REPLACE INTO settings (key, value) VALUES ('fixes_version', ?)", args: [String(FIXES_VERSION)] },
         ],
         "write",
       );

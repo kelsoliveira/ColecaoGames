@@ -1,5 +1,5 @@
 // Coleção física identificada a partir das fotos da estante.
-// Itens com "(confirmar)" na edição tiveram a plataforma/versão inferida pela lombada.
+// Os jogos de Xbox estão como Xbox Series (o console do dono é o Series X), inclusive os lançados para Xbox One.
 
 // `since`: versão do catálogo em que o jogo foi incluído. Bancos já existentes recebem só os jogos
 // de versões mais novas que a deles (jogos removidos pelo usuário não voltam).
@@ -75,19 +75,19 @@ const ps4: SeedGame[] = [
 
 const xbox: SeedGame[] = [
   { title: "Dragon Quest III HD-2D Remake", platform: "Xbox Series" },
-  { title: "Final Fantasy XV", platform: "Xbox One", edition: "Special Edition" },
+  { title: "Final Fantasy XV", platform: "Xbox Series", edition: "Special Edition" },
   { title: "Star Wars Jedi: Survivor", platform: "Xbox Series" },
-  { title: "Mass Effect Legendary Edition", platform: "Xbox One" },
+  { title: "Mass Effect Legendary Edition", platform: "Xbox Series" },
   { title: "Stranger of Paradise: Final Fantasy Origin", platform: "Xbox Series" },
   { title: "Warhammer 40,000: Space Marine 2", platform: "Xbox Series" },
   { title: "Tales of Arise", platform: "Xbox Series" },
-  { title: "The Witcher 3: Wild Hunt", platform: "Xbox One", edition: "Game of the Year Edition" },
-  { title: "Titanfall", platform: "Xbox One" },
+  { title: "The Witcher 3: Wild Hunt", platform: "Xbox Series", edition: "Game of the Year Edition" },
+  { title: "Titanfall", platform: "Xbox Series" },
   { title: "Crisis Core –Final Fantasy VII– Reunion", platform: "Xbox Series", edition: "Importado · região livre", since: 3 },
 ];
 
 const nintendo: SeedGame[] = [
-  { title: "The Legend of Zelda: Ocarina of Time", platform: "Nintendo", edition: "(confirmar plataforma)" },
+  { title: "The Legend of Zelda: Ocarina of Time", platform: "Switch 2" },
 ];
 
 export const SEED_GAMES: SeedGame[] = [...ps5, ...ps4, ...xbox, ...nintendo];
@@ -156,3 +156,15 @@ export const SAGA_BY_TITLE: Record<string, string> = {
   "Warhammer 40,000: Space Marine 2": "Warhammer 40,000",
   "The Legend of Zelda: Ocarina of Time": "The Legend of Zelda",
 };
+
+// Correções em dados já gravados (aplicadas uma única vez em bancos existentes).
+export const FIXES_VERSION = 1;
+export const FIXES: { sql: string; args: (string | null)[] }[] = [
+  // Jogos de Xbox considerados do Series X
+  { sql: "UPDATE games SET platform = 'Xbox Series', updated_at = datetime('now') WHERE platform = 'Xbox One'", args: [] },
+  // Zelda: Ocarina of Time é do Switch 2
+  {
+    sql: "UPDATE games SET platform = 'Switch 2', edition = NULL, updated_at = datetime('now') WHERE title = ? AND platform = 'Nintendo'",
+    args: ["The Legend of Zelda: Ocarina of Time"],
+  },
+];
