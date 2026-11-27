@@ -28,7 +28,7 @@ export async function listGames(f: GameFilters): Promise<GameRow[]> {
   const where: string[] = [];
   const params: Record<string, string> = {};
   if (f.q) {
-    where.push("(title LIKE @q OR developer LIKE @q OR publisher LIKE @q)");
+    where.push("(title LIKE @q OR developer LIKE @q OR publisher LIKE @q OR collection LIKE @q)");
     params.q = `%${f.q}%`;
   }
   if (f.platform) {
@@ -160,6 +160,8 @@ export async function getStats() {
   return {
     total: owned.length,
     physical: owned.filter((g) => g.format === "fisico").length,
+    // caixas físicas: cada coletânea conta uma vez
+    boxes: new Set(owned.filter((g) => g.format === "fisico").map((g) => g.collection ?? `#${g.id}`)).size,
     digital: owned.filter((g) => g.format === "digital").length,
     wishlist: games.length - owned.length,
     trophies,

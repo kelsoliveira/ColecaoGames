@@ -36,7 +36,7 @@ export default async function Dashboard() {
       </header>
 
       <section className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
-        <StatTile label="Jogos" value={s.total} hint={`${s.physical} físicos · ${s.digital} digitais`} />
+        <StatTile label="Jogos" value={s.total} hint={`${s.boxes} caixas físicas · ${s.digital} digitais`} />
         <StatTile label="Horas jogadas" value={Math.round(s.minutes / 60).toLocaleString("pt-BR")} hint="PSN (PS4/PS5)" />
         <StatTile
           label="Platinas"

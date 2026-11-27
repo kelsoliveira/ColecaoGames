@@ -175,3 +175,18 @@ export const FIXES: { sql: string; args: (string | null)[] }[] = [
   // O dono não tem PS4 (os jogos de PS4 continuam, e rodam no PS5)
   { sql: "DELETE FROM consoles WHERE platform = 'PS4'", args: [] },
 ];
+
+// Coletâneas: cada caixa física é separada nos jogos que contém (cada jogo com troféus, horas e guia próprios).
+// Ao mudar este mapa, aumente COLLECTIONS_VERSION.
+export const COLLECTIONS_VERSION = 1;
+export const COLLECTIONS: Record<string, string[]> = {
+  "A Plague Tale Collection": ["A Plague Tale: Innocence", "A Plague Tale: Requiem"],
+  "Assassin's Creed The Ezio Collection": ["Assassin's Creed II", "Assassin's Creed Brotherhood", "Assassin's Creed Revelations"],
+  "Dark Souls Trilogy": ["Dark Souls Remastered", "Dark Souls II: Scholar of the First Sin", "Dark Souls III"],
+  "Nioh Collection": ["Nioh Remastered", "Nioh 2 Remastered"],
+  "Final Fantasy I-VI Collection": ["Final Fantasy", "Final Fantasy II", "Final Fantasy III", "Final Fantasy IV", "Final Fantasy V", "Final Fantasy VI"],
+  "Final Fantasy X/X-2 HD Remaster": ["Final Fantasy X HD Remaster", "Final Fantasy X-2 HD Remaster"],
+  "Mega Man Legacy Collection": ["Mega Man", "Mega Man 2", "Mega Man 3", "Mega Man 4", "Mega Man 5", "Mega Man 6"],
+  "Mega Man Legacy Collection 2": ["Mega Man 7", "Mega Man 8", "Mega Man 9", "Mega Man 10"],
+  "Mass Effect Legendary Edition": ["Mass Effect", "Mass Effect 2", "Mass Effect 3"],
+};

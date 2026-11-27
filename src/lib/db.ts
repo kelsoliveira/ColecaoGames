@@ -2,7 +2,7 @@ import "server-only";
 import { createClient, type Client, type InArgs, type InStatement } from "@libsql/client";
 import fs from "node:fs";
 import path from "node:path";
-import { FIXES, FIXES_VERSION, SAGA_BY_TITLE, SAGA_VERSION, SEED_GAMES, SEED_VERSION } from "./seed";
+import { COLLECTIONS, COLLECTIONS_VERSION, FIXES, FIXES_VERSION, SAGA_BY_TITLE, SAGA_VERSION, SEED_GAMES, SEED_VERSION } from "./seed";
 
 // Em produção (Vercel) usa o Turso: TURSO_DATABASE_URL=libsql://... e TURSO_AUTH_TOKEN.
 // Localmente, sem essas variáveis, usa um arquivo SQLite em ./data/colecao.db.
@@ -157,10 +157,12 @@ function connect() {
         /* já existe */
       }
     }
-    try {
-      await client.execute("ALTER TABLE games ADD COLUMN saga TEXT");
-    } catch {
-      /* já existe */
+    for (const col of ["saga TEXT", "collection TEXT"]) {
+      try {
+        await client.execute(`ALTER TABLE games ADD COLUMN ${col}`);
+      } catch {
+        /* já existe */
+      }
     }
     // Força nova busca dos troféus da PSN que ainda não têm o nome em inglês
     await client.execute(
@@ -219,6 +221,35 @@ function connect() {
         ],
         "write",
       );
+    }
+    // Coletâneas: troca a caixa pelos jogos que ela contém (uma vez por versão)
+    const collRow = await client.execute("SELECT value FROM settings WHERE key = 'collections_version'");
+    if (Number(collRow.rows[0]?.value ?? 0) < COLLECTIONS_VERSION) {
+      const stmts: InStatement[] = [];
+      for (const [box, parts] of Object.entries(COLLECTIONS)) {
+        const rows = await client.execute({ sql: "SELECT * FROM games WHERE lower(title) = lower(?) AND collection IS NULL", args: [box] });
+        for (const r of rows.rows) {
+          parts.forEach((title, i) => {
+            stmts.push({
+              sql: `INSERT INTO games (title, platform, format, status, owned, saga, collection, price_paid, purchase_date, market_value, notes)
+                    SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+                    WHERE NOT EXISTS (SELECT 1 FROM games WHERE lower(title) = lower(?) AND platform = ? AND collection = ?)`,
+              args: [
+                title, r.platform, r.format, r.status, r.owned, r.saga ?? SAGA_BY_TITLE[box] ?? null, box,
+                // preço, data e anotações da caixa ficam no primeiro jogo da coletânea
+                i === 0 ? r.price_paid : null, i === 0 ? r.purchase_date : null, i === 0 ? r.market_value : null, i === 0 ? r.notes : null,
+                title, r.platform, box,
+              ],
+            });
+          });
+          stmts.push({ sql: "DELETE FROM achievements WHERE game_id = ?", args: [r.id] });
+          stmts.push({ sql: "DELETE FROM guides WHERE game_id = ?", args: [r.id] });
+          stmts.push({ sql: "DELETE FROM guide_requests WHERE game_id = ?", args: [r.id] });
+          stmts.push({ sql: "DELETE FROM games WHERE id = ?", args: [r.id] });
+        }
+      }
+      stmts.push({ sql: "INSERT OR REPLACE INTO settings (key, value) VALUES ('collections_version', ?)", args: [String(COLLECTIONS_VERSION)] });
+      await client.batch(stmts, "write");
     }
     // Sagas dos jogos já cadastrados (só preenche quem ainda não tem saga)
     const sagaRow = await client.execute("SELECT value FROM settings WHERE key = 'saga_version'");

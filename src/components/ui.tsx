@@ -125,6 +125,11 @@ export function GameCard({ game }: { game: GameRow }) {
             <TrophyIcon type="platinum" />
           </span>
         ) : null}
+        {game.collection ? (
+          <span className="absolute bottom-2 left-2 right-2 truncate rounded bg-black/70 px-1.5 py-0.5 text-[10px] text-ink-2">
+            {game.collection}
+          </span>
+        ) : null}
         {game.format === "digital" ? (
           <span className="absolute left-2 top-2 rounded bg-black/70 px-1.5 py-0.5 text-[10px] font-semibold uppercase text-ink-2">
             Digital

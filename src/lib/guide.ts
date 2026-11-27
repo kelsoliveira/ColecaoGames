@@ -43,6 +43,14 @@ export function readGuideFile(slug: string): GuideFile | null {
   }
 }
 
+/** Guia do jogo; se for parte de uma coletânea sem guia próprio, usa o guia da coletânea. */
+function guideFileFor(game: Pick<GameRow, "title" | "platform" | "collection">): GuideFile | null {
+  return (
+    readGuideFile(guideSlug(game)) ??
+    (game.collection ? readGuideFile(guideSlug({ title: game.collection, platform: game.platform })) : null)
+  );
+}
+
 export type LoadedGuide = {
   guide: Guide;
   sources: Source[];
@@ -56,7 +64,7 @@ export type LoadedGuide = {
  * fica no banco e tem prioridade, até que um guia mais novo seja gerado.
  */
 export async function loadGuide(game: GameRow): Promise<LoadedGuide | null> {
-  const file = readGuideFile(guideSlug(game));
+  const file = guideFileFor(game);
   const row = await get<GuideRow>("SELECT * FROM guides WHERE game_id = ?", [game.id]);
   const dbGuide = parseGuide(row);
   const fileTime = file ? new Date(file.generated_at).getTime() : 0;
@@ -81,7 +89,7 @@ export async function guidesForGames(games: GameRow[]): Promise<Map<number, Guid
   const out = new Map<number, Guide>();
   for (const g of games) {
     const db = byId.get(g.id);
-    const file = readGuideFile(guideSlug(g));
+    const file = guideFileFor(g);
     const chosen = db ?? file?.guide ?? null;
     if (chosen) out.set(g.id, chosen);
   }

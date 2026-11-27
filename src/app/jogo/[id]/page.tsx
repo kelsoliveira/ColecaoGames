@@ -57,6 +57,9 @@ export default async function GamePage({ params, searchParams }: PageProps<"/jog
   if (!game) notFound();
 
   const [achievements, mergeCandidates, sagas] = await Promise.all([getAchievements(id), gamesForMerge(game), allSagas()]);
+  const collectionSiblings = game.collection
+    ? mergeCandidates.filter((g) => g.collection === game.collection && g.platform === game.platform)
+    : [];
   const earnedCount = achievements.filter((a) => a.earned).length;
   const genres = parseJson<string[]>(game.genres, []);
   const shots = parseJson<string[]>(game.screenshots, []);
@@ -83,6 +86,25 @@ export default async function GamePage({ params, searchParams }: PageProps<"/jog
             </div>
             <h1 className="text-3xl font-bold">{game.title}</h1>
             {game.edition ? <p className="text-ink-2">{game.edition}</p> : null}
+            {game.collection ? (
+              <p className="mt-2 text-sm text-ink-2">
+                Parte da coletânea{" "}
+                <Link href={`/colecao?q=${encodeURIComponent(game.collection)}`} className="text-accent hover:underline">
+                  {game.collection}
+                </Link>
+                {collectionSiblings.length ? (
+                  <span className="block text-xs text-ink-3">
+                    Também na caixa:{" "}
+                    {collectionSiblings.map((sib, i) => (
+                      <span key={sib.id}>
+                        {i ? ", " : ""}
+                        <Link href={`/jogo/${sib.id}`} className="hover:text-accent">{sib.title}</Link>
+                      </span>
+                    ))}
+                  </span>
+                ) : null}
+              </p>
+            ) : null}
             {game.saga ? (
               <Link
                 href={`/colecao?agrupar=1&saga=${encodeURIComponent(game.saga)}`}

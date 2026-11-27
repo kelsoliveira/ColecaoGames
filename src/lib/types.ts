@@ -30,6 +30,7 @@ export type GameRow = {
   ttb_extra: number | null;
   ttb_complete: number | null;
   saga: string | null;
+  collection: string | null; // caixa física (coletânea) de que o jogo faz parte
   metadata_at: string | null;
 
   psn_np_id: string | null;
