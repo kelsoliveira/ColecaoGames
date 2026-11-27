@@ -52,12 +52,10 @@ export function consoleStats(c: ConsoleRow, games: GameRow[]): ConsoleStats {
 
 export const backwardFor = (platform: string) => BACKWARD[platform] ?? [];
 
-/** Marca como detectado (ou cria) um console visto na sincronização. */
-export async function markDetected(platform: string, name: string, source: "psn" | "xbox") {
-  const existing = await all<{ id: number }>("SELECT id FROM consoles WHERE platform = ?", [platform]);
-  if (existing.length) {
-    await run("UPDATE consoles SET detected_by = ?, detected_at = datetime('now') WHERE platform = ?", [source, platform]);
-  } else {
-    await run("INSERT INTO consoles (name, platform, detected_by, detected_at) VALUES (?, ?, ?, datetime('now'))", [name, platform, source]);
-  }
+/**
+ * Marca como detectado um console cadastrado que apareceu na sincronização.
+ * Não cria consoles: a lista é a que você mantém na página Meus consoles.
+ */
+export async function markDetected(platform: string, _name: string, source: "psn" | "xbox") {
+  await run("UPDATE consoles SET detected_by = ?, detected_at = datetime('now') WHERE platform = ?", [source, platform]);
 }

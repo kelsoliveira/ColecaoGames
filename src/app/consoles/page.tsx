@@ -57,8 +57,8 @@ export default async function ConsolesPage({ searchParams }: PageProps<"/console
       <header>
         <h1 className="text-2xl font-bold">Meus consoles</h1>
         <p className="text-sm text-ink-2">
-          {consoles.length} console(s){totalPaid ? ` · ${brl(totalPaid)} investidos` : ""}. PS5/PS4 são detectados ao
-          sincronizar a PSN e Xbox One/Series pelo histórico do Xbox; o Switch 2 é só cadastro manual.
+          {consoles.length} console(s){totalPaid ? ` · ${brl(totalPaid)} investidos` : ""}. Ao sincronizar, os consoles cadastrados
+          são marcados como detectados (PlayStation pela PSN; Xbox One/Series pelo histórico do Xbox).
         </p>
       </header>
 

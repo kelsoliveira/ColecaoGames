@@ -196,7 +196,6 @@ function connect() {
         [
           ...[
             ["PlayStation 5", "PS5", null],
-            ["PlayStation 4", "PS4", null],
             ["Xbox Series X", "Xbox Series", "Series X"],
             ["Xbox One", "Xbox One", null],
             ["Xbox 360", "Xbox 360", null],
