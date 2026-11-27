@@ -199,6 +199,7 @@ function connect() {
             ["PlayStation 4", "PS4", null],
             ["Xbox Series X", "Xbox Series", "Series X"],
             ["Xbox One", "Xbox One", null],
+            ["Xbox 360", "Xbox 360", null],
             ["Nintendo Switch 2", "Switch 2", null],
           ].map(([name, platform, model]) => ({
             sql: "INSERT INTO consoles (name, platform, model) VALUES (?, ?, ?)",

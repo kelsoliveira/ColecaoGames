@@ -158,7 +158,7 @@ export const SAGA_BY_TITLE: Record<string, string> = {
 };
 
 // Correções em dados já gravados (aplicadas uma única vez em bancos existentes).
-export const FIXES_VERSION = 1;
+export const FIXES_VERSION = 2;
 export const FIXES: { sql: string; args: (string | null)[] }[] = [
   // Jogos de Xbox considerados do Series X
   { sql: "UPDATE games SET platform = 'Xbox Series', updated_at = datetime('now') WHERE platform = 'Xbox One'", args: [] },
@@ -166,5 +166,10 @@ export const FIXES: { sql: string; args: (string | null)[] }[] = [
   {
     sql: "UPDATE games SET platform = 'Switch 2', edition = NULL, updated_at = datetime('now') WHERE title = ? AND platform = 'Nintendo'",
     args: ["The Legend of Zelda: Ocarina of Time"],
+  },
+  // Xbox 360 na lista de consoles (bancos criados antes de ele entrar na lista inicial)
+  {
+    sql: "INSERT INTO consoles (name, platform) SELECT 'Xbox 360', 'Xbox 360' WHERE NOT EXISTS (SELECT 1 FROM consoles WHERE platform = 'Xbox 360')",
+    args: [],
   },
 ];
