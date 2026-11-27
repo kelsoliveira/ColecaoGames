@@ -110,6 +110,11 @@ export const SAGA_CATALOG: Record<string, SagaEntry[]> = {
     { title: "Final Fantasy VII Remake", year: 2020, platforms: ["PS5", "PS4", "PC"], aliases: ["Final Fantasy VII Remake Intergrade"] },
     { title: "Final Fantasy VII Rebirth", year: 2024, platforms: ["PS5", "PC"] },
     { title: "Final Fantasy Tactics", year: 1997, platforms: ["PS1", "PSP"], aliases: ["Final Fantasy Tactics: The Ivalice Chronicles"] },
+    { title: "Final Fantasy Resonance", year: 2026, platforms: ["PS5"], note: "Primeiro Final Fantasy em HD-2D" },
+  ],
+  "Hollow Knight": [
+    { title: "Hollow Knight", year: 2017, platforms: ["PS5", "PS4", "Xbox One", "Switch 2", "Switch", "PC"], note: "Edição física de PS5 pela Fangamer (2026)" },
+    { title: "Hollow Knight: Silksong", year: 2025, platforms: ["PS5", "PS4", "Xbox Series", "Xbox One", "Switch 2", "Switch", "PC"] },
   ],
   "Ghost of Tsushima": [
     { title: "Ghost of Tsushima", year: 2020, platforms: ["PS5", "PS4", "PC"] },

@@ -5,7 +5,7 @@
 // de versões mais novas que a deles (jogos removidos pelo usuário não voltam).
 export type SeedGame = { title: string; platform: string; edition?: string; since?: number };
 
-export const SEED_VERSION = 3;
+export const SEED_VERSION = 4;
 
 const ps5: SeedGame[] = [
   { title: "Borderlands 4", platform: "PS5" },
@@ -48,6 +48,9 @@ const ps5: SeedGame[] = [
   { title: "Assassin's Creed Shadows", platform: "PS5", edition: "Limited Edition", since: 3 },
   { title: "Octopath Traveler II", platform: "PS5", since: 3 },
   { title: "Lies of P", platform: "PS5", since: 3 },
+  // versão 4 do catálogo
+  { title: "Hollow Knight", platform: "PS5", since: 4 },
+  { title: "Final Fantasy Resonance", platform: "PS5", since: 4 },
 ];
 
 const ps4: SeedGame[] = [
@@ -120,6 +123,8 @@ export const SAGA_BY_TITLE: Record<string, string> = {
   "Final Fantasy XVI": "Final Fantasy",
   "Stranger of Paradise: Final Fantasy Origin": "Final Fantasy",
   "Crisis Core –Final Fantasy VII– Reunion": "Final Fantasy",
+  "Final Fantasy Resonance": "Final Fantasy",
+  "Hollow Knight": "Hollow Knight",
   "Ghost of Tsushima": "Ghost of Tsushima",
   "Ghost of Yōtei": "Ghost of Tsushima",
   "God of War": "God of War",
